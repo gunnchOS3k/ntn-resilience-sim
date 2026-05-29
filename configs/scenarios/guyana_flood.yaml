@@ -1,0 +1,4 @@
+scenario_id: guyana_flood
+site_id: guyana
+outage_probability: 0.1
+ntn_fallback: true

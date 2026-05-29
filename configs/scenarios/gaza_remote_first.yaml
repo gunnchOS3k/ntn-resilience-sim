@@ -1,0 +1,4 @@
+scenario_id: gaza_remote_first
+site_id: gaza
+outage_probability: 0.1
+ntn_fallback: true

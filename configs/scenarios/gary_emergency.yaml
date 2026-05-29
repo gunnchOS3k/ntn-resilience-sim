@@ -1,0 +1,4 @@
+scenario_id: gary_emergency
+site_id: gary
+outage_probability: 0.1
+ntn_fallback: true
