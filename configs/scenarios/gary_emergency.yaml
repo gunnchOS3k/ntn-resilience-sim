@@ -1,4 +1,13 @@
 scenario_id: gary_emergency
 site_id: gary
+location_type: urban_emergency
+terrestrial_status: degraded
+ntn_available: true
+backhaul_condition: constrained
+power_condition: stable
+user_priority_classes: [emergency, public]
+outage_duration_minutes: 45
 outage_probability: 0.1
 ntn_fallback: true
+fallback_policy: ntn_when_terrestrial_down
+ethical_framing: humanitarian_resilience_simulation_only
