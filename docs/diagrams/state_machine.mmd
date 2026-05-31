@@ -1,0 +1,9 @@
+stateDiagram-v2
+  [*] --> Start
+  normal
+  Validated --> degraded
+  Validated --> outage
+  Validated --> NTN fallback
+  Validated --> recovery
+  Validated --> analysis
+  Exported --> [*]
