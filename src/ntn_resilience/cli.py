@@ -53,10 +53,17 @@ def cmd_run(args: argparse.Namespace) -> int:
         raise SystemExit("Use --toy for synthetic run")
     result = _run_toy(args.scenario_id)
     print(json.dumps(result, indent=2))
-    out = Path("results") / f"{args.scenario_id}_run.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {out}")
+    e2e = Path("results") / "e2e"
+    e2e.mkdir(parents=True, exist_ok=True)
+    md = e2e / f"{args.scenario_id}_resilience.md"
+    md.write_text(
+        f"# {args.scenario_id} resilience (toy)\n\n"
+        + "\n".join(f"- **{k}**: {v}" for k, v in result.items())
+        + "\n",
+        encoding="utf-8",
+    )
+    (e2e / f"{args.scenario_id}_run.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {md}")
     return 0
 
 
