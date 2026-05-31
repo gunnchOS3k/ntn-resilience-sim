@@ -1,8 +1,13 @@
 sequenceDiagram
-  participant U as User
-  participant CLI as Demo CLI
-  participant Core as Core modules
-  U->>CLI: run demo command
-  CLI->>Core: load synthetic data
-  Core-->>CLI: metrics/output
-  CLI-->>U: stdout + results file
+  participant U as Researcher
+  participant C as ntn_resilience.cli
+  participant L as scenario_loader
+  participant O as outage_model
+  participant F as fallback_policy
+  participant M as metrics
+  U->>C: run gary_emergency --toy
+  C->>L: load_scenario
+  C->>O: simulate_outage_timeline
+  O->>F: select_path
+  F->>M: resilience_score
+  M-->>C: results/e2e/gary_emergency_resilience.md

@@ -1,10 +1,19 @@
 flowchart TB
-  subgraph users [Users]
-    SUP[Supervisor]
-    RES[Researcher]
-    STU[Student]
+  RES[Researcher]
+  subgraph SYS[ntn_resilience]
+    CLI[cli]
+    SC[scenario_loader]
+    OUT_M[outage_model]
+    FB[fallback_policy]
+    MET[metrics]
   end
-  SYS[ntn-resilience-sim]
-  TWIN[7gc-digital-twin]
-  users --> SYS
-  SYS --> TWIN
+  CFG[configs/scenarios/gary_emergency.yaml]
+  TER[Terrestrial link stub]
+  NTN[NTN fallback stub]
+  RES --> CLI
+  CFG --> SC
+  SC --> OUT_M
+  OUT_M --> FB
+  FB --> MET
+  TER --> FB
+  NTN --> FB
