@@ -4,4 +4,4 @@
 Scenario-Based NTN Resilience Simulation for Digitally Underserved and Disrupted Communities
 
 ## Contribution
-Candidate framework + open artifacts.
+Open reproducible artifact for community-scale 6G research.
