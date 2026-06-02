@@ -9,6 +9,8 @@ from pathlib import Path
 from .fallback_policy import select_path
 from .metrics import full_metric_bundle
 from .outage_model import simulate_outage_timeline
+from .campus_reports import compare_policies, run_all_campus, run_campus, write_report
+from .campus_scenarios import list_campus_scenarios
 from .scenario_loader import list_scenarios, load_scenario
 
 
@@ -105,6 +107,26 @@ def main(argv: list[str] | None = None) -> int:
     p_rep = sub.add_parser("make-report")
     p_rep.add_argument("scenario_id")
     p_rep.set_defaults(func=cmd_make_report)
+
+    sub.add_parser("list-campus-scenarios").set_defaults(
+        func=lambda a: [print(s) for s in list_campus_scenarios()] or 0
+    )
+    p_cr = sub.add_parser("run-campus")
+    p_cr.add_argument("scenario_id")
+    def _run_cr(a):
+        print(json.dumps(run_campus(a.scenario_id), indent=2))
+        write_report(a.scenario_id)
+        return 0
+
+    p_cr.set_defaults(func=_run_cr)
+    sub.add_parser("run-all-campus").set_defaults(func=lambda a: run_all_campus() or 0)
+    p_cmp = sub.add_parser("compare-policies")
+    p_cmp.add_argument("scenario_id")
+    p_cmp.set_defaults(func=lambda a: print(json.dumps(compare_policies(a.scenario_id), indent=2)) or 0)
+    p_mcr = sub.add_parser("make-campus-report")
+    p_mcr.add_argument("scenario_id")
+    p_mcr.set_defaults(func=lambda a: write_report(a.scenario_id) or 0)
+
     args = parser.parse_args(argv)
     return int(args.func(args))
 

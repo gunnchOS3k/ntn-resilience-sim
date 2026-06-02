@@ -9,8 +9,9 @@ demo:
 	$(PY) python3 -m ntn_resilience.cli run gary_emergency --toy
 
 e2e:
-	@mkdir -p results/e2e
+	@mkdir -p results/e2e results/campus_resilience
 	$(PY) pytest -q 2>&1 | tee results/e2e/e2e_terminal_output.txt
+	$(PY) python3 -m ntn_resilience.cli run-all-campus >> results/e2e/e2e_terminal_output.txt
 	$(PY) python3 -m ntn_resilience.cli list-scenarios >> results/e2e/e2e_terminal_output.txt
 	$(PY) python3 -m ntn_resilience.cli summarize gary_emergency >> results/e2e/e2e_terminal_output.txt
 	$(PY) python3 -m ntn_resilience.cli run gary_emergency --toy >> results/e2e/e2e_terminal_output.txt
