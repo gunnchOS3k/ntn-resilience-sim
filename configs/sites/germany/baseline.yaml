@@ -1,0 +1,10 @@
+site_id: germany
+seed: 42
+primary_path: industrial_segmented
+ntn_role: limited_emergency
+units:
+  latency: ms
+  margin_db: dB
+  power: W
+evidence_status: synthetic simulation
+disclaimer: "research simulation only \u2014 not operational service"

@@ -1,4 +1,7 @@
-.PHONY: test demo e2e
+.PHONY: test demo e2e generate-7gc-resilience
+
+generate-7gc-resilience:
+	$(PY) python3 scripts/generate_7gc_resilience_bundle.py
 
 PY := PYTHONPATH=src
 

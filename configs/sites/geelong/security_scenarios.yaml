@@ -1,0 +1,4 @@
+site_id: geelong
+scenarios:
+- privacy_leak
+- public_dashboard_exposure
