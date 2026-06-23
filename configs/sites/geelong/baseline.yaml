@@ -1,0 +1,10 @@
+site_id: geelong
+seed: 42
+primary_path: coastal_industrial_edge
+ntn_role: backup_extension
+units:
+  latency: ms
+  margin_db: dB
+  power: W
+evidence_status: synthetic simulation
+disclaimer: "research simulation only \u2014 not operational service"

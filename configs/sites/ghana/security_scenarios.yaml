@@ -1,0 +1,4 @@
+site_id: ghana
+scenarios:
+- privacy_leak
+- public_dashboard_exposure
