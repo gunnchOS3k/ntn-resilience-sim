@@ -1,0 +1,68 @@
+{
+  "site_id": "gary",
+  "config": {
+    "site_id": "gary",
+    "seed": 42,
+    "primary_path": "urban_edge_ai_ran",
+    "ntn_role": "emergency_fallback",
+    "units": {
+      "latency": "ms",
+      "margin_db": "dB",
+      "power": "W"
+    },
+    "evidence_status": "synthetic simulation",
+    "disclaimer": "research simulation only \u2014 not operational service"
+  },
+  "metrics": {
+    "site_id": "gary",
+    "link_availability": 0.875,
+    "average_latency_ms": 43.8,
+    "p95_latency_ms": 25,
+    "packet_delivery_ratio": 0.938,
+    "store_forward_delay_hours": 0.5,
+    "cache_hit_rate": 0.75,
+    "lesson_continuity_score": 0.799,
+    "outage_recovery_time_steps": 2,
+    "energy_aware_uptime": 0.831,
+    "cost_per_learning_hour_conceptual": 1.0,
+    "resilience_score": 0.882,
+    "offline_continuity_score": 0.887,
+    "privacy_risk_score": 0.2,
+    "community_benefit_continuity_score": 0.719,
+    "link_margin_db": -113.01,
+    "units": {
+      "latency": "ms",
+      "link_margin_db": "dB",
+      "scores": "0-1 normalized"
+    },
+    "evidence_status": "synthetic simulation",
+    "disclaimer": "research simulation only \u2014 not operational carrier, emergency, satellite, or safety service"
+  },
+  "gateway": {
+    "site_id": "gary",
+    "gateway": {
+      "local_ap": true,
+      "edge_cache": true,
+      "ntn_fallback": false
+    },
+    "link_budget": {
+      "site_id": "gary",
+      "margin_db": -113.01,
+      "units": {
+        "frequency_ghz": "GHz",
+        "distance_km": "km",
+        "margin_db": "dB"
+      },
+      "evidence_status": "synthetic simulation",
+      "disclaimer": "research simulation only \u2014 not operational service"
+    },
+    "cache": {
+      "site_id": "gary",
+      "cache_hit_rate": 0.75,
+      "offline_continuity_score": 0.887,
+      "lesson_continuity_score": 0.799,
+      "evidence_status": "synthetic simulation"
+    },
+    "disclaimer": "research simulation only \u2014 not operational service"
+  }
+}

@@ -1,0 +1,47 @@
+...                                                                      [100%]
+3 passed in 0.09s
+gary_emergency
+gaza_remote_first
+ghana_rural
+graham_land_polar
+guyana_flood
+{
+  "scenario_id": "gary_emergency",
+  "site_id": "gary",
+  "location_type": "urban_emergency",
+  "terrestrial_status": "degraded",
+  "ntn_available": true,
+  "backhaul_condition": "constrained",
+  "power_condition": "stable",
+  "user_priority_classes": [
+    "emergency",
+    "public"
+  ],
+  "outage_duration_minutes": 45,
+  "outage_probability": 0.1,
+  "ntn_fallback": true,
+  "fallback_policy": "ntn_when_terrestrial_down",
+  "ethical_framing": "humanitarian_resilience_simulation_only"
+}
+{
+  "scenario_id": "gary_emergency",
+  "site_id": "gary",
+  "location_type": "urban_emergency",
+  "ethical_framing": "humanitarian_resilience_simulation_only",
+  "resilience_score": 1.0,
+  "service_continuity_score": 1.0,
+  "recovery_score": 1.0,
+  "unmet_demand_proxy": 0.0,
+  "latency_penalty_proxy": 0.2,
+  "uptime_fraction": 1.0,
+  "paths_sample": [
+    "terrestrial",
+    "ntn",
+    "terrestrial",
+    "terrestrial",
+    "terrestrial"
+  ],
+  "note": "simulation scaffold \u2014 not deployed NTN infrastructure"
+}
+Wrote results/e2e/gary_emergency_resilience.md
+Wrote results/e2e/ntn_research_card.md
