@@ -79,13 +79,19 @@ def load_assumption_registry(path: Path | None = None) -> dict[str, Any]:
 
 def _assumption(registry: dict[str, Any], key: str) -> dict[str, Any]:
     item = registry["assumptions"][key]
-    return {
+    out = {
         "value": item["value"],
         "unit": item["unit"],
-        "source_id": key,
+        "source_id": item.get("source_id", key),
         "range": item["range"],
         "assumption_class": item["assumption_class"],
     }
+    # Gate 3 optional provenance fields (not part of resilience schema required set)
+    for extra in ("source_title", "source_type", "source_location", "retrieval_date", "notes"):
+        if extra in item:
+            # keep in path_scores only; schema assumptions_used forbids additionalProperties
+            pass
+    return out
 
 
 def _candidate_map(twin: dict[str, Any]) -> dict[str, dict[str, Any]]:
