@@ -1,15 +1,32 @@
-.PHONY: test demo e2e generate-7gc-resilience
+.PHONY: setup lint test contract-test sensitivity demo e2e generate-7gc-resilience clean
 
 generate-7gc-resilience:
 	$(PY) python3 scripts/generate_7gc_resilience_bundle.py
 
 PY := PYTHONPATH=src
 
+setup:
+	python3 -m pip install -r requirements.txt
+
+lint:
+	$(PY) python3 -m compileall -q src/ntn_resilience/gate2
+
 test:
 	$(PY) pytest -q
 
+contract-test:
+	$(PY) pytest -q tests/gate2
+
+sensitivity:
+	@test -n "$(TWIN_STATE)" || (echo "Set TWIN_STATE and AIRAN_DECISION" && exit 1)
+	@test -n "$(AIRAN_DECISION)" || (echo "Set AIRAN_DECISION" && exit 1)
+	$(PY) python3 -m ntn_resilience sensitivity --twin-state $(TWIN_STATE) --airan-decision $(AIRAN_DECISION) --output results/sensitivity_results.csv --schema-dir $(SCHEMA_DIR)
+
 demo:
 	$(PY) python3 -m ntn_resilience.cli run gary_emergency --toy
+
+clean:
+	rm -rf results/sensitivity_results.csv
 
 e2e:
 	@mkdir -p results/e2e results/campus_resilience

@@ -71,6 +71,51 @@ def cmd_run(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_decide(args: argparse.Namespace) -> int:
+    from .gate2.decide import decide
+
+    bundle = decide(
+        Path(args.twin_state),
+        Path(args.airan_decision),
+        Path(args.output),
+        policy_name=args.policy,
+        schema_dir=Path(args.schema_dir) if args.schema_dir else None,
+    )
+    print(json.dumps({"wrote": args.output, "selected_mode": bundle["selected_mode"]}, indent=2))
+    return 0
+
+
+def cmd_validate_decision(args: argparse.Namespace) -> int:
+    from .gate2.decide import validate_decision
+
+    result = validate_decision(
+        Path(args.path),
+        schema_dir=Path(args.schema_dir) if args.schema_dir else None,
+    )
+    print(json.dumps(result, indent=2))
+    return 0
+
+
+def cmd_sensitivity(args: argparse.Namespace) -> int:
+    import csv
+
+    from .gate2.decide import run_sensitivity
+
+    rows = run_sensitivity(
+        Path(args.twin_state),
+        Path(args.airan_decision),
+        schema_dir=Path(args.schema_dir) if args.schema_dir else None,
+    )
+    out = Path(args.output)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    print(str(out))
+    return 0
+
+
 def cmd_make_report(args: argparse.Namespace) -> int:
     result = _run_toy(args.scenario_id)
     card = [
@@ -126,6 +171,27 @@ def main(argv: list[str] | None = None) -> int:
     p_mcr = sub.add_parser("make-campus-report")
     p_mcr.add_argument("scenario_id")
     p_mcr.set_defaults(func=lambda a: write_report(a.scenario_id) or 0)
+
+    # Gate 2
+    p_dec = sub.add_parser("decide")
+    p_dec.add_argument("--twin-state", required=True)
+    p_dec.add_argument("--airan-decision", required=True)
+    p_dec.add_argument("--output", required=True)
+    p_dec.add_argument("--schema-dir", default=None)
+    p_dec.add_argument("--policy", default="service_aware_multi_access")
+    p_dec.set_defaults(func=cmd_decide)
+
+    p_vd = sub.add_parser("validate-decision")
+    p_vd.add_argument("path")
+    p_vd.add_argument("--schema-dir", default=None)
+    p_vd.set_defaults(func=cmd_validate_decision)
+
+    p_sens = sub.add_parser("sensitivity")
+    p_sens.add_argument("--twin-state", required=True)
+    p_sens.add_argument("--airan-decision", required=True)
+    p_sens.add_argument("--output", required=True)
+    p_sens.add_argument("--schema-dir", default=None)
+    p_sens.set_defaults(func=cmd_sensitivity)
 
     args = parser.parse_args(argv)
     return int(args.func(args))
