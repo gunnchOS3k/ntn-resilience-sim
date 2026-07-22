@@ -1,19 +1,7 @@
-# Assumption Registry
+# Assumption Registry (Gate 3)
 
-This registry lists non-measured parameters used by the Gate 2 resilience engine.
+Load-bearing NTN parameters (`ntn_latency_ms`, `ntn_capacity_mbps`, `ntn_availability`) are labeled `literature_backed` and cite **3GPP TR 38.821**.
 
-## Classes
+Configured/synthetic parameters remain explicit and do not alone qualify a scenario as `source_validated_simulation`.
 
-- `measured` — from a validated measurement artifact
-- `open_data` — from a cited open dataset
-- `literature_backed` — from a verified citation (do not invent citations)
-- `configured` — operator-chosen scenario parameter
-- `synthetic` — synthetic proxy for comparative analysis only
-
-## Current entries
-
-See `config/assumption_registry.yaml`.
-
-All NTN latency/capacity/availability values currently used in Gate 2 automated
-runs are **configured** or **synthetic**. They are not field measurements and
-must not be described as measured evidence.
+See `config/assumption_registry.yaml` for source_id, source_location, and retrieval_date fields.
