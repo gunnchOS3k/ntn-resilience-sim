@@ -5,3 +5,9 @@ Load-bearing NTN parameters (`ntn_latency_ms`, `ntn_capacity_mbps`, `ntn_availab
 Configured/synthetic parameters remain explicit and do not alone qualify a scenario as `source_validated_simulation`.
 
 See `config/assumption_registry.yaml` for source_id, source_location, and retrieval_date fields.
+
+## Gate 3 continuation (v1.2.0)
+
+Load-bearing literature-backed parameters now record practical TR 38.821
+Clause 5 / scenario section pointers. Configured and synthetic assumptions
+remain explicitly non-literature-backed.

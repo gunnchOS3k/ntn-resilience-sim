@@ -1,4 +1,4 @@
-version: "1.1.0"
+version: "1.2.0"
 description: >
   Gate 3 assumption registry for NTN resilience decisions.
   Load-bearing NTN link assumptions cite 3GPP TR 38.821. Values are literature-backed
@@ -13,11 +13,15 @@ assumptions:
     source_id: 3gpp-tr-38-821
     source_title: "3GPP TR 38.821 Solutions for NR to support non-terrestrial networks (NTN)"
     source_type: standards_technical_report
-    source_location: "https://www.3gpp.org/"
+    source_location: "https://www.3gpp.org/ftp/Specs/archive/38_series/38.821/"
+    source_sections:
+      - "Clause 5 NTN scenarios and satellite parameters (altitude/geometry implying delay)"
+      - "Discussion of differential delay / RTT implications for LEO vs GEO NTN"
     retrieval_date: "2026-07-22"
     notes: >
       LEO round-trip latency order-of-magnitude consistent with TR 38.821 NTN delay
-      discussion. Not a device measurement.
+      discussion derived from satellite altitude/geometry context. Not a device measurement.
+      Sensitivity analysis spans the declared range [20, 60] ms.
   ntn_capacity_mbps:
     value: 5
     unit: Mbps
@@ -26,9 +30,13 @@ assumptions:
     source_id: 3gpp-tr-38-821
     source_title: "3GPP TR 38.821 Solutions for NR to support non-terrestrial networks (NTN)"
     source_type: standards_technical_report
-    source_location: "https://www.3gpp.org/"
+    source_location: "https://www.3gpp.org/ftp/Specs/archive/38_series/38.821/"
+    source_sections:
+      - "Clause 5 / scenario capacity context for NTN service planning"
     retrieval_date: "2026-07-22"
-    notes: Conservative service-capacity planning value within TR-informed NTN scenario ranges.
+    notes: >
+      Conservative service-capacity planning value within TR-informed NTN scenario ranges.
+      Sensitivity spans [1, 20] Mbps. Not a campaign throughput measurement.
   ntn_availability:
     value: 0.85
     unit: fraction
@@ -37,9 +45,13 @@ assumptions:
     source_id: 3gpp-tr-38-821
     source_title: "3GPP TR 38.821 Solutions for NR to support non-terrestrial networks (NTN)"
     source_type: standards_technical_report
-    source_location: "https://www.3gpp.org/"
+    source_location: "https://www.3gpp.org/ftp/Specs/archive/38_series/38.821/"
+    source_sections:
+      - "NTN scenario / coverage continuity discussion used as availability planning envelope"
     retrieval_date: "2026-07-22"
-    notes: Scenario availability fraction for sensitivity; not measured orbit pass statistics.
+    notes: >
+      Scenario availability fraction for sensitivity; not measured orbit pass statistics.
+      Sensitivity spans [0.5, 0.99].
   handover_delay_s:
     value: 3.0
     unit: s
@@ -49,8 +61,9 @@ assumptions:
     source_title: Operator-configured terrestrial↔NTN fallback delay
     source_type: configured
     source_location: local
+    source_sections: []
     retrieval_date: "2026-07-22"
-    notes: Configured terrestrial↔NTN handover/fallback delay for comparative ranking.
+    notes: Configured terrestrial↔NTN handover/fallback delay for comparative ranking. Not literature-backed.
   ntn_energy_cost_j:
     value: 25.0
     unit: J
@@ -60,8 +73,9 @@ assumptions:
     source_title: Synthetic energy cost proxy
     source_type: synthetic
     source_location: local
+    source_sections: []
     retrieval_date: "2026-07-22"
-    notes: Synthetic energy cost proxy for comparative ranking only.
+    notes: Synthetic energy cost proxy for comparative ranking only. Not literature-backed.
   terrestrial_outage_duration_s:
     value: 30.0
     unit: s
@@ -71,5 +85,6 @@ assumptions:
     source_title: Operator-configured terrestrial outage duration
     source_type: configured
     source_location: local
+    source_sections: []
     retrieval_date: "2026-07-22"
-    notes: Configured outage duration for recovery-time estimates.
+    notes: Configured outage duration for recovery-time estimates. Not literature-backed.
