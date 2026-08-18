@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="314" height="256">
+<text x="8" y="18" font-size="11">Adaptive min-service (latency x visibility) SYNTHETIC_SIM</text>
+<text x="158.0" y="44" font-size="9" text-anchor="middle">vis 0.5</text>
+<text x="214.0" y="44" font-size="9" text-anchor="middle">vis 0.85</text>
+<text x="270.0" y="44" font-size="9" text-anchor="middle">vis 0.99</text>
+<text x="6" y="83.0" font-size="9">20 ms</text>
+<rect x="130" y="52" width="53" height="53" fill="rgb(42,185,90)" stroke="#222"/>
+<text x="158.0" y="83.0" font-size="9" text-anchor="middle">0.786</text>
+<rect x="186" y="52" width="53" height="53" fill="rgb(34,192,90)" stroke="#222"/>
+<text x="214.0" y="83.0" font-size="9" text-anchor="middle">0.828</text>
+<rect x="242" y="52" width="53" height="53" fill="rgb(32,194,90)" stroke="#222"/>
+<text x="270.0" y="83.0" font-size="9" text-anchor="middle">0.839</text>
+<text x="6" y="139.0" font-size="9">40 ms</text>
+<rect x="130" y="108" width="53" height="53" fill="rgb(42,185,90)" stroke="#222"/>
+<text x="158.0" y="139.0" font-size="9" text-anchor="middle">0.786</text>
+<rect x="186" y="108" width="53" height="53" fill="rgb(34,192,90)" stroke="#222"/>
+<text x="214.0" y="139.0" font-size="9" text-anchor="middle">0.828</text>
+<rect x="242" y="108" width="53" height="53" fill="rgb(32,194,90)" stroke="#222"/>
+<text x="270.0" y="139.0" font-size="9" text-anchor="middle">0.839</text>
+<text x="6" y="195.0" font-size="9">60 ms</text>
+<rect x="130" y="164" width="53" height="53" fill="rgb(42,185,90)" stroke="#222"/>
+<text x="158.0" y="195.0" font-size="9" text-anchor="middle">0.786</text>
+<rect x="186" y="164" width="53" height="53" fill="rgb(34,192,90)" stroke="#222"/>
+<text x="214.0" y="195.0" font-size="9" text-anchor="middle">0.828</text>
+<rect x="242" y="164" width="53" height="53" fill="rgb(32,194,90)" stroke="#222"/>
+<text x="270.0" y="195.0" font-size="9" text-anchor="middle">0.839</text>
+</svg>

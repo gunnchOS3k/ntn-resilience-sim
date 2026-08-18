@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="314" height="256">
+<text x="8" y="18" font-size="11">Adaptive minus terrestrial min-service (positive = NTN helps)</text>
+<text x="158.0" y="44" font-size="9" text-anchor="middle">vis 0.5</text>
+<text x="214.0" y="44" font-size="9" text-anchor="middle">vis 0.85</text>
+<text x="270.0" y="44" font-size="9" text-anchor="middle">vis 0.99</text>
+<text x="6" y="83.0" font-size="9">20 ms</text>
+<rect x="130" y="52" width="53" height="53" fill="rgb(200,60,90)" stroke="#222"/>
+<text x="158.0" y="83.0" font-size="9" text-anchor="middle">0.047</text>
+<rect x="186" y="52" width="53" height="53" fill="rgb(40,187,90)" stroke="#222"/>
+<text x="214.0" y="83.0" font-size="9" text-anchor="middle">0.088</text>
+<rect x="242" y="52" width="53" height="53" fill="rgb(0,220,90)" stroke="#222"/>
+<text x="270.0" y="83.0" font-size="9" text-anchor="middle">0.099</text>
+<text x="6" y="139.0" font-size="9">40 ms</text>
+<rect x="130" y="108" width="53" height="53" fill="rgb(200,60,90)" stroke="#222"/>
+<text x="158.0" y="139.0" font-size="9" text-anchor="middle">0.047</text>
+<rect x="186" y="108" width="53" height="53" fill="rgb(40,187,90)" stroke="#222"/>
+<text x="214.0" y="139.0" font-size="9" text-anchor="middle">0.088</text>
+<rect x="242" y="108" width="53" height="53" fill="rgb(0,220,90)" stroke="#222"/>
+<text x="270.0" y="139.0" font-size="9" text-anchor="middle">0.099</text>
+<text x="6" y="195.0" font-size="9">60 ms</text>
+<rect x="130" y="164" width="53" height="53" fill="rgb(200,60,90)" stroke="#222"/>
+<text x="158.0" y="195.0" font-size="9" text-anchor="middle">0.047</text>
+<rect x="186" y="164" width="53" height="53" fill="rgb(40,187,90)" stroke="#222"/>
+<text x="214.0" y="195.0" font-size="9" text-anchor="middle">0.088</text>
+<rect x="242" y="164" width="53" height="53" fill="rgb(0,220,90)" stroke="#222"/>
+<text x="270.0" y="195.0" font-size="9" text-anchor="middle">0.099</text>
+</svg>

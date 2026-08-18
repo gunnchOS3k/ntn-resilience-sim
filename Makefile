@@ -1,9 +1,10 @@
 .PHONY: setup lint test contract-test sensitivity demo e2e smoke reproduce uml generate-7gc-resilience clean paper paper-reproduce
 
-generate-7gc-resilience:
-	$(PY) python3 scripts/generate_7gc_resilience_bundle.py
-
+PYTHON := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
 PY := PYTHONPATH=src
+
+generate-7gc-resilience:
+	$(PY) $(PYTHON) scripts/generate_7gc_resilience_bundle.py
 
 setup:
 	python3 -m pip install -r requirements.txt
@@ -45,10 +46,10 @@ e2e:
 smoke: e2e
 
 reproduce:
-	$(PY) python3 scripts/reproduce.py
+	$(PY) $(PYTHON) scripts/reproduce.py
 
 paper-reproduce: reproduce
-	$(PY) python3 paper/scripts/generate_tables.py
+	$(PY) $(PYTHON) paper/scripts/generate_tables.py
 
 paper: paper-reproduce
 	@test -f paper/manuscript.tex

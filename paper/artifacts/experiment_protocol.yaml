@@ -1,0 +1,48 @@
+# Frozen Paper III digital experiment protocol.
+# Pre-registered before treating any later field NTN campaign as confirmatory.
+# Not SUBMITTED / ACCEPTED. NTN is not assumed always better.
+experiment_id: rq3_gary_failover_sweeps
+research_question: RQ3
+scenario_id: gary_emergency
+scenario_family: urban_emergency
+evidence_class: SYNTHETIC_SIM
+delay_class: leo_tr38821
+steps: 48
+seeds: [1, 2, 7, 42]
+policies:
+  - terrestrial_baseline
+  - static_ntn
+  - fallback
+  - adaptive
+compound_failure: true
+power_outage_p: 0.15
+terrestrial_outage_p: 0.12
+min_capacity_mbps: 1.0
+max_latency_ms: 500.0
+sweeps:
+  ntn_latency_ms: [20, 40, 60]
+  ntn_capacity_mbps: [1, 5, 20]
+  ntn_visibility: [0.5, 0.85, 0.99]
+decision_grids:
+  - latency_x_visibility
+  - capacity_x_visibility
+delay_class_contrast: [leo_tr38821, geo_configured]
+geo_rtt_ms_configured: 550.0
+stress_probes:
+  ntn_capacity_mbps: [0.5]
+hypothesis_to_reject: NTN always improves min-useful service versus terrestrial_baseline
+analysis:
+  - Mean uptime and min-service by policy across seeds.
+  - 1-D sweeps of latency, capacity, visibility for all policies.
+  - 2-D decision regions: when adaptive/fallback/static_ntn beat terrestrial_baseline.
+  - Compound power+radio versus simple radio outage.
+  - GEO configured RTT (550 ms) versus LEO TR-backed 40 ms; GEO exceeds max_latency_ms=500.
+  - Capacity probe 0.5 Mbps below min_capacity_mbps=1.0.
+non_claims:
+  - Not operator performance.
+  - Not a field NTN measurement.
+  - Not University of Oulu affiliation.
+  - Delay/capacity/visibility values are documented assumption ranges, not campaign data.
+  - Edge I/O remains PHYSICAL_PENDING.
+  - Not SUBMITTED or ACCEPTED.
+status_ceiling: DIGITAL_RESULTS_VALIDATED requires reproduce PASS plus decision-region findings from JSON.

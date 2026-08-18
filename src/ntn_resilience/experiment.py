@@ -204,16 +204,190 @@ def sweep_dimension(
     name: str,
     values: Iterable[float],
     base: dict[str, Any],
-    policy: PolicyName,
+    policies: list[PolicyName] | PolicyName,
     seeds: list[int],
 ) -> list[dict[str, Any]]:
+    policy_list: list[PolicyName]
+    if isinstance(policies, str):
+        policy_list = [policies]
+    else:
+        policy_list = list(policies)
     rows = []
     for value in values:
         params = dict(base)
         params[name] = value
-        for seed in seeds:
-            run = simulate_run(policy=policy, seed=seed, **params)
-            rows.append({"sweep": name, "sweep_value": value, **run})
+        for policy in policy_list:
+            for seed in seeds:
+                run = simulate_run(policy=policy, seed=seed, **params)
+                rows.append({"sweep": name, "sweep_value": value, **run})
+    return rows
+
+
+def _mean(xs: list[float]) -> float:
+    return round(sum(xs) / max(len(xs), 1), 4)
+
+
+def _aggregate_runs(runs: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "n": len(runs),
+        "mean_uptime": _mean([r["uptime_fraction"] for r in runs]),
+        "mean_min_service": _mean([r["min_service_fraction"] for r in runs]),
+        "mean_ntn_path_fraction": _mean([r["ntn_path_fraction"] for r in runs]),
+        "mean_on_path_latency_ms": _mean(
+            [r["mean_on_path_latency_ms"] for r in runs if r.get("mean_on_path_latency_ms") is not None]
+        )
+        if any(r.get("mean_on_path_latency_ms") is not None for r in runs)
+        else None,
+    }
+
+
+def decision_grids(
+    spec: dict[str, Any],
+    base: dict[str, Any],
+    policies: list[PolicyName],
+    seeds: list[int],
+) -> dict[str, Any]:
+    sweeps = spec.get("sweeps") or {}
+    lats = list(sweeps.get("ntn_latency_ms") or [])
+    vis = list(sweeps.get("ntn_visibility") or [])
+    caps = list(sweeps.get("ntn_capacity_mbps") or [])
+    grids: dict[str, list[dict[str, Any]]] = {"latency_x_visibility": [], "capacity_x_visibility": []}
+    for lat in lats:
+        for v in vis:
+            cell_runs = []
+            for policy in policies:
+                runs = [
+                    simulate_run(policy=policy, seed=seed, **{**base, "ntn_latency_ms": lat, "ntn_visibility": v})
+                    for seed in seeds
+                ]
+                agg = _aggregate_runs(runs)
+                cell_runs.append({"policy": policy, **agg})
+                grids["latency_x_visibility"].append(
+                    {"ntn_latency_ms": lat, "ntn_visibility": v, "policy": policy, **agg}
+                )
+            terr = next(c for c in cell_runs if c["policy"] == "terrestrial_baseline")
+            for c in cell_runs:
+                c["delta_min_service_vs_terrestrial"] = round(c["mean_min_service"] - terr["mean_min_service"], 4)
+                c["ntn_helps"] = c["mean_min_service"] > terr["mean_min_service"] + 1e-12
+    for cap in caps:
+        for v in vis:
+            cell_runs = []
+            for policy in policies:
+                runs = [
+                    simulate_run(
+                        policy=policy, seed=seed, **{**base, "ntn_capacity_mbps": cap, "ntn_visibility": v}
+                    )
+                    for seed in seeds
+                ]
+                agg = _aggregate_runs(runs)
+                cell_runs.append({"policy": policy, **agg})
+                grids["capacity_x_visibility"].append(
+                    {"ntn_capacity_mbps": cap, "ntn_visibility": v, "policy": policy, **agg}
+                )
+    return grids
+
+
+def summarize_when_ntn_helps(grids: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
+    rows = grids.get("latency_x_visibility") or []
+    helps = []
+    hurts = []
+    ties = []
+    for r in rows:
+        if r["policy"] == "terrestrial_baseline":
+            continue
+        delta = r.get("delta_min_service_vs_terrestrial")
+        if delta is None:
+            terr = next(
+                t
+                for t in rows
+                if t["policy"] == "terrestrial_baseline"
+                and t.get("ntn_latency_ms") == r.get("ntn_latency_ms")
+                and t.get("ntn_visibility") == r.get("ntn_visibility")
+            )
+            delta = round(r["mean_min_service"] - terr["mean_min_service"], 4)
+            r["delta_min_service_vs_terrestrial"] = delta
+            r["ntn_helps"] = delta > 1e-12
+        record = {
+            "policy": r["policy"],
+            "ntn_latency_ms": r.get("ntn_latency_ms"),
+            "ntn_visibility": r.get("ntn_visibility"),
+            "mean_min_service": r["mean_min_service"],
+            "delta_min_service_vs_terrestrial": r.get("delta_min_service_vs_terrestrial"),
+        }
+        if r.get("ntn_helps"):
+            helps.append(record)
+        elif (r.get("delta_min_service_vs_terrestrial") or 0) < -1e-12:
+            hurts.append(record)
+        else:
+            ties.append(record)
+    return {
+        "n_cells_ntn_helps": len(helps),
+        "n_cells_ntn_hurts_or_worse": len(hurts),
+        "n_cells_tie": len(ties),
+        "helps_examples": helps[:12],
+        "hurts_examples": hurts[:12],
+        "tie_examples": ties[:12],
+        "hypothesis_ntn_always_better": False,
+        "hypothesis_rejected": len(hurts) > 0 or len(ties) > 0,
+    }
+
+
+def compound_contrast(
+    base: dict[str, Any],
+    policies: list[PolicyName],
+    seeds: list[int],
+    power_p: float,
+) -> list[dict[str, Any]]:
+    rows = []
+    for policy in policies:
+        simple_runs = [
+            simulate_run(policy=policy, seed=seed, **{**base, "compound": False, "power_outage_p": 0.0})
+            for seed in seeds
+        ]
+        compound_runs = [
+            simulate_run(policy=policy, seed=seed, **{**base, "compound": True, "power_outage_p": power_p})
+            for seed in seeds
+        ]
+        simple = _aggregate_runs(simple_runs)
+        compound = _aggregate_runs(compound_runs)
+        rows.append(
+            {
+                "policy": policy,
+                "simple": simple,
+                "compound": compound,
+                "delta_min_service_compound_minus_simple": round(
+                    compound["mean_min_service"] - simple["mean_min_service"], 4
+                ),
+            }
+        )
+    return rows
+
+
+def delay_class_contrast(
+    base: dict[str, Any],
+    policies: list[PolicyName],
+    seeds: list[int],
+    leo_latency: float,
+) -> list[dict[str, Any]]:
+    rows = []
+    for policy in policies:
+        leo = _aggregate_runs(
+            [simulate_run(policy=policy, seed=seed, **{**base, "ntn_latency_ms": leo_latency}) for seed in seeds]
+        )
+        geo = _aggregate_runs(
+            [
+                simulate_run(policy=policy, seed=seed, **{**base, "ntn_latency_ms": CONFIGURED_GEO_RTT_MS})
+                for seed in seeds
+            ]
+        )
+        rows.append(
+            {
+                "policy": policy,
+                "leo_tr38821": {"ntn_latency_ms": leo_latency, **leo},
+                "geo_configured": {"ntn_latency_ms": CONFIGURED_GEO_RTT_MS, **geo},
+                "geo_exceeds_max_latency": CONFIGURED_GEO_RTT_MS > float(base["max_latency_ms"]),
+            }
+        )
     return rows
 
 
@@ -264,7 +438,72 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
     sweeps = {}
     if spec.get("sweeps"):
         for dim, values in spec["sweeps"].items():
-            sweeps[dim] = sweep_dimension(dim, values, base, policies[0], seeds)
+            sweeps[dim] = sweep_dimension(dim, values, base, policies, seeds)
+    grids = decision_grids(spec, base, policies, seeds) if spec.get("sweeps") else {}
+    when = summarize_when_ntn_helps(grids) if grids else {}
+    contrast = compound_contrast(base, policies, seeds, power_p)
+    delay_rows = delay_class_contrast(base, policies, seeds, float(base["ntn_latency_ms"]))
+    stress = []
+    for cap in spec.get("stress_probes", {}).get("ntn_capacity_mbps") or []:
+        for policy in policies:
+            runs = [
+                simulate_run(policy=policy, seed=seed, **{**base, "ntn_capacity_mbps": float(cap)})
+                for seed in seeds
+            ]
+            stress.append(
+                {
+                    "probe": "ntn_capacity_below_or_near_min",
+                    "ntn_capacity_mbps": float(cap),
+                    "min_capacity_mbps": min_cap,
+                    "policy": policy,
+                    **_aggregate_runs(runs),
+                    "below_min_capacity": float(cap) < min_cap,
+                }
+            )
+    geo_adaptive = next((r for r in delay_rows if r["policy"] == "adaptive"), delay_rows[0] if delay_rows else {})
+    geo_static = next((r for r in delay_rows if r["policy"] == "static_ntn"), {})
+    geo_fallback = next((r for r in delay_rows if r["policy"] == "fallback"), {})
+    leo_ms = geo_adaptive.get("leo_tr38821", {}).get("mean_min_service")
+    geo_ms = geo_adaptive.get("geo_configured", {}).get("mean_min_service")
+    terr_ms = next(p["mean_min_service"] for p in policy_runs if p["policy"] == "terrestrial_baseline")
+    static_geo_ms = (geo_static.get("geo_configured") or {}).get("mean_min_service")
+    fallback_geo_ms = (geo_fallback.get("geo_configured") or {}).get("mean_min_service")
+    static_stress = next((r for r in stress if r["policy"] == "static_ntn"), {})
+    fallback_stress = next((r for r in stress if r["policy"] == "fallback"), {})
+    adaptive_stress = next((r for r in stress if r["policy"] == "adaptive"), {})
+    static_geo_hurts = static_geo_ms is not None and static_geo_ms < terr_ms - 1e-12
+    static_cap_hurts = static_stress.get("mean_min_service") is not None and static_stress["mean_min_service"] < terr_ms - 1e-12
+    findings = {
+        "ntn_always_better": False,
+        "n_decision_cells_ntn_helps": when.get("n_cells_ntn_helps"),
+        "n_decision_cells_ntn_worse": when.get("n_cells_ntn_hurts_or_worse"),
+        "n_decision_cells_tie": when.get("n_cells_tie"),
+        "compound_reduces_min_service": all(
+            r["delta_min_service_compound_minus_simple"] <= 0 for r in contrast
+        ),
+        "geo_min_service_vs_leo_adaptive": {
+            "leo": leo_ms,
+            "geo_configured": geo_ms,
+            "geo_worse_or_equal": (geo_ms is not None and leo_ms is not None and geo_ms <= leo_ms),
+            "geo_rtt_ms": CONFIGURED_GEO_RTT_MS,
+            "max_latency_ms": max_lat,
+            "geo_exceeds_max_latency": CONFIGURED_GEO_RTT_MS > max_lat,
+        },
+        "when_ntn_does_not_help": {
+            "static_ntn_geo_min_service": static_geo_ms,
+            "fallback_geo_min_service": fallback_geo_ms,
+            "terrestrial_min_service": terr_ms,
+            "static_ntn_geo_worse_than_terrestrial": static_geo_hurts,
+            "fallback_geo_equals_terrestrial": fallback_geo_ms == terr_ms,
+            "static_ntn_low_capacity_min_service": static_stress.get("mean_min_service"),
+            "fallback_low_capacity_min_service": fallback_stress.get("mean_min_service"),
+            "adaptive_low_capacity_min_service": adaptive_stress.get("mean_min_service"),
+            "static_ntn_low_capacity_worse_than_terrestrial": static_cap_hurts,
+        },
+        "hypothesis_rejected": bool(static_geo_hurts or static_cap_hurts or when.get("n_cells_ntn_hurts_or_worse")),
+        "policy_mean_min_service": {p["policy"]: p["mean_min_service"] for p in policy_runs},
+        "policy_mean_uptime": {p["policy"]: p["mean_uptime"] for p in policy_runs},
+    }
     result = {
         "experiment_id": experiment_id,
         "research_question": spec.get("research_question", "RQ3"),
@@ -276,10 +515,16 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
             "ntn_latency_ms": ntn_lat,
             "ntn_capacity_mbps": ntn_cap,
             "ntn_availability": ntn_vis,
-            "geo_rtt_ms_configured": CONFIGURED_GEO_RTT_MS if delay_class == "geo_configured" else None,
+            "geo_rtt_ms_configured": CONFIGURED_GEO_RTT_MS,
         },
         "policies": policy_runs,
         "sweeps": sweeps,
+        "decision_grids": grids,
+        "when_ntn_helps": when,
+        "compound_contrast": contrast,
+        "delay_class_contrast": delay_rows,
+        "stress_probes": stress,
+        "findings": findings,
         "non_claims": spec.get(
             "non_claims",
             [

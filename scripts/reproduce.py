@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -15,9 +14,6 @@ SRC = ROOT / "src"
 
 
 def _pytest_cmd() -> list[str]:
-    exe = shutil.which("pytest")
-    if exe:
-        return [exe, "-q"]
     return [sys.executable, "-m", "pytest", "-q"]
 
 

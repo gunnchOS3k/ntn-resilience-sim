@@ -1,3 +1,9 @@
 \section{Introduction}
-NTN can restore connectivity or add delay/energy cost~\cite{3gpp_tr38821,3gpp_ts22261}.
-The scientific question is \emph{when} terrestrial, edge, peer, offline, or NTN fallback preserves minimum useful service --- not a claim that NTN always wins.
+\label{sec:intro}
+Non-terrestrial access can restore a path when terrestrial radio fails, or it can add delay and capacity shortfalls that push a session below its minimum-useful operating point~\cite{3gpp_tr38821,3gpp_ts22261,itur_m2160}.
+Paper~III therefore treats NTN as one path among terrestrial, offline, and (named, not separately simulated here) edge/peer alternatives.
+The hypothesis to reject is ``NTN always improves min-useful service versus a terrestrial baseline.''
+
+The runnable engine is \texttt{src/ntn\_resilience/experiment.py} with policies \texttt{terrestrial\_baseline}, \texttt{static\_ntn}, \texttt{fallback}, and \texttt{adaptive}.
+Sweeps cover NTN latency, capacity, and visibility; a compound power+radio failure; a configured GEO RTT contrast; and a below-min capacity probe.
+Nothing in this manuscript is an operator KPI or a field satellite measurement.

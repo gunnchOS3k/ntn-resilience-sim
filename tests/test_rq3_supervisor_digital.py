@@ -77,5 +77,11 @@ def test_rq3_experiment_manifest(tmp_path, monkeypatch):
     names = {p["policy"] for p in result["policies"]}
     assert names == set(POLICIES)
     assert "ntn_latency_ms" in result["sweeps"]
+    sweep_policies = {row["policy"] for row in result["sweeps"]["ntn_latency_ms"]}
+    assert sweep_policies == set(POLICIES)
+    assert result["findings"]["ntn_always_better"] is False
+    assert result["findings"]["hypothesis_rejected"] is True
+    assert result["findings"]["when_ntn_does_not_help"]["static_ntn_geo_worse_than_terrestrial"] is True
+    assert result["decision_grids"]["latency_x_visibility"]
     assert any("operator" in n.lower() for n in result["non_claims"])
     assert result["wrote"]
