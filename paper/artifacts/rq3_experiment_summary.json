@@ -1,0 +1,75 @@
+{
+  "experiment_id": "rq3_gary_failover_sweeps",
+  "findings": {
+    "ntn_always_better": false,
+    "n_decision_cells_ntn_helps": 27,
+    "n_decision_cells_ntn_worse": 0,
+    "n_decision_cells_tie": 0,
+    "compound_reduces_min_service": true,
+    "geo_min_service_vs_leo_adaptive": {
+      "leo": 0.8281,
+      "geo_configured": 0.7396,
+      "geo_worse_or_equal": true,
+      "geo_rtt_ms": 550.0,
+      "max_latency_ms": 500.0,
+      "geo_exceeds_max_latency": true
+    },
+    "when_ntn_does_not_help": {
+      "static_ntn_geo_min_service": 0.1302,
+      "fallback_geo_min_service": 0.7396,
+      "terrestrial_min_service": 0.7396,
+      "static_ntn_geo_worse_than_terrestrial": true,
+      "fallback_geo_equals_terrestrial": true,
+      "static_ntn_low_capacity_min_service": 0.1302,
+      "fallback_low_capacity_min_service": 0.7396,
+      "adaptive_low_capacity_min_service": 0.7396,
+      "static_ntn_low_capacity_worse_than_terrestrial": true
+    },
+    "hypothesis_rejected": true,
+    "policy_mean_min_service": {
+      "terrestrial_baseline": 0.7396,
+      "static_ntn": 0.8281,
+      "fallback": 0.8281,
+      "adaptive": 0.8281
+    },
+    "policy_mean_uptime": {
+      "terrestrial_baseline": 0.7396,
+      "static_ntn": 0.8281,
+      "fallback": 0.8281,
+      "adaptive": 0.8281
+    }
+  },
+  "when_ntn_helps": {
+    "n_cells_ntn_helps": 27,
+    "n_cells_ntn_hurts_or_worse": 0,
+    "n_cells_tie": 0,
+    "hypothesis_ntn_always_better": false
+  },
+  "policies": [
+    {
+      "policy": "terrestrial_baseline",
+      "mean_uptime": 0.7396,
+      "mean_min_service": 0.7396
+    },
+    {
+      "policy": "static_ntn",
+      "mean_uptime": 0.8281,
+      "mean_min_service": 0.8281
+    },
+    {
+      "policy": "fallback",
+      "mean_uptime": 0.8281,
+      "mean_min_service": 0.8281
+    },
+    {
+      "policy": "adaptive",
+      "mean_uptime": 0.8281,
+      "mean_min_service": 0.8281
+    }
+  ],
+  "evidence_status": "synthetic_simulation",
+  "never": [
+    "SUBMITTED",
+    "ACCEPTED"
+  ]
+}

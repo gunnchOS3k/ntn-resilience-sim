@@ -1,0 +1,28 @@
+\section{Method}
+\label{sec:method}
+The frozen protocol is \texttt{paper/artifacts/experiment\_protocol.yaml}, matching \texttt{configs/experiments/rq3\_gary\_failover\_sweeps.yaml}.
+Scenario \texttt{gary\_emergency}, family \texttt{urban\_emergency}, $48$ steps, seeds $1,2,7,42$.
+Compound failure is on, with terrestrial outage probability $0.12$ and power outage probability $0.15$.
+Min-useful service requires capacity $\ge 1.0$~Mbps and latency $\le 500$~ms.
+
+\paragraph{Policies.}
+\texttt{terrestrial\_baseline} never selects NTN.
+\texttt{static\_ntn} prefers NTN whenever the terminal is visible.
+\texttt{fallback} uses terrestrial when up, else NTN if visible.
+\texttt{adaptive} among paths that meet min-service picks lower latency; if none qualify it still picks an available path (which may be degraded).
+
+\paragraph{Sweeps and grids.}
+One-dimensional sweeps use the protocol grids
+latency $\{20,40,60\}$~ms, capacity $\{1,5,20\}$~Mbps, visibility $\{0.5,0.85,0.99\}$, now executed for \emph{all} policies (not only the first).
+Two-dimensional decision regions are latency$\times$visibility and capacity$\times$visibility.
+A delay-class contrast compares LEO TR-backed $40$~ms with configured GEO RTT $550$~ms (the latter exceeds \texttt{max\_latency\_ms}).
+A stress probe sets NTN capacity to $0.5$~Mbps, below min-capacity.
+LEO latency/capacity/availability planning values are literature-backed ranges from 3GPP TR~38.821, not campaign traces~\cite{3gpp_tr38821}.
+GEO RTT is explicitly \texttt{configured}, not TR-backed.
+
+\paragraph{Compound failure.}
+When power is down, the engine drops both terrestrial radio and NTN visibility: an NTN terminal without power is treated unavailable.
+That is the intended ``NTN does not help without power'' case.
+
+\paragraph{Non-claims.}
+Not operator performance, not field NTN, not University of Oulu affiliation, not DEVICE\_MEASURED Edge I/O, not SUBMITTED/ACCEPTED.

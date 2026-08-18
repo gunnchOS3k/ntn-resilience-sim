@@ -1,9 +1,10 @@
-.PHONY: setup lint test contract-test sensitivity demo e2e generate-7gc-resilience clean
+.PHONY: setup lint test contract-test sensitivity demo e2e smoke reproduce uml generate-7gc-resilience clean paper paper-reproduce
+
+PYTHON := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
+PY := PYTHONPATH=src
 
 generate-7gc-resilience:
-	$(PY) python3 scripts/generate_7gc_resilience_bundle.py
-
-PY := PYTHONPATH=src
+	$(PY) $(PYTHON) scripts/generate_7gc_resilience_bundle.py
 
 setup:
 	python3 -m pip install -r requirements.txt
@@ -44,6 +45,20 @@ e2e:
 # Smoke test only — not evidence of readiness
 smoke: e2e
 
+reproduce:
+	$(PY) $(PYTHON) scripts/reproduce.py
+
+paper-reproduce: reproduce
+	$(PY) $(PYTHON) paper/scripts/generate_tables.py
+
+paper: paper-reproduce
+	@test -f paper/manuscript.tex
+	@test -f paper/MANUSCRIPT_STATUS.md
+	@echo "Paper III package is SYNTHETIC_SIM; not SUBMISSION_READY"
+
+uml:
+	@echo "GitHub renders Mermaid in docs/uml/current/*.md"
+	@echo "Optional PlantUML: ./docs/uml/render_plantuml.sh"
 
 e2e-tooling:
 	@mkdir -p results/tool_exports

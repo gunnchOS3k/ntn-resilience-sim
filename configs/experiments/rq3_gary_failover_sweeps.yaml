@@ -1,0 +1,29 @@
+experiment_id: rq3_gary_failover_sweeps
+research_question: RQ3
+scenario_id: gary_emergency
+scenario_family: urban_emergency
+delay_class: leo_tr38821
+steps: 48
+seeds: [1, 2, 7, 42]
+policies:
+  - terrestrial_baseline
+  - static_ntn
+  - fallback
+  - adaptive
+compound_failure: true
+power_outage_p: 0.15
+terrestrial_outage_p: 0.12
+min_capacity_mbps: 1.0
+max_latency_ms: 500.0
+sweeps:
+  ntn_latency_ms: [20, 40, 60]
+  ntn_capacity_mbps: [1, 5, 20]
+  ntn_visibility: [0.5, 0.85, 0.99]
+delay_class_contrast: [leo_tr38821, geo_configured]
+stress_probes:
+  ntn_capacity_mbps: [0.5]
+non_claims:
+  - Not operator performance.
+  - Not a field NTN measurement.
+  - Not University of Oulu affiliation.
+  - Delay/capacity/visibility sweeps use documented assumption ranges, not campaign data.

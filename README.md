@@ -5,6 +5,8 @@
 |------|--------|
 | **Runs today** | Research prototype with smoke test (synthetic, non-evidence) |
 | **Demo** | `make smoke` (smoke test only — not readiness proof) |
+| **Reproduce** | `make reproduce` — synthetic RQ3 path; see [REPRODUCIBILITY.md](REPRODUCIBILITY.md) |
+| **UML** | [docs/uml/README.md](docs/uml/README.md) |
 | **Data** | Synthetic only — no private IQ or PII |
 | **Extend** | See [EXTERNAL_RESEARCHER_QUICKSTART.md](docs/EXTERNAL_RESEARCHER_QUICKSTART.md) |
 | **Limits** | Not operational 6G; not Oulu affiliation; not carrier-grade |

@@ -1,0 +1,9 @@
+\begin{table}[h]\centering
+\caption{LEO TR-backed latency versus configured GEO RTT (550~ms). GEO exceeds max\_latency\_ms=500, so NTN can be on-path without meeting min-service.}
+\begin{tabular}{lcccc}\toprule
+policy & LEO RTT (ms) & LEO min-service & GEO RTT (ms) & GEO min-service \\\midrule
+terrestrial\_baseline & 40.0 & 0.7396 & 550.0 & 0.7396 \\
+static\_ntn & 40.0 & 0.8281 & 550.0 & 0.1302 \\
+fallback & 40.0 & 0.8281 & 550.0 & 0.7396 \\
+adaptive & 40.0 & 0.8281 & 550.0 & 0.7396 \\
+\bottomrule\end{tabular}\end{table}

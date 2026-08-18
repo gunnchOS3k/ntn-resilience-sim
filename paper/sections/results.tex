@@ -1,0 +1,46 @@
+\section{Results}
+\label{sec:results}
+Generated from \texttt{results/experiments/rq3\_gary\_failover\_sweeps.json} by \texttt{paper/scripts/generate\_tables.py}.
+Missing file $\Rightarrow$ \texttt{RESULT\_PENDING}.
+A compact extract is \texttt{paper/artifacts/rq3\_experiment\_summary.json}.
+
+\paragraph{When NTN helps.}
+\input{tables/rq3_findings}
+\input{tables/rq3_policies}
+\input{tables/rq3_decision_latency_visibility}
+
+Under the compound LEO base case, NTN-aware policies raise mean min-service relative to terrestrial-only (see generated policy table).
+On the latency$\times$visibility grid with NTN capacity held at the LEO planning value, every adaptive-minus-terrestrial cell is positive, and the gain grows with visibility (see generated decision table).
+Recovery steps to min-service are also shorter for NTN-aware policies than for terrestrial-baseline in this run (seed-wise column of the policy table).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/rq3_adaptive_minus_terrestrial.png}
+\caption{Adaptive minus terrestrial min-service on the latency$\times$visibility grid. Positive means the NTN-aware policy helps. SYNTHETIC\_SIM.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/rq3_adaptive_min_service_heatmap.png}
+\caption{Adaptive min-service heatmap (latency $\times$ visibility). SYNTHETIC\_SIM.}
+\end{figure}
+
+\paragraph{When NTN does not help.}
+\input{tables/rq3_delay_class}
+\input{tables/rq3_stress_capacity}
+\input{tables/rq3_compound}
+
+Three protocol-declared probes reject ``NTN always better'':
+\begin{itemize}
+\item Configured GEO RTT $550$~ms exceeds max-latency $500$~ms. \texttt{static\_ntn} then sits on a path that fails min-service; fallback and adaptive collapse to the terrestrial min-service (no gain). Terrestrial-baseline is unchanged, as it never uses NTN.
+\item NTN capacity $0.5$~Mbps $<$ min-capacity $1.0$~Mbps. \texttt{static\_ntn} again falls well below terrestrial; fallback/adaptive match terrestrial because they keep the terrestrial path when it is up and cannot meet min-service on the thin NTN path.
+\item Compound power+radio versus simple radio: every policy loses min-service under compound failure, and NTN-aware policies lose more than the terrestrial baseline because the engine also blacks out the NTN terminal without power.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/rq3_static_ntn_capacity_visibility.png}
+\caption{\texttt{static\_ntn} min-service on the capacity$\times$visibility grid. Low visibility shrinks the region where staying on NTN preserves min-service. SYNTHETIC\_SIM.}
+\end{figure}
+
+CSV companions for all figures live under \texttt{paper/figures/} so the plots can be rebuilt without typing numbers into the PDF.
