@@ -193,6 +193,25 @@ def main(argv: list[str] | None = None) -> int:
     p_sens.add_argument("--schema-dir", default=None)
     p_sens.set_defaults(func=cmd_sensitivity)
 
+    def _list_exp(_: argparse.Namespace) -> int:
+        from .experiment import list_experiments
+
+        for eid in list_experiments():
+            print(eid)
+        return 0
+
+    def _run_exp(a: argparse.Namespace) -> int:
+        from .experiment import run_experiment
+
+        result = run_experiment(a.experiment_id)
+        print(json.dumps({"wrote": result.get("wrote"), "experiment_id": result["experiment_id"]}, indent=2))
+        return 0
+
+    sub.add_parser("list-experiments").set_defaults(func=_list_exp)
+    p_re = sub.add_parser("run-experiment")
+    p_re.add_argument("experiment_id")
+    p_re.set_defaults(func=_run_exp)
+
     args = parser.parse_args(argv)
     return int(args.func(args))
 
