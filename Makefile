@@ -1,4 +1,4 @@
-.PHONY: setup lint test contract-test sensitivity demo e2e generate-7gc-resilience clean
+.PHONY: setup lint test contract-test sensitivity demo e2e smoke reproduce uml generate-7gc-resilience clean
 
 generate-7gc-resilience:
 	$(PY) python3 scripts/generate_7gc_resilience_bundle.py
@@ -44,6 +44,12 @@ e2e:
 # Smoke test only — not evidence of readiness
 smoke: e2e
 
+reproduce:
+	$(PY) python3 scripts/reproduce.py
+
+uml:
+	@echo "GitHub renders Mermaid in docs/uml/current/*.md"
+	@echo "Optional PlantUML: ./docs/uml/render_plantuml.sh"
 
 e2e-tooling:
 	@mkdir -p results/tool_exports

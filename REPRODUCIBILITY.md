@@ -1,48 +1,49 @@
-        # Reproducibility — NTN Resilience Simulator
+# Reproducibility — NTN Resilience Simulator (RQ3)
 
-        ## Clone / setup / run
+This repository produces **synthetic disruption/fallback timelines** under documented assumptions (3GPP TR 38.821 ranges plus configured/synthetic entries). It does **not** report operator performance and does **not** claim University of Oulu affiliation.
 
-        ```bash
-        git clone https://github.com/gunnchOS3k/{name}.git
+## Clone / setup / run
+
+```bash
+git clone https://github.com/gunnchOS3k/ntn-resilience-sim.git
 cd ntn-resilience-sim
 python3 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python -m pytest -q
-# Expected: CI smoke pass; tests pass or documented skip
-        ```
+make test
+make smoke   # long e2e; synthetic only
+make reproduce
+```
 
-        ## Expected outputs
+Canonical independent digital path: `make reproduce` → `scripts/reproduce.py` → `results/experiments/rq3_gary_failover_sweeps.json`.
 
-        - Required documentation files present (`python3 scripts/check_required_files.py`)
-        - Tests pass **or** documented smoke-only path for docs-only repos
-        - No claim of field deployment from synthetic outputs alone
+## Expected outputs
 
-        ## Tool versions
+- `pytest -q` passes
+- Experiment JSON includes `terrestrial_baseline`, `static_ntn`, `fallback`, `adaptive`
+- Repeated seeds, recovery_steps_to_min_service, delay/capacity/visibility sweeps, compound-failure flag
+- Every result carries `evidence_status: synthetic_simulation` and a non-operator disclaimer
 
-        | Tool | Version guidance |
-        |------|------------------|
-        | Python | 3.10+ where `requirements.txt` exists |
-        | Node | 18+ LTS where `package.json` exists |
-        | Make | GNU Make where `Makefile` exists |
+## Tool versions
 
-        Record exact versions in PR / release notes when publishing.
+| Tool | Version guidance |
+|------|------------------|
+| Python | 3.10+ |
+| Make | GNU Make |
 
-        ## Fresh machine checklist
+## Fresh machine checklist
 
-        - [ ] Clone repo
-        - [ ] Create clean venv / `npm ci`
-        - [ ] Run `scripts/check_required_files.py`
-        - [ ] Run test command from README
-        - [ ] Compare outputs to `results/` or CI logs
-        - [ ] Log environment in `reproducibility/FRESH_MACHINE_LOG.md` (optional)
+- [ ] Frozen SHA checkout
+- [ ] Clean venv
+- [ ] `make test` and `make reproduce`
+- [ ] Do not relabel outputs as operator KPIs
 
-        ## Evidence discipline
+## Evidence discipline
 
-        **Real today:** Simulation scripts, tests, documentation
+**Real today:** assumption registry, policies, seeded engine, tests.
 
-        **Synthetic / demo-only:** Scenario outputs
+**Synthetic / demo-only:** timelines, continuity fractions, sweep tables.
 
-        **Planned:** Multi-seed statistical validation
+**Planned:** orbit-accurate visibility, consented field traces.
 
-        **Not claimed:** Operational NTN deployment
+**Not claimed:** operational NTN service; operator SLA; Oulu affiliation.
