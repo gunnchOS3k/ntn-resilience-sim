@@ -28,6 +28,7 @@ from .scenario_loader import load_scenario
 from .stats import (
     CI_SIM_VARIABILITY_WARNING,
     EVIDENCE_CLASS,
+    T_CRIT_VERIFICATION_SOURCE,
     mean_ci,
     paired_diff_ci,
 )
@@ -467,7 +468,7 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
     ntn_cap = assumption_value(registry, "ntn_capacity_mbps")
     ntn_vis = assumption_value(registry, "ntn_availability")
     scenario = load_scenario(spec["scenario_id"]) if spec.get("scenario_id") else {}
-    seeds = list(spec.get("seeds") or [1, 2, 7, 42])
+    seeds = list(spec.get("seeds") or list(range(1, 31)))
     steps = int(spec.get("steps", 48))
     policies: list[PolicyName] = list(spec.get("policies") or list(POLICIES))
     min_cap = float(spec.get("min_capacity_mbps", MIN_SERVICE_DEFAULTS["min_capacity_mbps"]))
@@ -625,6 +626,15 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
         "evidence_class": EVIDENCE_CLASS,
         "ci_warning": CI_SIM_VARIABILITY_WARNING,
         "ci_method": "student_t_over_seed_means",
+        "t_crit_verification_source": T_CRIT_VERIFICATION_SOURCE,
+        "n_seeds": len(seeds),
+        "seed_design": {
+            "n": len(seeds),
+            "seeds": list(seeds),
+            "selection": "predeclared_contiguous_integers_1_through_30",
+            "outcome_based_selection": False,
+            "shared_across_comparable_policies": True,
+        },
     }
     result["claim_firewall"] = validate_claim_firewall(result)
     dest = out_dir or Path("results/experiments")
