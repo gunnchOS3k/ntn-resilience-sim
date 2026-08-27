@@ -1,0 +1,170 @@
+{
+  "experiment_id": "rq3_gary_failover_sweeps",
+  "evidence_class": "SYNTHETIC_SIM",
+  "seeds": [
+    1,
+    2,
+    7,
+    42
+  ],
+  "ci_method": "student_t_over_seed_means",
+  "ci_warning": "95% Student-t CIs quantify simulation-run variability across seeds, NOT real-world RF or operator performance uncertainty.",
+  "findings": {
+    "ntn_always_better": false,
+    "hypothesis_rejected": true,
+    "policy_mean_min_service": {
+      "terrestrial_baseline": 0.7396,
+      "static_ntn": 0.8281,
+      "fallback": 0.8281,
+      "adaptive": 0.8281
+    }
+  },
+  "policies_statistics": [
+    {
+      "policy": "terrestrial_baseline",
+      "mean_min_service": 0.7396,
+      "std_min_service": 0.036075,
+      "ci95_min_service": {
+        "low": 0.6821800379284978,
+        "high": 0.7969699620715022
+      },
+      "paired_vs_terrestrial_min_service_mean": null
+    },
+    {
+      "policy": "static_ntn",
+      "mean_min_service": 0.8281,
+      "std_min_service": 0.031256,
+      "ci95_min_service": {
+        "low": 0.7784224048267966,
+        "high": 0.8778775951732033
+      },
+      "paired_vs_terrestrial_min_service_mean": 0.08857499999999996
+    },
+    {
+      "policy": "fallback",
+      "mean_min_service": 0.8281,
+      "std_min_service": 0.031256,
+      "ci95_min_service": {
+        "low": 0.7784224048267966,
+        "high": 0.8778775951732033
+      },
+      "paired_vs_terrestrial_min_service_mean": 0.08857499999999996
+    },
+    {
+      "policy": "adaptive",
+      "mean_min_service": 0.8281,
+      "std_min_service": 0.031256,
+      "ci95_min_service": {
+        "low": 0.7784224048267966,
+        "high": 0.8778775951732033
+      },
+      "paired_vs_terrestrial_min_service_mean": 0.08857499999999996
+    }
+  ],
+  "decision_region_boundaries": {
+    "latency_x_visibility_n_cells": 36,
+    "capacity_x_visibility_n_cells": 36,
+    "ntn_helps_count": 27,
+    "ntn_hurts_count": 0,
+    "ntn_tie_count": 0,
+    "helps_examples": [
+      {
+        "policy": "static_ntn",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      },
+      {
+        "policy": "fallback",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      },
+      {
+        "policy": "adaptive",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      },
+      {
+        "policy": "static_ntn",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.85,
+        "mean_min_service": 0.8281,
+        "delta_min_service_vs_terrestrial": 0.0885
+      },
+      {
+        "policy": "fallback",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.85,
+        "mean_min_service": 0.8281,
+        "delta_min_service_vs_terrestrial": 0.0885
+      },
+      {
+        "policy": "adaptive",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.85,
+        "mean_min_service": 0.8281,
+        "delta_min_service_vs_terrestrial": 0.0885
+      },
+      {
+        "policy": "static_ntn",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.99,
+        "mean_min_service": 0.8386,
+        "delta_min_service_vs_terrestrial": 0.099
+      },
+      {
+        "policy": "fallback",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.99,
+        "mean_min_service": 0.8386,
+        "delta_min_service_vs_terrestrial": 0.099
+      },
+      {
+        "policy": "adaptive",
+        "ntn_latency_ms": 20,
+        "ntn_visibility": 0.99,
+        "mean_min_service": 0.8386,
+        "delta_min_service_vs_terrestrial": 0.099
+      },
+      {
+        "policy": "static_ntn",
+        "ntn_latency_ms": 40,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      },
+      {
+        "policy": "fallback",
+        "ntn_latency_ms": 40,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      },
+      {
+        "policy": "adaptive",
+        "ntn_latency_ms": 40,
+        "ntn_visibility": 0.5,
+        "mean_min_service": 0.7865,
+        "delta_min_service_vs_terrestrial": 0.0469
+      }
+    ],
+    "hurts_examples": [],
+    "tie_examples": [],
+    "negative_result_rule": "Do not imply NTN always better; surface GEO/capacity/compound regions where terrestrial or offline wins.",
+    "local_peer_not_in_paper_iii_engine": true,
+    "evidence_class": "SYNTHETIC_SIM"
+  },
+  "claim_firewall": {
+    "ok": true,
+    "evidence_class": "SYNTHETIC_SIM",
+    "ntn_always_better": false,
+    "hypothesis_rejected": true,
+    "decision_regions_present": true,
+    "physical_not_inferred": true
+  }
+}
