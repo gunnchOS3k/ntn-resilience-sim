@@ -5,6 +5,7 @@ scenario YAML. Outputs are labeled simulation — not operator KPIs.
 """
 from __future__ import annotations
 
+import csv
 import json
 import random
 from dataclasses import dataclass
@@ -20,9 +21,17 @@ from .channel_assumptions import (
     assumption_value,
     load_registry,
 )
+from .claim_firewall import validate_claim_firewall
 from .fallback_policy import POLICIES, PolicyName, select_policy_path
 from .metrics import full_metric_bundle
 from .scenario_loader import load_scenario
+from .stats import (
+    CI_SIM_VARIABILITY_WARNING,
+    EVIDENCE_CLASS,
+    T_CRIT_VERIFICATION_SOURCE,
+    mean_ci,
+    paired_diff_ci,
+)
 
 EXPERIMENTS_DIR = Path(__file__).resolve().parents[2] / "configs" / "experiments"
 
@@ -196,6 +205,7 @@ def simulate_run(
             "max_latency_ms": max_latency_ms,
         },
         "evidence_status": "synthetic_simulation",
+        "evidence_class": EVIDENCE_CLASS,
         "disclaimer": "research simulation only — not operator, emergency, or satellite service performance",
     }
 
@@ -228,16 +238,76 @@ def _mean(xs: list[float]) -> float:
 
 
 def _aggregate_runs(runs: list[dict[str, Any]]) -> dict[str, Any]:
+    uptime = [r["uptime_fraction"] for r in runs]
+    min_service = [r["min_service_fraction"] for r in runs]
+    ntn_frac = [r["ntn_path_fraction"] for r in runs]
+    offline = [float(r["offline_steps"]) for r in runs]
+    recovery = [float(r["recovery_steps_to_min_service"]) for r in runs if r.get("recovery_steps_to_min_service") is not None]
+    lat = [r["mean_on_path_latency_ms"] for r in runs if r.get("mean_on_path_latency_ms") is not None]
+    up_ci = mean_ci(uptime)
+    ms_ci = mean_ci(min_service)
     return {
         "n": len(runs),
-        "mean_uptime": _mean([r["uptime_fraction"] for r in runs]),
-        "mean_min_service": _mean([r["min_service_fraction"] for r in runs]),
-        "mean_ntn_path_fraction": _mean([r["ntn_path_fraction"] for r in runs]),
-        "mean_on_path_latency_ms": _mean(
-            [r["mean_on_path_latency_ms"] for r in runs if r.get("mean_on_path_latency_ms") is not None]
-        )
-        if any(r.get("mean_on_path_latency_ms") is not None for r in runs)
-        else None,
+        "mean_uptime": round(up_ci["mean"], 4),
+        "std_uptime": round(up_ci["std"], 6),
+        "ci95_uptime": {"low": up_ci["ci_low"], "high": up_ci["ci_high"]},
+        "mean_min_service": round(ms_ci["mean"], 4),
+        "std_min_service": round(ms_ci["std"], 6),
+        "ci95_min_service": {"low": ms_ci["ci_low"], "high": ms_ci["ci_high"]},
+        "mean_ntn_path_fraction": _mean(ntn_frac),
+        "mean_offline_steps": _mean(offline),
+        "mean_recovery_steps_to_min_service": _mean(recovery) if recovery else None,
+        "mean_on_path_latency_ms": _mean(lat) if lat else None,
+        "seed_min_service": min_service,
+        "seed_uptime": uptime,
+        "ci_method": "student_t_over_seed_means",
+        "ci_warning": CI_SIM_VARIABILITY_WARNING,
+        "evidence_class": EVIDENCE_CLASS,
+    }
+
+
+def _policy_stats_block(seed_runs: list[dict[str, Any]], baseline_runs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    agg = _aggregate_runs(seed_runs)
+    block: dict[str, Any] = {
+        **agg,
+        "per_seed_primary": [
+            {
+                "seed": r["seed"],
+                "min_service_fraction": r["min_service_fraction"],
+                "uptime_fraction": r["uptime_fraction"],
+                "recovery_steps_to_min_service": r["recovery_steps_to_min_service"],
+                "offline_steps": r["offline_steps"],
+            }
+            for r in seed_runs
+        ],
+    }
+    if baseline_runs is not None and len(baseline_runs) == len(seed_runs):
+        # Align by seed order (callers use identical seed lists).
+        t_ms = [r["min_service_fraction"] for r in seed_runs]
+        b_ms = [r["min_service_fraction"] for r in baseline_runs]
+        t_up = [r["uptime_fraction"] for r in seed_runs]
+        b_up = [r["uptime_fraction"] for r in baseline_runs]
+        block["paired_vs_terrestrial"] = {
+            "min_service_fraction": paired_diff_ci(t_ms, b_ms),
+            "uptime_fraction": paired_diff_ci(t_up, b_up),
+        }
+    return block
+
+
+def serialize_decision_region_boundaries(grids: dict[str, Any], when: dict[str, Any]) -> dict[str, Any]:
+    """Serialize regions where NTN helps / hurts / ties (offline-dominated under compound)."""
+    return {
+        "latency_x_visibility_n_cells": len(grids.get("latency_x_visibility") or []),
+        "capacity_x_visibility_n_cells": len(grids.get("capacity_x_visibility") or []),
+        "ntn_helps_count": when.get("n_cells_ntn_helps"),
+        "ntn_hurts_count": when.get("n_cells_ntn_hurts_or_worse"),
+        "ntn_tie_count": when.get("n_cells_tie"),
+        "helps_examples": when.get("helps_examples"),
+        "hurts_examples": when.get("hurts_examples"),
+        "tie_examples": when.get("tie_examples"),
+        "negative_result_rule": "Do not imply NTN always better; surface GEO/capacity/compound regions where terrestrial or offline wins.",
+        "local_peer_not_in_paper_iii_engine": True,
+        "evidence_class": EVIDENCE_CLASS,
     }
 
 
@@ -398,7 +468,7 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
     ntn_cap = assumption_value(registry, "ntn_capacity_mbps")
     ntn_vis = assumption_value(registry, "ntn_availability")
     scenario = load_scenario(spec["scenario_id"]) if spec.get("scenario_id") else {}
-    seeds = list(spec.get("seeds") or [1, 2, 7, 42])
+    seeds = list(spec.get("seeds") or list(range(1, 31)))
     steps = int(spec.get("steps", 48))
     policies: list[PolicyName] = list(spec.get("policies") or list(POLICIES))
     min_cap = float(spec.get("min_capacity_mbps", MIN_SERVICE_DEFAULTS["min_capacity_mbps"]))
@@ -422,19 +492,36 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
         "max_latency_ms": max_lat,
     }
     policy_runs = []
+    baseline_seed_runs: list[dict[str, Any]] | None = None
     for policy in policies:
         seed_runs = [simulate_run(policy=policy, seed=seed, **base) for seed in seeds]
+        if policy == "terrestrial_baseline":
+            baseline_seed_runs = seed_runs
+        stats = _policy_stats_block(
+            seed_runs,
+            baseline_runs=None if policy == "terrestrial_baseline" else baseline_seed_runs,
+        )
         policy_runs.append(
             {
                 "policy": policy,
                 "n_seeds": len(seeds),
-                "mean_uptime": round(sum(r["uptime_fraction"] for r in seed_runs) / len(seed_runs), 4),
-                "mean_min_service": round(
-                    sum(r["min_service_fraction"] for r in seed_runs) / len(seed_runs), 4
-                ),
+                "mean_uptime": stats["mean_uptime"],
+                "mean_min_service": stats["mean_min_service"],
+                "statistics": stats,
                 "runs": seed_runs,
             }
         )
+    # Second pass for paired diffs if terrestrial was not first
+    if baseline_seed_runs is None:
+        for block in policy_runs:
+            if block["policy"] == "terrestrial_baseline":
+                baseline_seed_runs = block["runs"]
+                break
+    if baseline_seed_runs is not None:
+        for block in policy_runs:
+            if block["policy"] == "terrestrial_baseline":
+                continue
+            block["statistics"] = _policy_stats_block(block["runs"], baseline_runs=baseline_seed_runs)
     sweeps = {}
     if spec.get("sweeps"):
         for dim, values in spec["sweeps"].items():
@@ -511,6 +598,7 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
         "scenario_families_catalog": list(SCENARIO_FAMILIES),
         "scenario_id": spec.get("scenario_id"),
         "delay_class": delay_class,
+        "seeds": seeds,
         "assumptions_used": {
             "ntn_latency_ms": ntn_lat,
             "ntn_capacity_mbps": ntn_cap,
@@ -521,6 +609,7 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
         "sweeps": sweeps,
         "decision_grids": grids,
         "when_ntn_helps": when,
+        "decision_region_boundaries": serialize_decision_region_boundaries(grids, when),
         "compound_contrast": contrast,
         "delay_class_contrast": delay_rows,
         "stress_probes": stress,
@@ -534,10 +623,90 @@ def run_experiment(experiment_id: str, out_dir: Path | None = None) -> dict[str,
             ],
         ),
         "evidence_status": "synthetic_simulation",
+        "evidence_class": EVIDENCE_CLASS,
+        "ci_warning": CI_SIM_VARIABILITY_WARNING,
+        "ci_method": "student_t_over_seed_means",
+        "t_crit_verification_source": T_CRIT_VERIFICATION_SOURCE,
+        "n_seeds": len(seeds),
+        "seed_design": {
+            "n": len(seeds),
+            "seeds": list(seeds),
+            "selection": "predeclared_contiguous_integers_1_through_30",
+            "outcome_based_selection": False,
+            "shared_across_comparable_policies": True,
+        },
     }
+    result["claim_firewall"] = validate_claim_firewall(result)
     dest = out_dir or Path("results/experiments")
     dest.mkdir(parents=True, exist_ok=True)
     path = dest / f"{experiment_id}.json"
     path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    # Compact statistical table artifacts
+    csv_path = dest / "rq3_statistical_report.csv"
+    md_path = dest / "rq3_statistical_report.md"
+    with csv_path.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(
+            [
+                "policy",
+                "metric",
+                "n",
+                "mean",
+                "std",
+                "ci_low",
+                "ci_high",
+                "paired_mean_diff_vs_terr",
+            ]
+        )
+        for block in policy_runs:
+            st = block["statistics"]
+            paired = (st.get("paired_vs_terrestrial") or {}).get("min_service_fraction") or {}
+            w.writerow(
+                [
+                    block["policy"],
+                    "min_service_fraction",
+                    st["n"],
+                    st["mean_min_service"],
+                    st["std_min_service"],
+                    st["ci95_min_service"]["low"],
+                    st["ci95_min_service"]["high"],
+                    paired.get("mean"),
+                ]
+            )
+            w.writerow(
+                [
+                    block["policy"],
+                    "uptime_fraction",
+                    st["n"],
+                    st["mean_uptime"],
+                    st["std_uptime"],
+                    st["ci95_uptime"]["low"],
+                    st["ci95_uptime"]["high"],
+                    ((st.get("paired_vs_terrestrial") or {}).get("uptime_fraction") or {}).get("mean"),
+                ]
+            )
+    md_lines = [
+        "# RQ3 statistical report (SYNTHETIC_SIM)",
+        "",
+        f"- seeds: `{seeds}`",
+        f"- evidence_class: `{EVIDENCE_CLASS}`",
+        f"- ci_method: student_t_over_seed_means",
+        "",
+        f"> {CI_SIM_VARIABILITY_WARNING}",
+        "",
+        "| policy | mean min_service | std | 95% CI | paired Δ vs terrestrial |",
+        "|---|---:|---:|---|---:|",
+    ]
+    for block in policy_runs:
+        st = block["statistics"]
+        paired = (st.get("paired_vs_terrestrial") or {}).get("min_service_fraction") or {}
+        ci = st["ci95_min_service"]
+        md_lines.append(
+            f"| {block['policy']} | {st['mean_min_service']:.4f} | {st['std_min_service']:.4f} | "
+            f"[{ci['low']:.4f}, {ci['high']:.4f}] | {paired.get('mean', '')} |"
+        )
+    md_lines.append("")
+    md_path.write_text("\n".join(md_lines) + "\n", encoding="utf-8")
     result["wrote"] = str(path)
+    result["statistical_artifacts"] = {"csv": str(csv_path), "md": str(md_path), "json": str(path)}
     return result
