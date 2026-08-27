@@ -4,6 +4,7 @@
 |-------|-------|
 | Repo | `ntn-resilience-sim` |
 | Accepted base SHA | `916520919bea4d9957970d824045c32929bb80e5` |
+| Candidate SHA | `ff3da28ad6c0ab436a6c1bf4e4a7087873e9110d` |
 | Branch | `research/rq3-statistical-parity-001` |
 | Environment | `.venv` Python (local); docs 3.10+ |
 | Exact command | `PYTHONPATH=src python -m ntn_resilience.cli run-experiment rq3_gary_failover_sweeps` |
