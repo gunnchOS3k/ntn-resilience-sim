@@ -193,3 +193,10 @@ pip install -r requirements.txt && pytest -q
 
 **Notice:** Aligned with public research ecosystems — [non-affiliation](industry_research_stack/NON_AFFILIATION_NOTICE.md). Smoke stubs only unless documented otherwise.
 
+## Feedback & Suggestions
+
+Tried this project? File public feedback via the ecosystem hub:
+
+https://github.com/gunnchOS3k/gunnchos-research-portal/blob/main/FEEDBACK.md
+
+Security vulnerabilities: private only — https://github.com/gunnchOS3k/gunnchos-research-portal/blob/main/SECURITY.md
