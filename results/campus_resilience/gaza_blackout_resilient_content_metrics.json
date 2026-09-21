@@ -1,0 +1,55 @@
+{
+  "scenario": {
+    "scenario_id": "gaza_blackout_resilient_content",
+    "site_id": "gaza",
+    "service_context": "gaza campus resilience",
+    "normal_day_assumptions": {
+      "terrestrial_up": true,
+      "ntn_available": true
+    },
+    "bad_day_assumptions": {
+      "terrestrial_up": false,
+      "ntn_degraded": true
+    },
+    "worst_day_assumptions": {
+      "terrestrial_up": false,
+      "ntn_limited": true
+    },
+    "recovery_day_assumptions": {
+      "terrestrial_restoring": true
+    },
+    "terrestrial_network_state": "configurable",
+    "ntn_fallback_option": "leo_stub",
+    "offline_cache_option": true,
+    "priority_classes": [
+      "emergency",
+      "education",
+      "general"
+    ],
+    "local_risk_constraints": [
+      "no_pii",
+      "aggregate_metrics_only"
+    ],
+    "metrics": [
+      "service_continuity",
+      "recovery_time_proxy",
+      "priority_preservation"
+    ],
+    "source_assumptions": [
+      {
+        "claim": "Link budget stub",
+        "needs_local_validation": true
+      }
+    ],
+    "needs_validation": true
+  },
+  "metrics": {
+    "resilience_score": 0.665,
+    "service_continuity_score": 0.65,
+    "recovery_score": 0.7,
+    "unmet_demand_proxy": 0.15,
+    "latency_penalty_proxy": 0.3
+  },
+  "evidence_status": "smoke_test_only",
+  "needs_validation": true
+}
