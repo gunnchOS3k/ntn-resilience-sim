@@ -1,0 +1,21 @@
+{
+  "repo": "ntn-resilience-sim",
+  "productName": "NTN resilience sim",
+  "family": "7GC",
+  "classification": "STATIC_RESEARCH_SURFACE_WORKER",
+  "acceptedSha": "05aaa9aec16882f58bac6ce4ff47618d9812f69f",
+  "status": "STAGING_WORKER",
+  "summary": "Non-terrestrial network resilience scenarios and reports.",
+  "capabilities": [
+    "Read the simulation scope",
+    "Open the source repository"
+  ],
+  "limitations": [
+    "Not an operational satellite network",
+    "Results are research artifacts, not field validation"
+  ],
+  "sourceUrl": "https://github.com/gunnchOS3k/ntn-resilience-sim",
+  "returnUrlEnv": "GUNNCHOS_PORTAL_URL",
+  "returnUrl": "https://gunnchos-site.gunnchos-finds.workers.dev",
+  "workerName": "gunnchos-ntn-resilience"
+}
