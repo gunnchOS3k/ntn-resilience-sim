@@ -40,10 +40,13 @@ Source hashes are retained for experiment.py, fallback_policy.py, stats.py, exec
 
 ## Compilation
 
-Use Tectonic 0.17.0, or a standard XeLaTeX/BibTeX installation, from paper/submission:
+The final PDF was built with TinyTeX, pdfLaTeX and BibTeX (TeX Live 2026). Run from paper/submission with those executables on PATH:
 
 ```sh
-tectonic --untrusted --keep-logs --keep-intermediates manuscript.tex
+pdflatex -interaction=nonstopmode -halt-on-error manuscript.tex
+bibtex manuscript
+pdflatex -interaction=nonstopmode -halt-on-error manuscript.tex
+pdflatex -interaction=nonstopmode -halt-on-error manuscript.tex
 ```
 
-The exact official IEEEoj class and logo are included. `fontenc` enables its intended Times/Helvetica fonts under Tectonic. The preamble suppresses publisher dates, DOI, volume, and rights footer for this unpublished draft. There are no shell-escape or remote execution steps in the document.
+IEEEoj.cls, IEEEtran.bst and the official logo are included. Publisher date, volume and rights claims are suppressed in the manuscript preamble for this owner-review draft. Final compilation stdout and logs are retained under verification; all eight rendered pages were inspected. Header vbox and tiny-font substitution warnings arise from the official class; no overlap, clipped text, missing symbols or unresolved references were visible in the final pages. No shell escape is required.

@@ -1,0 +1,51 @@
+{
+  "schema": "gunnchos.publication.quality_gates.v1",
+  "date": "2026-10-13",
+  "scope": "Technical completion for owner scientific review; not publication acceptance or authorization",
+  "gates": {
+    "MANUSCRIPT_COMPILES": {
+      "status": true,
+      "basis": "8-page PDF, final compiler log and FINAL_REVIEW.json"
+    },
+    "CITATIONS_VERIFIED": {
+      "status": true,
+      "basis": "All seven identities/identifiers and narrow claim support checked; substantive-inspection depth recorded in CITATION_VERIFICATION.md. Not full-text verification of every reference."
+    },
+    "EXPERIMENT_REPRODUCED": {
+      "status": true,
+      "basis": "Exact numerical payload equality at 05aaa9a; reproduction_audit.json and statistics_audit.json"
+    },
+    "STATISTICS_VERIFIED": {
+      "status": true,
+      "basis": "SciPy Student-t, sample SD, paired dz and eight-state enumeration; statistics_audit.json"
+    },
+    "CLAIMS_EVIDENCE_ALIGNED": {
+      "status": true,
+      "basis": "CLAIM_TO_EVIDENCE.md; narrow synthetic results, equivalence and negative cases retained"
+    },
+    "VENUE_FORMAT_VERIFIED": {
+      "status": true,
+      "basis": "Official IEEEoj class; all 8 pages inspected; mandatory graphical abstract and separate figures supplied. Final live portal/rights review pending."
+    },
+    "AI_DISCLOSURE_PREPARED": {
+      "status": true,
+      "basis": "Acknowledgment identifies OpenAI Codex, sections and substantive use; AI_USE_DISCLOSURE.md"
+    },
+    "AUTHOR_METADATA_VERIFIED": {
+      "status": true,
+      "basis": "Confirmed name, affiliation, email and ORCID consistent; unknown declarations pending"
+    },
+    "OWNER_REVIEW_READY": {
+      "status": true,
+      "basis": "Complete editable package, reviewed PDF, evidence, cover letter and worksheet; journal originality and external validity unresolved"
+    },
+    "OWNER_APPROVED": {
+      "status": false,
+      "basis": "Owner has not reviewed this final revision"
+    },
+    "SUBMISSION_AUTHORIZED": {
+      "status": false,
+      "basis": "No journal submission authorization"
+    }
+  }
+}

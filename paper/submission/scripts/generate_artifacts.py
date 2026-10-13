@@ -46,7 +46,10 @@ for i,(name,key,col) in enumerate([('LEO base','leo_tr38821','#4e79a7'),('Config
  ys=[next(z for z in (r['stress_probes'] if key=='stress' else r['delay_class_contrast']) if z['policy']==p['policy']) for p in r['policies']];ys=[z['mean_min_service'] if key=='stress' else z[key]['mean_min_service'] for z in ys];ax.bar(x+(i-1)*w,ys,w,label=name,color=col)
 ax.set_xticks(x,[labels[p['policy']] for p in r['policies']],rotation=15);ax.set_ylim(0,1);ax.set_ylabel('Minimum-useful-service fraction');ax.legend(fontsize=7,loc='upper left');save(fig,'negative_cases')
 fig,ax=plt.subplots(figsize=(3.45,2.45));tn=r['policies'][0]['runs'];ad=r['policies'][3]['runs'];ds=[a['min_service_fraction']-b['min_service_fraction'] for a,b in zip(ad,tn)];ax.plot(r['seeds'],ds,'o',ms=3,color='#4e79a7');ax.axhline(np.mean(ds),color='#222222',lw=.8,label='Mean paired gain');ax.axhline(0,color='#777777',ls='--',lw=.6);ax.set_xlabel('Shared seed');ax.set_ylabel('Adaptive minus TN service');ax.set_ylim(-.01,.23);ax.legend(fontsize=7);save(fig,'paired_seed_gain')
-fig,ax=plt.subplots(figsize=(7.0,2.4));ax.axis('off');blocks=[(.02,'Shared power\nP = 0 → both paths unavailable'),(.36,'Service qualification\nC ≥ 1 Mbps and L ≤ 500 ms'),(.70,'30 shared seeds\nLEO gain; GEO/thin NTN counterexamples')]
-for x,txt in blocks:ax.text(x,.7,txt,transform=ax.transAxes,va='center',fontsize=10,bbox={'boxstyle':'round,pad=.6','fc':'#eaf1f7','ec':'#4e79a7'})
-ax.text(.5,.15,'Synthetic threshold benchmark • no field NTN or local/peer validation',ha='center',transform=ax.transAxes,fontsize=10);save(fig,'graphical_abstract')
-print('Generated six figures and four tables from retained 30-seed JSON; independent statistics are verified by verify_statistics.py')
+fig,ax=plt.subplots(figsize=(7.0,2.4));ax.axis('off')
+blocks=[(.17,'Shared power\nPower loss disables\nboth access paths'),(.5,'Service qualification\nCapacity ≥ 1 Mbps\nDelay ≤ 500 ms'),(.83,'30 shared seeds\nFavorable backup gain\nHarmful GEO/thin cases')]
+for x,txt in blocks:
+ ax.text(x,.66,txt,transform=ax.transAxes,ha='center',va='center',fontsize=9,bbox={'boxstyle':'round,pad=.5','fc':'#eaf1f7','ec':'#4e79a7'})
+ax.text(.5,.12,'Synthetic benchmark; no field NTN or local/peer validation',ha='center',transform=ax.transAxes,fontsize=9)
+save(fig,'graphical_abstract')
+print('Generated five figures and four tables from retained 30-seed JSON.')

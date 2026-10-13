@@ -25,6 +25,9 @@
 \makeatother
 \begin{document}
 \pagestyle{headings}
+\makeatletter
+\def\@oddfoot{\draftfoot}\let\@evenfoot\@oddfoot
+\makeatother
 \begin{abstract}
 A backup communication path can remain connected while failing the service it is intended to preserve. This paper studies that distinction in a transparent terrestrial--non-terrestrial fallback benchmark with explicit latency, capacity, visibility, and shared-power constraints. Four deterministic selection policies are evaluated using a frozen synthetic protocol with 30 shared random seeds and 48 abstract steps per run. A mathematical characterization explains when their useful-service outcomes are identical and when preferring a nonqualifying satellite path displaces a qualifying terrestrial path. In the compound-outage base case, the terrestrial-only mean useful-service fraction is 0.7375 and the three satellite-aware policies each attain 0.8292. The paired increase is 0.09166, with a 95 percent interval of 0.07576 to 0.10756 over simulation seeds. For a configured 550 ms satellite delay exceeding a 500 ms service limit, or 0.5 Mbps satellite capacity below a 1 Mbps requirement, satellite-first service falls to 0.1083, while terrestrial-first and adaptive selection retain 0.7375. Common terminal-power loss imposes a population useful-service ceiling of 0.85 regardless of visibility. The results support a reproducible service-qualification counterexample and an audit of policy equivalence within the model. They do not establish measured satellite performance, deployed control, validated local or peer fallback, or general superiority of adaptive orchestration.
 \end{abstract}

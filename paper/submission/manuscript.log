@@ -1,5 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.1)  13 OCT 2026 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.1)  13 OCT 2026 17:33
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **manuscript.tex
 (./manuscript.tex
@@ -373,12 +374,8 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
  (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-
-Package epstopdf Warning: Shell escape feature is not enabled.
-
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-(/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 26.
@@ -387,64 +384,64 @@ Package hyperref Info: Link coloring OFF on input line 26.
 \openout3 = `manuscript.out'.
 
 Package color Info: Redefining color ojcolor on input line 26.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 28.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 31.
  (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Calculating math sizes for size <6.6> on input line 35.
+LaTeX Font Info:    Calculating math sizes for size <6.6> on input line 38.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.3> not available
-(Font)              size <5> substituted on input line 35.
+(Font)              size <5> substituted on input line 38.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.3> not available
-(Font)              size <5> substituted on input line 35.
+(Font)              size <5> substituted on input line 38.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.3> not available
-(Font)              size <5> substituted on input line 35.
+(Font)              size <5> substituted on input line 38.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
 (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
  (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 41.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 44.
  (/Users/gunnchos/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 []\T1/ptm/m/n/10.03749 We an-a-lyze the ex-ist-ing RQ3 en-gine in
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 41--42
+Underfull \hbox (badness 2384) in paragraph at lines 44--45
 \T1/pcr/m/n/10.03749 ntn-resilience-sim\T1/ptm/m/n/10.03749 . Its frozen pro-to-col spec-i-fies
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 \T1/ptm/m/n/10.03749 terrestrial-only, satellite-first, terrestrial-first fall-back,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 \T1/ptm/m/n/10.03749 and adap-tive se-lec-tion; in-de-pen-dent Bernoulli path
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 41--42
+Underfull \hbox (badness 2856) in paragraph at lines 44--45
 \T1/ptm/m/n/10.03749 events; a shared power fail-ure; la-tency and ca-pac-ity
  []
 
 
-Underfull \hbox (badness 2096) in paragraph at lines 41--42
+Underfull \hbox (badness 2096) in paragraph at lines 44--45
 \T1/ptm/m/n/10.03749 lo-cal de-ploy-ment, com-mer-cial op-er-a-tor, or emergency-
  []
 
@@ -454,7 +451,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <ojcoms.png, id=110, 243.15843pt x 37.64063pt>
 File: ojcoms.png Graphic file (type png)
 <use ojcoms.png>
-Package pdftex.def Info: ojcoms.png  used on input line 44.
+Package pdftex.def Info: ojcoms.png  used on input line 47.
 (pdftex.def)             Requested size: 116.28432pt x 18.0pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -469,8 +466,8 @@ Overfull \vbox (8.45pt too high) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 59.
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 60.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 62.
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 63.
 
 Overfull \vbox (12.84848pt too high) has occurred while \output is active []
 
@@ -480,7 +477,7 @@ Overfull \vbox (11.59195pt too high) has occurred while \output is active []
  [2]
 File: ojcoms.png Graphic file (type png)
 <use ojcoms.png>
-Package pdftex.def Info: ojcoms.png  used on input line 141.
+Package pdftex.def Info: ojcoms.png  used on input line 144.
 (pdftex.def)             Requested size: 116.28432pt x 18.0pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -489,10 +486,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (8.45pt too high) has occurred while \output is active []
 
  [3] (./tables/base.tex)
-<figures/base_service.pdf, id=181, 239.53929pt x 169.47545pt>
+<figures/base_service.pdf, id=178, 239.53929pt x 169.47545pt>
 File: figures/base_service.pdf Graphic file (type pdf)
 <use figures/base_service.pdf>
-Package pdftex.def Info: figures/base_service.pdf  used on input line 175.
+Package pdftex.def Info: figures/base_service.pdf  used on input line 178.
 (pdftex.def)             Requested size: 246.0pt x 174.04962pt.
 
 Overfull \vbox (12.84848pt too high) has occurred while \output is active []
@@ -501,25 +498,25 @@ Overfull \vbox (12.84848pt too high) has occurred while \output is active []
 Overfull \vbox (11.59195pt too high) has occurred while \output is active []
 
  [4]
-<figures/paired_seed_gain.pdf, id=191, 244.65215pt x 177.89261pt>
+<figures/paired_seed_gain.pdf, id=188, 244.65215pt x 177.89261pt>
 File: figures/paired_seed_gain.pdf Graphic file (type pdf)
 <use figures/paired_seed_gain.pdf>
-Package pdftex.def Info: figures/paired_seed_gain.pdf  used on input line 185.
+Package pdftex.def Info: figures/paired_seed_gain.pdf  used on input line 188.
 (pdftex.def)             Requested size: 246.0pt x 178.8802pt.
-<figures/decision_grids.pdf, id=192, 420.00305pt x 183.4574pt>
+<figures/decision_grids.pdf, id=189, 420.00305pt x 183.4574pt>
 File: figures/decision_grids.pdf Graphic file (type pdf)
 <use figures/decision_grids.pdf>
-Package pdftex.def Info: figures/decision_grids.pdf  used on input line 191.
+Package pdftex.def Info: figures/decision_grids.pdf  used on input line 194.
 (pdftex.def)             Requested size: 473.76123pt x 206.9377pt.
  (./tables/negative.tex)
-<figures/negative_cases.pdf, id=194, 239.53929pt x 177.82262pt>
+<figures/negative_cases.pdf, id=191, 239.53929pt x 177.82262pt>
 File: figures/negative_cases.pdf Graphic file (type pdf)
 <use figures/negative_cases.pdf>
-Package pdftex.def Info: figures/negative_cases.pdf  used on input line 201.
+Package pdftex.def Info: figures/negative_cases.pdf  used on input line 204.
 (pdftex.def)             Requested size: 246.0pt x 182.62209pt.
 File: ojcoms.png Graphic file (type png)
 <use ojcoms.png>
-Package pdftex.def Info: ojcoms.png  used on input line 207.
+Package pdftex.def Info: ojcoms.png  used on input line 210.
 (pdftex.def)             Requested size: 116.28432pt x 18.0pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -540,13 +537,13 @@ Overfull \vbox (12.84848pt too high) has occurred while \output is active []
 Overfull \vbox (11.59195pt too high) has occurred while \output is active []
 
  [6 <./figures/decision_grids.pdf> <./figures/negative_cases.pdf>]
-Underfull \hbox (badness 5231) in paragraph at lines 237--238
+Underfull \hbox (badness 5231) in paragraph at lines 240--241
 \T1/ptm/m/n/10.03749 de-pen-dently re-pro-ducible ser-vice pred-i-cate, a policy-
  []
 
 File: ojcoms.png Graphic file (type png)
 <use ojcoms.png>
-Package pdftex.def Info: ojcoms.png  used on input line 243.
+Package pdftex.def Info: ojcoms.png  used on input line 246.
 (pdftex.def)             Requested size: 116.28432pt x 18.0pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -555,7 +552,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (8.45pt too high) has occurred while \output is active []
 
  [7]
-Underfull \hbox (badness 7777) in paragraph at lines 248--249
+Underfull \hbox (badness 7777) in paragraph at lines 251--252
 \T1/ptm/m/n/10.03749 Simulation source is avail-able in []$https : / / github . com /
  []
 
@@ -578,40 +575,22 @@ L3 programming layer <2026-08-10>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.7pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: EFFCDDAC7F5C33ACE6AD227C982424A0;5168.
  ) 
 Here is how much of TeX's memory you used:
- 11257 strings out of 469028
- 175111 string characters out of 5456322
- 604152 words of memory out of 5000000
- 40097 multiletter control sequences out of 15000+600000
+ 11246 strings out of 469028
+ 174968 string characters out of 5456322
+ 603843 words of memory out of 5000000
+ 40091 multiletter control sequences out of 15000+600000
  757862 words of font info for 181 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  74i,16n,79p,1763b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{equation.4.17} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.4.14} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.3.3} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.3.6} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equation.3.4} has been referenced but does not exist, replaced by a fixed one
-
 </Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/gunnchos/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manuscript.pdf (8 pages, 291762 bytes).
+Output written on manuscript.pdf (8 pages, 291611 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 67 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

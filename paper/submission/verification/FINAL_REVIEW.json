@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-13",
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "decision_grid_labels": {
+    "latency_ms": [
+      20,
+      40,
+      60
+    ],
+    "capacity_mbps": [
+      1,
+      5,
+      20
+    ]
+  },
+  "graphical_abstract": "Reviewed after correcting overlapping text; legible with separate blocks",
+  "pdf_sha256": "e6977e8b91e4d2a9a6f66036b5ae3d2527ef4b7164e78eccc2803c63923af046",
+  "source_snapshot_hashes_match": true,
+  "compile": "pdfLaTeX/BibTeX successful; no undefined references; official header vbox/font-size warnings visually reviewed",
+  "scientific_review": "AI coordinating review; owner and independent human review pending"
+}

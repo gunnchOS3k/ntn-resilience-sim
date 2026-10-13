@@ -26,7 +26,7 @@ Primary portal: [IEEE Author Portal, OJ-COMS](https://ieee.atyponrex.com/dashboa
 | Prior preprint/conference/submission/rejection | Pending owner disclosure; do not declare none |
 | Related Papers I and II | See nonduplication scope in manuscript and portal cross-paper audit; disclose relevant overlap |
 | Rights/licensing | Pending owner; CCBY applies only through accepted journal process |
-| APC funding |2026OJ-COMSAPC US$2160 before applicable discount/tax; owner must accept funding plan |
+| APC funding |2026 OJ-COMS APC US$2160 before applicable discount/tax; owner must accept funding plan |
 | Preferred/nonpreferred reviewers | No names invented; optional owner decision; honor portal rules |
 | Mailing address/telephone | Not supplied; pending if required by live portal |
 | Final consent/submission | OWNER_APPROVED=false; SUBMISSION_AUTHORIZED=false |
