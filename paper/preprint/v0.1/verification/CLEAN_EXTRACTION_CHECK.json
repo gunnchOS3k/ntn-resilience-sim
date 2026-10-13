@@ -23,5 +23,7 @@
   "originality_verified": false,
   "article_license_approval": false,
   "python_environment_record": "acceptance_environment.txt",
-  "journal_review_pdf_sha256_unchanged": "e6977e8b91e4d2a9a6f66036b5ae3d2527ef4b7164e78eccc2803c63923af046"
+  "journal_review_pdf_sha256_unchanged": "e6977e8b91e4d2a9a6f66036b5ae3d2527ef4b7164e78eccc2803c63923af046",
+  "claim_evidence_links_verified": 12,
+  "release_checkpoint_sha": "6d5051b01d23f60571e7d697e67519db7b37bdf3"
 }

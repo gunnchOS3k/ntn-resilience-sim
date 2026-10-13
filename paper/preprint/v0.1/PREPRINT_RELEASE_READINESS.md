@@ -32,3 +32,11 @@ Frozen experimental SHA, journal manuscript-development SHA and neutral-candidat
 6. Provide separate explicit authorization for any posting/upload/public record, push, ORCID edit or journal submission. Current authorization remains false; this packet is not permission to perform them.
 
 Stop at this review milestone. Journal-strength studies are separate prospective work. Paper II has not been started or changed in this continuation.
+
+## Local revision anchors
+
+- Experimental source: `05aaa9aec16882f58bac6ce4ff47618d9812f69f`.
+- Preserved journal-manuscript source: `f55c06aee3fbc0664dc8aac0c63f3ca5e030d2a7`.
+- Neutral TeX/figure and reproduction-script source: `f06fddd3b2f878f5a54eee15b86f64ead442554a`.
+- Archive checkpoint: `6d5051b01d23f60571e7d697e67519db7b37bdf3`.
+- Claim-matrix relative links checked: 12. Final documentation checkpoint follows this archive checkpoint; archive outer hashes above are authoritative identities of the delivered bytes. No pushes performed.
