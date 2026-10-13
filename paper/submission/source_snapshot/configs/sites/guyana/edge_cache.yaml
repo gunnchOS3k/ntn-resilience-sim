@@ -1,0 +1,3 @@
+site_id: guyana
+enabled: true
+default_hit_rate: 0.75

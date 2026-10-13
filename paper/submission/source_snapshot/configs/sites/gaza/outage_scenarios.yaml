@@ -1,0 +1,6 @@
+site_id: gaza
+scenarios:
+- normal
+- bad_day
+- worst_case
+- recovery

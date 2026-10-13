@@ -1,0 +1,4 @@
+scenario_id: ghana_rural
+site_id: ghana
+outage_probability: 0.1
+ntn_fallback: true

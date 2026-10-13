@@ -1,0 +1,10 @@
+site_id: gaza
+seed: 42
+primary_path: offline_first_humanitarian
+ntn_role: conceptual_fallback_only
+units:
+  latency: ms
+  margin_db: dB
+  power: W
+evidence_status: synthetic simulation
+disclaimer: "research simulation only \u2014 not operational service"

@@ -1,0 +1,4 @@
+site_id: guyana
+scenarios:
+- privacy_leak
+- public_dashboard_exposure
