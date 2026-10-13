@@ -1,0 +1,7 @@
+# Bounded scientific review
+
+Decision: READY FOR OWNER REVIEW as an exploratory v0.1 candidate; not approved for posting and not journal-strength originality verified.
+
+The five strongest objections remain: (1) elementary qualification algebra and close TN/NTN simulator literature constrain novelty; (2) memoryless Bernoulli availability and scalar delay/capacity lack physical calibration; (3) three NTN-aware policies are structurally identical for primary useful service, so adaptive superiority cannot follow; (4) generous thresholds and qualifying sampled grids limit sensitivity, and GEO/capacity probes repeat one qualification bit rather than independent validation; (5) shared terminal power, no congestion/switch penalties, and no local/peer modes make external resilience claims unsupported. These objections are disclosed, not solved by new experiments.
+
+Retained independent eight-state enumeration checks all four qualification cases and supports expectation formulas. Thirty paired seed differences give gain0.09166, SD0.04258833093, CI[0.07575725588,0.10756274412], dz2.15223273624. The gain is9.166 percentage points, not9.166 percent relative improvement. Unqualified satellite-first service0.1083 and fallback/adaptive0.7375 are preserved. Power0.85 is an expectation ceiling, not a bound on every sample realization. Originality and restricted full-text reference reading remain owner/specialist judgments; metadata existence is not scientific validation.

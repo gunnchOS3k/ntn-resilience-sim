@@ -1,0 +1,51 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{3GPP}(2023)]{tr38821}
+{3GPP}.
+\newblock Solutions for {NR} to support non-terrestrial networks ({NTN}).
+\newblock Technical Report TR 38.821 V16.2.0 (Release 16), 3rd Generation Partnership Project, March 2023.
+\newblock URL \url{https://www.3gpp.org/ftp/Specs/archive/38_series/38.821/}.
+
+\bibitem[Azari et~al.(2022)Azari, Solanki, Chatzinotas, Kodheli, Sallouha, Colpaert, Montoya, Pollin, Haqiqatnejad, Mostaani, Lagunas, and Ottersten]{azari2022}
+M.~Mahdi Azari, Sourabh Solanki, Symeon Chatzinotas, Oltjon Kodheli, Hazem Sallouha, Achiel Colpaert, Jesus Fabian~Mendoza Montoya, Sofie Pollin, Alireza Haqiqatnejad, Arsham Mostaani, Eva Lagunas, and Bj{\"o}rn Ottersten.
+\newblock Evolution of non-terrestrial networks from {5G} to {6G}: A survey.
+\newblock \emph{IEEE Communications Surveys \& Tutorials}, 24\penalty0 (4):\penalty0 2633--2672, 2022.
+\newblock \doi{10.1109/COMST.2022.3199901}.
+
+\bibitem[Figaro et~al.(2026)Figaro, Rossato, Giordani, Traspadini, Shimizu, Mahabal, Herath, Lee, Pekcan, and Zorzi]{figaro2026}
+Mattia Figaro, Francesco Rossato, Marco Giordani, Alessandro Traspadini, Takayuki Shimizu, Chinmay Mahabal, Sanjeewa Herath, Chunghan Lee, Dogan~Kutay Pekcan, and Michele Zorzi.
+\newblock {5G NR} non-terrestrial networks: from early results to the road ahead.
+\newblock \emph{npj Wireless Technology}, 2\penalty0 (1), June 2026.
+\newblock \doi{10.1038/s44459-026-00029-y}.
+\newblock Art. no. 31.
+
+\bibitem[Lin et~al.(2021)Lin, Rommer, Euler, Yavuz, and Karlsson]{lin2021}
+Xingqin Lin, Stefan Rommer, Sebastian Euler, Emre~A. Yavuz, and Robert~S. Karlsson.
+\newblock {5G} from space: An overview of {3GPP} non-terrestrial networks.
+\newblock \emph{IEEE Communications Standards Magazine}, 5\penalty0 (4):\penalty0 147--153, December 2021.
+\newblock \doi{10.1109/MCOMSTD.011.2100038}.
+
+\bibitem[Rinaldi et~al.(2020)Rinaldi, M{\"a}{\"a}tt{\"a}nen, Torsner, Pizzi, Andreev, Iera, Koucheryavy, and Araniti]{rinaldi2020}
+Federica Rinaldi, Helka-Liina M{\"a}{\"a}tt{\"a}nen, Johan Torsner, Sara Pizzi, Sergey Andreev, Antonio Iera, Yevgeni Koucheryavy, and Giuseppe Araniti.
+\newblock Non-terrestrial networks in {5G} \& beyond: A survey.
+\newblock \emph{IEEE Access}, 8:\penalty0 165178--165200, 2020.
+\newblock \doi{10.1109/ACCESS.2020.3022981}.
+
+\bibitem[Sedin et~al.(2020)Sedin, Feltrin, and Lin]{sedin2020}
+Jonas Sedin, Luca Feltrin, and Xingqin Lin.
+\newblock Throughput and capacity evaluation of {5G} new radio non-terrestrial networks with {LEO} satellites.
+\newblock In \emph{Proc. IEEE Global Communications Conference (GLOBECOM)}, pages 1--6, December 2020.
+\newblock \doi{10.1109/GLOBECOM42002.2020.9347998}.
+
+\bibitem[Wang et~al.(2026)Wang, Qiu, Zhou, and Schotten]{wang2026}
+Donglin Wang, Anjie Qiu, Qiuheng Zhou, and Hans~D. Schotten.
+\newblock A disaster-aware integrated {TN-NTN} system-level simulator for resilient {6G} wireless networks, May 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.05852}.
+\newblock arXiv:2605.05852v1, preprint.
+
+\end{thebibliography}

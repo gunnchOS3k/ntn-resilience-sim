@@ -1,0 +1,4 @@
+site_id: gaza
+scenarios:
+- privacy_leak
+- public_dashboard_exposure

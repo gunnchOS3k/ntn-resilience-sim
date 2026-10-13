@@ -1,0 +1,8 @@
+site_id: guyana
+classes:
+- safety_and_operations
+- teacher_student_learning
+- device_support_repair
+- sensor_telemetry
+- mentor_video
+- bulk_dataset_sync

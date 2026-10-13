@@ -1,0 +1,41 @@
+{
+  "title": "Service Qualification and Shared-Power Limits in Terrestrial-Non-Terrestrial Fallback: A Reproducible Synthetic Benchmark} \u2014 reproducibility evidence",
+  "version": "0.1",
+  "description": "Frozen synthetic RQ3 simulation source, full existing 30-seed raw outputs, independent statistics, plotting code, protocols and environment. Substantive OpenAI Codex assistance in drafting/code/audit; human scientific verification is pending. This is a distinct code/data artifact, not a duplicate manuscript DOI deposit.",
+  "creators": [
+    {
+      "name": "Edmund Gunn, Jr.",
+      "affiliation": "gunnchOS Research",
+      "email": "egunnjr@gunnchos.com",
+      "orcid": "0009-0004-6546-2609"
+    }
+  ],
+  "doi": null,
+  "publication_date": null,
+  "publication_authorization": false,
+  "human_scientific_approval": false,
+  "article_license_approval": false,
+  "originality_verification_complete": false,
+  "license": null,
+  "pending": [
+    "coauthors and consent",
+    "funding and sponsors",
+    "conflicts",
+    "contributions",
+    "rights and patents",
+    "prior dissemination",
+    "license and platform approval"
+  ],
+  "resource_type_proposed": "software",
+  "resource_type_approval": false,
+  "software_license_existing": "MIT (source/LICENSE retained)",
+  "evidence_documentation_license": null,
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/gunnchOS3k/ntn-resilience-sim/tree/05aaa9aec16882f58bac6ce4ff47618d9812f69f",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ],
+  "manuscript_relation_pending": "Add actual canonical manuscript identifier only after it exists; no DOI reserved."
+}

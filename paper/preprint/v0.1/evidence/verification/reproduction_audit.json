@@ -1,0 +1,65 @@
+{
+  "source_sha": "05aaa9aec16882f58bac6ce4ff47618d9812f69f",
+  "source_hashes": {
+    "src/ntn_resilience/experiment.py": "be721bb29c697a30e4404356c399867ef07e749f8dbfad6e8ed49eaebf9d2905",
+    "src/ntn_resilience/fallback_policy.py": "8dab77edc89586ef922da457272a5c686021d2098727a754b4b5350efc8886ee",
+    "src/ntn_resilience/stats.py": "9bf6d49ff83860195b669c3113f58b367930703b0d00d32f4935377e2f51b51c",
+    "configs/experiments/rq3_gary_failover_sweeps.yaml": "5ba95e887fcd163e207a64bfd8f4984b28a02f46ba94764366f580a862556b96",
+    "paper/artifacts/experiment_protocol.yaml": "552cd28bb63b9a8f9db0ad4e5433bc6eb671c5d7aabb27fe9428cccbf07065c6",
+    "config/assumption_registry.yaml": "1498451fe824d7f30ccccf423b7b1b25108f463c97e334980b4b608d47258b65"
+  },
+  "output_hash": "6d2be8338efb465ff287e7b22866994555f535db716640c01a8c6bbee683442c",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "scipy_check": [
+    {
+      "policy": "terrestrial_baseline",
+      "mean_from_seed_records": 0.7375033333333333,
+      "sd": 0.06032987756026679,
+      "ci_low": 0.7149757868224649,
+      "ci_high": 0.7600308798442017,
+      "max_ci_error": 3.602673714908633e-13
+    },
+    {
+      "policy": "static_ntn",
+      "mean_from_seed_records": 0.8291633333333335,
+      "sd": 0.049670087323384515,
+      "ci_low": 0.8106162179134709,
+      "ci_high": 0.847710448753196,
+      "max_ci_error": 2.9676261448230434e-13
+    },
+    {
+      "policy": "fallback",
+      "mean_from_seed_records": 0.8291633333333335,
+      "sd": 0.049670087323384515,
+      "ci_low": 0.8106162179134709,
+      "ci_high": 0.847710448753196,
+      "max_ci_error": 2.9676261448230434e-13
+    },
+    {
+      "policy": "adaptive",
+      "mean_from_seed_records": 0.8291633333333335,
+      "sd": 0.049670087323384515,
+      "ci_low": 0.8106162179134709,
+      "ci_high": 0.847710448753196,
+      "max_ci_error": 2.9676261448230434e-13
+    }
+  ],
+  "evidence_class": "SYNTHETIC_SIM",
+  "n_seeds": 30,
+  "steps_per_seed": 48,
+  "claim_firewall": {
+    "ok": true,
+    "evidence_class": "SYNTHETIC_SIM",
+    "ntn_always_better": false,
+    "hypothesis_rejected": true,
+    "decision_regions_present": true,
+    "physical_not_inferred": true
+  },
+  "analytic_expectations": {
+    "tn_compound": 0.748,
+    "ntn_feasible_compound": 0.8347,
+    "static_unqualified_compound": 0.1122,
+    "shared_power_ceiling": 0.85
+  }
+}

@@ -1,0 +1,10 @@
+site_id: graham_land
+seed: 42
+primary_path: ntn_primary
+ntn_role: deep_ntn_polar_model
+units:
+  latency: ms
+  margin_db: dB
+  power: W
+evidence_status: synthetic simulation
+disclaimer: "research simulation only \u2014 not operational service"

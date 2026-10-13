@@ -1,0 +1,4 @@
+scenario_id: graham_land_polar
+site_id: graham_land
+outage_probability: 0.1
+ntn_fallback: true

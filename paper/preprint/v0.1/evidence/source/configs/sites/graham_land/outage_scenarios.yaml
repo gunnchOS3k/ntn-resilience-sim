@@ -1,0 +1,6 @@
+site_id: graham_land
+scenarios:
+- normal
+- bad_day
+- worst_case
+- recovery
