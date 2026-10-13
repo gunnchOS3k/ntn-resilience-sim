@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.stats import t
-base=Path('/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/_publication_worktrees/ntn-resilience-sim')
+base=Path(__file__).resolve().parents[3]
 s=base/'paper/submission'; r=json.loads((s/'artifacts/rq3_gary_failover_sweeps.json').read_text())
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':8,'axes.spines.top':False,'axes.spines.right':False,'pdf.fonttype':42})
 labels={'terrestrial_baseline':'TN only','static_ntn':'NTN first','fallback':'TN first','adaptive':'Adaptive'}
@@ -34,7 +34,7 @@ table('secondary','Descriptive secondary metrics. Delay averages only selected o
 fig,ax=plt.subplots(figsize=(3.45,2.3))
 vals=[p['statistics']['mean_min_service'] for p in r['policies']]; errors=[p['statistics']['ci95_min_service']['high']-p['statistics']['mean_min_service'] for p in r['policies']]
 ax.bar(range(4),vals,yerr=errors,color=['#666666','#4e79a7','#59a14f','#f28e2b'],capsize=3);ax.set_xticks(range(4),[labels[p['policy']] for p in r['policies']],rotation=15);ax.set_ylabel('Minimum-useful-service fraction');ax.set_ylim(0,1);ax.axhline(.85,color='#444444',ls='--',lw=.7);ax.text(3.45,.862,'power ceiling',ha='right',fontsize=7);save(fig,'base_service')
-fig,axs=plt.subplots(1,2,figsize=(7.0,2.55),sharey=True)
+fig,axs=plt.subplots(1,2,figsize=(7.0,2.55),sharey=False)
 vis=[.5,.85,.99]
 for ax,dim,values in [(axs[0],'ntn_latency_ms',[20,40,60]),(axs[1],'ntn_capacity_mbps',[1,5,20])]:
  grid=r['decision_grids']['latency_x_visibility' if dim=='ntn_latency_ms' else 'capacity_x_visibility']; arr=np.array([[next(x['mean_min_service'] for x in grid if x['policy']=='adaptive' and x[dim]==d and x['ntn_visibility']==v)-vals[0] for v in vis] for d in values]); im=ax.imshow(arr,vmin=0,vmax=.12,cmap='Blues',origin='lower',aspect='auto');ax.set_xticks(range(3),vis);ax.set_yticks(range(3),values);ax.set_xlabel('NTN visibility probability');ax.set_ylabel('Latency (ms)' if dim=='ntn_latency_ms' else 'Capacity (Mbps)')
@@ -49,12 +49,4 @@ fig,ax=plt.subplots(figsize=(3.45,2.45));tn=r['policies'][0]['runs'];ad=r['polic
 fig,ax=plt.subplots(figsize=(7.0,2.4));ax.axis('off');blocks=[(.02,'Shared power\nP = 0 → both paths unavailable'),(.36,'Service qualification\nC ≥ 1 Mbps and L ≤ 500 ms'),(.70,'30 shared seeds\nLEO gain; GEO/thin NTN counterexamples')]
 for x,txt in blocks:ax.text(x,.7,txt,transform=ax.transAxes,va='center',fontsize=10,bbox={'boxstyle':'round,pad=.6','fc':'#eaf1f7','ec':'#4e79a7'})
 ax.text(.5,.15,'Synthetic threshold benchmark • no field NTN or local/peer validation',ha='center',transform=ax.transAxes,fontsize=10);save(fig,'graphical_abstract')
-# Independent statistics + exact input/output hashes; no source changes.
-checks=[]
-for p in r['policies']:
- a=np.array([x['min_service_fraction'] for x in p['runs']]);m=a.mean();sd=a.std(ddof=1);half=t.ppf(.975,len(a)-1)*sd/np.sqrt(len(a));st=p['statistics'];checks.append({'policy':p['policy'],'mean_from_seed_records':float(m),'sd':float(sd),'ci_low':float(m-half),'ci_high':float(m+half),'max_ci_error':float(max(abs(st['ci95_min_service']['low']-(m-half)),abs(st['ci95_min_service']['high']-(m+half))))})
-paths=['src/ntn_resilience/experiment.py','src/ntn_resilience/fallback_policy.py','src/ntn_resilience/stats.py','configs/experiments/rq3_gary_failover_sweeps.yaml','paper/artifacts/experiment_protocol.yaml','config/assumption_registry.yaml']
-record={'source_sha':subprocess.check_output(['git','rev-parse','HEAD'],cwd=base,text=True).strip(),'source_hashes':{p:hashlib.sha256((base/p).read_bytes()).hexdigest() for p in paths},'output_hash':hashlib.sha256((s/'artifacts/rq3_gary_failover_sweeps.json').read_bytes()).hexdigest(),'python':sys.version,'platform':platform.platform(),'scipy_check':checks,'evidence_class':'SYNTHETIC_SIM','n_seeds':30,'steps_per_seed':48,'claim_firewall':r['claim_firewall'],'analytic_expectations':{'tn_compound':.85*.88,'ntn_feasible_compound':.85*(.88+.12*.85),'static_unqualified_compound':.85*.88*.15,'shared_power_ceiling':.85}}
-(s/'verification/reproduction_audit.json').write_text(json.dumps(record,indent=2)+'\n')
-(s/'artifacts/environment.lock.txt').write_text(subprocess.check_output([sys.executable,'-m','pip','freeze'],text=True))
-print('Generated 6 figures, 4 tables and independent CI audit; maximum CI discrepancy',max(x['max_ci_error'] for x in checks))
+print('Generated six figures and four tables from retained 30-seed JSON; independent statistics are verified by verify_statistics.py')

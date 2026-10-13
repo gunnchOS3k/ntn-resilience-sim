@@ -1,0 +1,124 @@
+{
+  "source_sha": "05aaa9aec16882f58bac6ce4ff47618d9812f69f",
+  "fresh_payload_equal": true,
+  "excluded_machine_dependent_keys": [
+    "wrote",
+    "statistical_artifacts"
+  ],
+  "independent_statistics": {
+    "terrestrial_baseline": {
+      "service": {
+        "n": 30,
+        "mean": 0.7375033333333333,
+        "sample_sd": 0.06032987756026679,
+        "ci95": [
+          0.7149757868224649,
+          0.7600308798442017
+        ]
+      },
+      "paired_vs_tn": {
+        "n": 30,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "dz": null
+      }
+    },
+    "static_ntn": {
+      "service": {
+        "n": 30,
+        "mean": 0.8291633333333335,
+        "sample_sd": 0.049670087323384515,
+        "ci95": [
+          0.8106162179134709,
+          0.847710448753196
+        ]
+      },
+      "paired_vs_tn": {
+        "n": 30,
+        "mean": 0.09166,
+        "sample_sd": 0.042588330925671214,
+        "ci95": [
+          0.0757572558780696,
+          0.10756274412193041
+        ],
+        "dz": 2.15223273623878
+      }
+    },
+    "fallback": {
+      "service": {
+        "n": 30,
+        "mean": 0.8291633333333335,
+        "sample_sd": 0.049670087323384515,
+        "ci95": [
+          0.8106162179134709,
+          0.847710448753196
+        ]
+      },
+      "paired_vs_tn": {
+        "n": 30,
+        "mean": 0.09166,
+        "sample_sd": 0.042588330925671214,
+        "ci95": [
+          0.0757572558780696,
+          0.10756274412193041
+        ],
+        "dz": 2.15223273623878
+      }
+    },
+    "adaptive": {
+      "service": {
+        "n": 30,
+        "mean": 0.8291633333333335,
+        "sample_sd": 0.049670087323384515,
+        "ci95": [
+          0.8106162179134709,
+          0.847710448753196
+        ]
+      },
+      "paired_vs_tn": {
+        "n": 30,
+        "mean": 0.09166,
+        "sample_sd": 0.042588330925671214,
+        "ci95": [
+          0.0757572558780696,
+          0.10756274412193041
+        ],
+        "dz": 2.15223273623878
+      }
+    }
+  },
+  "exact_8_state_expectation_check": {
+    "g_t=0,g_n=0": {
+      "terrestrial_baseline": 0.0,
+      "static_ntn": 0.0,
+      "fallback": 0.0,
+      "adaptive": 0.0
+    },
+    "g_t=0,g_n=1": {
+      "terrestrial_baseline": 0.0,
+      "static_ntn": 0.7225,
+      "fallback": 0.08669999999999999,
+      "adaptive": 0.7225
+    },
+    "g_t=1,g_n=0": {
+      "terrestrial_baseline": 0.748,
+      "static_ntn": 0.11220000000000002,
+      "fallback": 0.748,
+      "adaptive": 0.748
+    },
+    "g_t=1,g_n=1": {
+      "terrestrial_baseline": 0.748,
+      "static_ntn": 0.8347,
+      "fallback": 0.8347,
+      "adaptive": 0.8347
+    }
+  },
+  "n_seeds": 30,
+  "steps_per_seed": 48,
+  "seed_unit": "synthetic timeline",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+}

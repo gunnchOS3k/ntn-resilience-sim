@@ -1,0 +1,5 @@
+Policy,Simple,Compound,Difference
+TN only,0.8736,0.7375,-0.1361
+NTN first,0.9826,0.8292,-0.1534
+TN first,0.9826,0.8292,-0.1534
+Adaptive,0.9826,0.8292,-0.1534

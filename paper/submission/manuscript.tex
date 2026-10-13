@@ -1,21 +1,37 @@
 % Owner-review draft, 2026-10-12. No submission, acceptance, or publisher identifier.
-\documentclass[journal,10pt]{IEEEtran}
-\usepackage{amsmath,amssymb,graphicx,booktabs,array,url,cite}
+\documentclass{IEEEoj}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,graphicx,booktabs,array,url,cite,etoolbox}
 \usepackage[hidelinks]{hyperref}
 \newcommand{\ind}{\mathbf{1}}
 \newcommand{\TN}{\mathrm{T}}
 \newcommand{\NTN}{\mathrm{N}}
 \title{Service Qualification and Shared-Power Limits in Terrestrial--Non-Terrestrial Fallback: A Reproducible Synthetic Benchmark}
-\author{Edmund Gunn, Jr.\thanks{Edmund Gunn, Jr. is an independent researcher. ORCID: \href{https://orcid.org/0009-0004-6546-2609}{0009-0004-6546-2609}. Research affiliation, contact information, funding, and human verification require owner confirmation before submission. This is an unpublished owner-review draft.}}
-\markboth{Owner-Review Draft, October 12, 2026}{Gunn: Service Qualification and Shared-Power Limits}
+\author{Edmund Gunn, Jr.}
+\affil{gunnchOS Research}
+\corresp{CORRESPONDING AUTHOR: Edmund Gunn, Jr. (e-mail: egunnjr@gunnchos.com).}
+\authornote{ORCID: \href{https://orcid.org/0009-0004-6546-2609}{0009-0004-6546-2609}. Owner-review draft, October 13, 2026. Not submitted or peer reviewed. Funding and additional-author declarations remain pending owner review.}
+\markboth{Owner-Review Draft}{Gunn: Service Qualification and Shared-Power Limits}
+\AtBeginDocument{\definecolor{ojcolor}{cmyk}{0.93,0.59,0.15,0.02}}
+\def\OJlogo{\vspace{-4pt}\hskip-4pt\includegraphics[height=18pt]{ojcoms.png}}
+% Preserve the official class; suppress publisher-assigned dates and rights footers for this unpublished draft.
+\makeatletter
+\patchcmd{\@maketitle}{{\receivedfont \ifx\@receiveddate\@empty\else Received\ \@receiveddate\fi\ifx\@revised\@empty\else;\ revised\ \@reviseddate\fi\ifx\@accepteddate\@empty\else;\ accepted\ \@accepteddate\fi\ifx\@publisheddate\@empty\else; Date of publication\nobreakspace\@publisheddate\fi\ifx\@currentdate\@empty\else;\space date of current version\nobreakspace\@currentdate\fi.\space\ifx\@editor\@empty\else\@editor\fi\par}}{}{ }{\PackageError{ownerreview}{Could not suppress publisher metadata}{Check official class version.}}
+\let\ojplain\ps@plain
+\let\ojheadings\ps@headings
+\def\draftfoot{\hbox to \textwidth{\scriptsize Owner-review draft -- not submitted or peer reviewed\hfill\thepage}}
+\def\ps@plain{\ojplain\def\@oddfoot{\draftfoot}\let\@evenfoot\@oddfoot}
+\def\ps@headings{\ojheadings\def\@oddfoot{\draftfoot}\let\@evenfoot\@oddfoot}
+\makeatother
 \begin{document}
-\maketitle
+\pagestyle{headings}
 \begin{abstract}
 A backup communication path can remain connected while failing the service it is intended to preserve. This paper studies that distinction in a transparent terrestrial--non-terrestrial fallback benchmark with explicit latency, capacity, visibility, and shared-power constraints. Four deterministic selection policies are evaluated using a frozen synthetic protocol with 30 shared random seeds and 48 abstract steps per run. A mathematical characterization explains when their useful-service outcomes are identical and when preferring a nonqualifying satellite path displaces a qualifying terrestrial path. In the compound-outage base case, the terrestrial-only mean useful-service fraction is 0.7375 and the three satellite-aware policies each attain 0.8292. The paired increase is 0.09166, with a 95 percent interval of 0.07576 to 0.10756 over simulation seeds. For a configured 550 ms satellite delay exceeding a 500 ms service limit, or 0.5 Mbps satellite capacity below a 1 Mbps requirement, satellite-first service falls to 0.1083, while terrestrial-first and adaptive selection retain 0.7375. Common terminal-power loss imposes a population useful-service ceiling of 0.85 regardless of visibility. The results support a reproducible service-qualification counterexample and an audit of policy equivalence within the model. They do not establish measured satellite performance, deployed control, validated local or peer fallback, or general superiority of adaptive orchestration.
 \end{abstract}
 \begin{IEEEkeywords}
-non-terrestrial networks, service continuity, compound outages, system resilience, reproducibility, minimum-useful service.
+Compound outages, minimum-useful service, non-terrestrial networks, reproducibility, service continuity, system resilience.
 \end{IEEEkeywords}
+\maketitle
 
 \section{Introduction}
 \IEEEPARstart{N}{on-terrestrial} connectivity is often proposed as a resilience layer when terrestrial access fails. The proposal is reasonable at the architectural level, but an available alternative link does not automatically deliver a useful application service. Delay, capacity, terminal power, and link visibility can each prevent service, even if a controller reports that a connection exists. A meaningful evaluation must therefore state both the fallback rule and the service qualification rule.
@@ -42,9 +58,10 @@ The three-paper program also imposes a nonduplication boundary. Paper I concerns
 \section{System Model}
 \subsection{State, Inputs, and Evidence Boundary}
 Let $t\in\{1,\ldots,H\}$ denote an abstract simulation step, with $H=48$. There is no specified duration in seconds. Define raw terrestrial availability $R_t$, raw NTN visibility $V_t$, and terminal-power availability $P_t$. The sampler draws three uniform random values per step, in that order, from Python's seeded pseudorandom generator and thresholds them to produce
-\begin{equation}
- R_t\sim\mathrm{Bernoulli}(r),\quad V_t\sim\mathrm{Bernoulli}(v),\quad P_t\sim\mathrm{Bernoulli}(q).
-\end{equation}
+\begin{align}
+ R_t&\sim\mathrm{Bernoulli}(r),\quad V_t\sim\mathrm{Bernoulli}(v),\\
+ P_t&\sim\mathrm{Bernoulli}(q).
+\end{align}
 Here $r=1-p_R$ and $q=1-p_P$. The model assumes independence of the raw draws and independence across steps. A seed deterministically specifies the entire timeline. Comparable policies receive the same seed and parameters, and thus the same raw timeline.
 
 In the compound condition, usable path availability is
@@ -62,7 +79,7 @@ The fixed qualification indicator is
 \begin{equation}\label{eq:qualification}
  g_j=\ind\{C_j\ge C_{\min}\}\ind\{L_j\le L_{\max}\},
 \end{equation}
-with $C_{\min}=1$ Mbps and $L_{\max}=500$ ms. Equality qualifies. Let $X_{\pi,t}\in\{\TN,\NTN,\varnothing\}$ be the path selected by policy $\pi$, where $\varnothing$ is offline. Define
+with $C_{\min}=1$ Mbps and $L_{\max}=500$ ms. Equality qualifies. Let $X_{\pi,t}\in\{\TN,\NTN,\varnothing\}$ be the path selected by policy $\pi$, where $\varnothing$ is offline and $g_{\varnothing}=0$. Define
 \begin{align}
  M_{\pi,t}&=\ind\{X_{\pi,t}\ne\varnothing\}g_{X_{\pi,t}},\\
  S_{\pi,s}&=H^{-1}\sum_{t=1}^{H}M_{\pi,t},\label{eq:service}\\
@@ -76,13 +93,13 @@ Offline selection has $M=0$ in this engine. A broader product can allow cached l
 The names in the source are retained for reproducibility, with descriptive labels used in figures. Terrestrial baseline selects TN if $A_\TN=1$ and otherwise goes offline. Static NTN selects NTN if $A_\NTN=1$, otherwise TN if $A_\TN=1$. It is consequently satellite first rather than an exclusive satellite-only policy. Fallback selects TN if available and otherwise NTN if available. It does not screen the backup against the service requirement before selection.
 
 Adaptive selection forms available candidates $\mathcal A_t=\{j:A_{j,t}=1\}$ and qualifying candidates $\mathcal Q_t=\{j\in\mathcal A_t:g_j=1\}$. Its rule is
-\begin{equation}
- X_{a,t}=\begin{cases}
+\begin{align}
+ \mathcal B_t&=\begin{cases}\mathcal Q_t,&\mathcal Q_t\ne\emptyset,\\\mathcal A_t,&\mathcal Q_t=\emptyset,\end{cases}\\
+ X_{a,t}&=\begin{cases}
  \varnothing,&\mathcal A_t=\emptyset,\\
- \arg\min_{j\in\mathcal B_t}(L_j,-C_j),&\text{otherwise},
- \end{cases}\quad
- \mathcal B_t=\begin{cases}\mathcal Q_t,&\mathcal Q_t\ne\emptyset,\\\mathcal A_t,&\mathcal Q_t=\emptyset.\end{cases}
-\end{equation}
+ \arg\min_{j\in\mathcal B_t}(L_j,-C_j),&\text{otherwise}.
+ \end{cases}
+\end{align}
 The pair is sorted lexicographically; identical latency and capacity retain insertion order, TN before NTN. With only two candidates, each decision has constant time and storage. It is a deterministic qualification rule, not a learning algorithm, predictive digital twin, or optimized multipath transport.
 
 A reproducible run samples the timeline once from the seed, applies the selected rule at every step, evaluates (\ref{eq:qualification}), records path and service indicators, and aggregates (\ref{eq:service}). An unavailable path is never selected. If available paths all fail qualification, adaptive still selects an available path, giving uptime but no useful service. That behavior is essential for interpreting the unfavorable cases.
@@ -128,7 +145,7 @@ Improving visibility cannot overcome common power loss. The simple-case feasible
 
 \section{Experimental Design and Reproduction}
 \subsection{Frozen Protocol and Provenance}
-The experiment is \texttt{rq3\_gary\_failover\_sweeps}. The frozen protocol is retained at \texttt{paper/artifacts/experiment\_protocol.yaml}; the executing specification is \texttt{configs/experiments/rq3\_gary\_failover\_sweeps.yaml}. The accepted-main source audited for this draft is commit \texttt{05aaa9a}; full commit and SHA-256 hashes are recorded in the supplementary package. The 30-seed statistical-parity revision entered through commit \texttt{7afde2e}. Reproduction used unchanged simulation, policy, statistics, and configuration files.
+The experiment is \texttt{rq3\_gary\_failover\_sweeps}. Its frozen protocol and executing YAML specification are retained in the reproducibility package with their original repository paths. The accepted-main source audited for this draft is commit \texttt{05aaa9a}; full commit and SHA-256 hashes are recorded in the supplementary package. The 30-seed statistical-parity revision entered through commit \texttt{7afde2e}. Reproduction used unchanged simulation, policy, statistics, and configuration files.
 
 The current protocol declares seeds 1 through 30, shared across policies; $H=48$; $p_R=0.12$; $p_P=0.15$; compound failure enabled; $C_\TN=20$ Mbps; $L_\TN=25$ ms; base $C_\NTN=5$ Mbps, $L_\NTN=40$ ms, and $v=0.85$. Delay values $\{20,40,60\}$ ms, capacities $\{1,5,20\}$ Mbps, and visibility probabilities $\{0.5,0.85,0.99\}$ define one-dimensional sweeps and two two-dimensional grids. The declared unfavorable probes use 550 ms configured GEO delay and 0.5 Mbps capacity. A power contrast removes the shared-power outage while retaining the raw random-draw schedule.
 
@@ -147,7 +164,7 @@ Intervals quantify Monte Carlo variation under fixed model assumptions. They do 
 The source also reports paired standardized effect $d_z=\bar D/\hat\sigma_D$. Absolute service-fraction differences are more interpretable for the present comparison, and remain primary. If difference variance is zero, the helper returns zero rather than a mathematically meaningful standardized effect; we avoid using that convention to interpret deterministic equivalence.
 
 \subsection{Reproduction Procedure}
-A clean checkout at the recorded commit, Python 3.12.12, PyYAML, and jsonschema reproduce the engine. The audit adds pytest, SciPy, and Matplotlib for testing, independent statistics, and figures. Exact dependency versions, commands, data dictionary, and hashes accompany the manuscript. All 37 repository tests pass after the separately versioned field-kit contract fixtures are supplied; the RQ3-focused subset independently passes 17 tests. These software checks establish internal consistency, not external scientific validation.
+A clean checkout at the recorded commit, Python 3.12.14, PyYAML, and jsonschema reproduce the engine. The audit adds pytest, SciPy, and Matplotlib for testing, independent statistics, and figures. Exact dependency versions, commands, data dictionary, and hashes accompany the manuscript. All 37 repository tests pass after the separately versioned field-kit contract fixtures are supplied; the RQ3-focused subset independently passes 17 tests. These software checks establish internal consistency, not external scientific validation.
 
 Tables and figures are generated from the complete newly reproduced JSON by the included plotting script. No result values are typed into an image. The original experiment scripts and frozen artifacts are not modified. Analytical expressions are separately labeled and are not added to the experimental sample size.
 
@@ -231,9 +248,9 @@ In the reproduced synthetic model, qualifying NTN backup improves useful service
 Simulation source is available in \url{https://github.com/gunnchOS3k/ntn-resilience-sim} at the commit specified in the supplementary reproduction record. The repository's MIT license governs existing software and documentation. This draft's complete synthetic JSON, data dictionary, seed statistics, plotting sources, and hashes accompany the manuscript under \texttt{paper/submission/}. No field dataset is included. No permanent archive DOI, publisher DOI, or ORCID work entry has been assigned to this unpublished draft.
 
 \section*{Acknowledgment and Declarations}
-OpenAI Codex assisted substantially with literature discovery and bibliographic verification, source auditing, mathematical exposition, drafting all manuscript sections, and generation of reproducibility, statistics, and plotting scripts in this owner-review revision. Figures are deterministic plots of reproduced synthetic outputs rather than generated illustrations. The author must review and verify all calculations, citations, figures, claims, and declarations before submission; that human verification has not yet occurred. AI systems are not authors.
+OpenAI Codex was used at a substantive drafting and analysis level in the Abstract, Sections I--VIII, Data and Software Availability, and these declarations. It assisted with literature discovery and bibliographic verification, source auditing, mathematical derivations and exposition, full prose drafting and revision, and generation of reproducibility, statistics, and plotting scripts. Figures are deterministic plots of reproduced synthetic outputs rather than generated illustrations. The author must review and verify all calculations, citations, figures, claims, and declarations before submission; that human verification has not yet occurred. AI systems are not authors.
 
-The proposed human author is Edmund Gunn, Jr., based on the established project attribution. Author contributions, the use of gunnchOS Research as affiliation, contact details, funding, competing interests, ownership, prior dissemination, and permission for journal submission require owner confirmation in the accompanying worksheet. No University of Oulu appointment, enrollment, supervision, institutional endorsement, or funding is claimed. The study reports synthetic software experiments and contains no human-participant or personal-network measurement data.
+The confirmed author is Edmund Gunn, Jr., affiliated with gunnchOS Research, with corresponding e-mail egunnjr@gunnchos.com and ORCID 0009-0004-6546-2609. Additional coauthors, author contributions, funding, sponsor disclosures, competing interests, ownership, prior dissemination, and submission authorization remain pending owner review in the accompanying worksheet. No University of Oulu appointment, enrollment, supervision, institutional endorsement, or funding is claimed. The study reports synthetic software experiments and contains no human-participant or personal-network measurement data.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
