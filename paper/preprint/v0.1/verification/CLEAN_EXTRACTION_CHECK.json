@@ -1,0 +1,27 @@
+{
+  "source_archive_files_verified": 40,
+  "evidence_archive_files_verified": 141,
+  "clean_source_build_pass": true,
+  "clean_pdf_text_equal": true,
+  "clean_pdf_pages": 9,
+  "clean_evidence_payload_equal": true,
+  "paired_statistics": {
+    "n": 30,
+    "mean": 0.09166,
+    "sample_sd": 0.042588330925671214,
+    "ci95": [
+      0.0757572558780696,
+      0.10756274412193041
+    ],
+    "dz": 2.15223273623878
+  },
+  "figure_script_portable_run_pass": true,
+  "original_source_snapshot_git_byte_parity": true,
+  "archive_manifest_scope": "all payload members; manifest itself protected by outer ZIP SHA256",
+  "publication_authorization": false,
+  "human_scientific_approval": false,
+  "originality_verified": false,
+  "article_license_approval": false,
+  "python_environment_record": "acceptance_environment.txt",
+  "journal_review_pdf_sha256_unchanged": "e6977e8b91e4d2a9a6f66036b5ae3d2527ef4b7164e78eccc2803c63923af046"
+}

@@ -1,18 +1,14 @@
-# Claim-to-evidence matrix
+# Claim-to-evidence links (archive relative)
 
-| Manuscript claim | Evidence | Boundary |
+| Claim | Retained evidence | Bound |
 |---|---|---|
-| Base service 0.7375 vs0.8292 | artifacts/rq3_gary_failover_sweeps.json policies[].runs and statistics; tables/base.csv; fresh payload check | 30 seeded synthetic timelines, fixed predicate |
-| Paired gain0.09166, interval0.07576..0.10756 | verification/statistics_audit.json | Monte Carlo uncertainty only |
-| Three NTN-aware primary outcomes equal | Exact per-seed arrays plus Eq.(14) availability-union derivation | Both paths qualify, no switching penalty |
-| NTN-first unfavorable service0.1083 | delay_class_contrast and stress_probes; tables/negative.csv | Configured550ms or0.5Mbps, same qualification bit/timelines |
-| Fallback/adaptive retain0.7375 in probes | Same artifacts; analytic qr when g_N=0 | TN always configured qualifying |
-| Shared-power ceiling E[S]<=0.85 | State equation M<=P; eight-state independent audit | Expectation, no sample-wise hard bound |
-| Capacity/delay flat inside qualifying grid | decision_grids plus corrected figure generator | Binary predicate; no demand or queues |
-| Secondary recovery1.6 vs1.2667 | policies statistics; recovery_steps source | Abstract first-miss metric, no seconds |
-| Primary code reproducible;37tests pass | source SHA/hashes, fresh output equality, verification/tests_full.txt | Software consistency, no independent human approval |
-| NTN integration and delay issues precede this paper | Lin/Rinaldi/Azari verified references | Context, not calibration of configured priors |
-| Other disaster simulation already exists | Wang2026 author abstract inspected; recovered method notes retained | Preprint; no direct numerical comparison |
-| Protocol-aware NTN simulation differs materially | Figaro2026 ns-3 calibration setup inspected | Its data are not transferred into this engine |
+| TN.7375; NTN-aware.8292 | [raw JSON](artifacts/rq3_gary_failover_sweeps.json), policies[].runs/statistics; [table](tables/base.csv) | 30 synthetic timelines |
+| Gain.09166; CI[.07575726,.10756274], dz2.15223274 | [independent stats](verification/statistics_audit.json), independent_statistics.adaptive.paired_vs_tn | Paired Monte Carlo uncertainty |
+| Three NTN-aware policies equal | raw JSON, policies[].statistics.seed_min_service; preprint Eq14 | Both paths qualify; no switch cost |
+| Harmful.1083 versus retained.7375 | raw JSON, delay_class_contrast/stress_probes; [negative table](tables/negative.csv) |550ms or.5Mbps; same qualification bit/stream |
+| Shared-power expectation ceiling.85 | [eight-state audit](verification/statistics_audit.json), exact_8_state_expectation_check; [experiment source](source/src/ntn_resilience/experiment.py); preprint Eq17 | Population only; finite sample can exceed |
+| Latency grid20/40/60; capacity1/5/20 | raw JSON, decision_grids; [plot source](scripts/generate_artifacts.py) | Flat within qualifying region |
+| Full37 focused9 tests | [full log](verification/tests_full.txt), [focused log](verification/tests_rq3.txt) | Historical software checks with sibling fixtures; not standalone suite |
+| Frozen source/protocol | [original snapshot manifest](source/MANIFEST.json), [protocol](artifacts/experiment_protocol.yaml), [execution YAML](source/configs/experiments/rq3_gary_failover_sweeps.yaml) | No retrospective registration claim |
 
-Removed or qualified: first TN-NTN simulator; always superior NTN; general adaptive superiority; standards-guaranteed5Mbps/0.85visibility; GEO universally unsuitable; local/peer/edge validation; seconds of recovery; measured terminal energy; operator/emergency/regional performance; original four-seed results as30-seed outcomes; independently preregistered chronology. No unsupported positive claim remains in the bounded draft, though journal novelty remains unresolved.
+No physical NTN, adaptive superiority, validated local/peer path, externally calibrated parameters or established originality is claimed. The source/stats verifier operates from clean extraction with generated outputs separate from retained records.
