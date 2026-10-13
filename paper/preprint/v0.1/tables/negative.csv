@@ -1,0 +1,5 @@
+Policy,LEO base,GEO,Thin NTN
+TN only,0.7375,0.7375,0.7375
+NTN first,0.8292,0.1083,0.1083
+TN first,0.8292,0.7375,0.7375
+Adaptive,0.8292,0.7375,0.7375

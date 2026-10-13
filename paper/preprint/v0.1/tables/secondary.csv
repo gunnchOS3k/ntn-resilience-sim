@@ -1,0 +1,5 @@
+Policy,Delay (ms),Offline steps,Recovery
+TN only,25.00,12.60,1.60
+NTN first,38.02,8.20,1.27
+TN first,26.66,8.20,1.27
+Adaptive,26.66,8.20,1.27
