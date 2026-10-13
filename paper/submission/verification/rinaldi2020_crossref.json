@@ -1,0 +1,1011 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          12
+        ]
+      ],
+      "date-time": "2026-10-12T12:55:51Z",
+      "timestamp": 1791809751336,
+      "version": "4.3.4"
+    },
+    "reference-count": 144,
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2020,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2020-01-01T00:00:00Z",
+          "timestamp": 1577836800000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100002341",
+        "name": "Ericsson Research, project 5G-FORCE, and the Academy of Finland",
+        "doi-asserted-by": "publisher",
+        "id": [
+          {
+            "id": "10.13039/501100002341",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "IEEE Access"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "DOI": "10.1109/access.2020.3022981",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2020,
+          9,
+          10
+        ]
+      ],
+      "date-time": "2020-09-10T16:41:46Z",
+      "timestamp": 1599756106000
+    },
+    "page": "165178-165200",
+    "source": "Crossref",
+    "is-referenced-by-count": 432,
+    "title": [
+      "Non-Terrestrial Networks in 5G &amp; Beyond: A Survey"
+    ],
+    "prefix": "10.1109",
+    "volume": "8",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8036-7464",
+        "authenticated-orcid": false,
+        "given": "Federica",
+        "family": "Rinaldi",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5308-9147",
+        "authenticated-orcid": false,
+        "given": "Helka-Liina",
+        "family": "Maattanen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Johan",
+        "family": "Torsner",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-0550-5978",
+        "authenticated-orcid": false,
+        "given": "Sara",
+        "family": "Pizzi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8223-3665",
+        "authenticated-orcid": false,
+        "given": "Sergey",
+        "family": "Andreev",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5414-8252",
+        "authenticated-orcid": false,
+        "given": "Antonio",
+        "family": "Iera",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-3976-297X",
+        "authenticated-orcid": false,
+        "given": "Yevgeni",
+        "family": "Koucheryavy",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8670-9413",
+        "authenticated-orcid": false,
+        "given": "Giuseppe",
+        "family": "Araniti",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "263",
+    "reference": [
+      {
+        "key": "ref39",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1023/A:1022502924226"
+      },
+      {
+        "key": "ref38",
+        "article-title": "Broadband service delivery from high altitude platforms",
+        "author": "tozer",
+        "year": "2000",
+        "journal-title": "Proc Communicate"
+      },
+      {
+        "key": "ref33",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/PIMRC.1998.734709"
+      },
+      {
+        "key": "ref32",
+        "doi-asserted-by": "crossref",
+        "first-page": "1329",
+        "DOI": "10.1109/25.728523",
+        "article-title": "Satellite-UMTS traffic dimensioning and resource management technique analysis",
+        "volume": "47",
+        "author": "hu",
+        "year": "1998",
+        "journal-title": "IEEE Trans Veh Technol"
+      },
+      {
+        "key": "ref31",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MCOM.2004.1355878"
+      },
+      {
+        "key": "ref30",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/sat.776"
+      },
+      {
+        "key": "ref37",
+        "first-page": "116",
+        "article-title": "Adaptive modulation and coding for satellite-UMTS",
+        "author": "sumanasena",
+        "year": "2003",
+        "journal-title": "Proc IEEE Veh Technol Conf (VTC-Fall)"
+      },
+      {
+        "key": "ref36",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/35.790970"
+      },
+      {
+        "key": "ref35",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/25.994808"
+      },
+      {
+        "key": "ref34",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/CMC.2009.135"
+      },
+      {
+        "key": "ref28",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/35.199607"
+      },
+      {
+        "key": "ref27",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/VETECS.2000.851616"
+      },
+      {
+        "key": "ref29",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/35.592101"
+      },
+      {
+        "key": "ref20",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2005.1522108"
+      },
+      {
+        "key": "ref22",
+        "year": "1999",
+        "journal-title": "Technical Specification Group Service and System Aspects on Network Architecture"
+      },
+      {
+        "key": "ref21",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOM.1995.501985"
+      },
+      {
+        "key": "ref24",
+        "year": "2007",
+        "journal-title": "Technical Specification Group Services and System Aspects Multimedia Broadcast/Multicast Service (MBMS) Architecture and Functional Description"
+      },
+      {
+        "key": "ref23",
+        "year": "2001",
+        "journal-title": "Technical Specification Group Radio Access Network (E-UTRA) and (E-UTRAN) Overall Description"
+      },
+      {
+        "key": "ref101",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2019.1800364"
+      },
+      {
+        "key": "ref26",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/35.648775"
+      },
+      {
+        "key": "ref100",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JIOT.2015.2487046"
+      },
+      {
+        "key": "ref25",
+        "year": "2003",
+        "journal-title": "Deployment of IMT-2000 Systems"
+      },
+      {
+        "key": "ref50",
+        "year": "2017",
+        "journal-title": "General aspects and principles for interfaces supporting Multimedia Broadcast Multicast Service (MBMS) within E-UTRAN"
+      },
+      {
+        "key": "ref51",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.4218/etrij.12.0211.0437"
+      },
+      {
+        "key": "ref59",
+        "article-title": "5G new radio evolution meets satellite communications: Opportunities, challenges, and solutions",
+        "author": "lin",
+        "year": "2019",
+        "journal-title": "arXiv 1903 11219"
+      },
+      {
+        "key": "ref58",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.comnet.2006.06.014"
+      },
+      {
+        "key": "ref57",
+        "first-page": "1",
+        "article-title": "Adaptive buffering scheme for streaming service in intersystem handover between terrestrial and satellite systems",
+        "author": "hong",
+        "year": "2008",
+        "journal-title": "Proc IEEE Int Symp Consum Electron"
+      },
+      {
+        "key": "ref56",
+        "first-page": "143",
+        "article-title": "Handover procedures in integrated satellite and terrestrial mobile systems",
+        "author": "corazza",
+        "year": "1993",
+        "journal-title": "Proc Int Mobile Satellite Conf"
+      },
+      {
+        "key": "ref55",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2004.1325888"
+      },
+      {
+        "key": "ref54",
+        "article-title": "User clustering for multicast precoding in multi-beam satellite systems",
+        "author": "guidotti",
+        "year": "2017",
+        "journal-title": "IEEE Trans Wireless Commun"
+      },
+      {
+        "key": "ref53",
+        "article-title": "Advance precoding technique for coordinated multibeam satellite systems",
+        "author": "joroughi",
+        "year": "2016",
+        "journal-title": "The American Institute of Aeronautics and Astronautics (AIAA) Journal"
+      },
+      {
+        "key": "ref52",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.4218/etrij.14.0113.0079"
+      },
+      {
+        "key": "ref40",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s11277-005-0742-3"
+      },
+      {
+        "key": "ref4",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2006.283818"
+      },
+      {
+        "key": "ref3",
+        "year": "2019",
+        "journal-title": "Study on New Radio (NR) to support non terrestrial networks"
+      },
+      {
+        "key": "ref6",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/SURV.2011.033110.00072"
+      },
+      {
+        "key": "ref5",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/sat.941"
+      },
+      {
+        "key": "ref8",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2016.2564990"
+      },
+      {
+        "key": "ref49",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s11036-014-0519-6"
+      },
+      {
+        "key": "ref7",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JIOT.2015.2487046"
+      },
+      {
+        "key": "ref9",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2016.2561078"
+      },
+      {
+        "key": "ref46",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.4304/jcm.4.10.815-826"
+      },
+      {
+        "key": "ref45",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/IWSSC.2007.4409393"
+      },
+      {
+        "key": "ref48",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOM.2013.6831535"
+      },
+      {
+        "key": "ref47",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2018.2832818"
+      },
+      {
+        "key": "ref42",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s11277-005-0577-y"
+      },
+      {
+        "key": "ref41",
+        "year": "2007",
+        "journal-title": "Technical Specification Group Radio Access Network Evolved Universal Terrestrial Radio Access Network (E-UTRAN)"
+      },
+      {
+        "key": "ref44",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ASMS.2008.35"
+      },
+      {
+        "key": "ref43",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOM.2018.8647954"
+      },
+      {
+        "key": "ref127",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2018.2865998"
+      },
+      {
+        "key": "ref126",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2016.1500047WC"
+      },
+      {
+        "key": "ref125",
+        "doi-asserted-by": "crossref",
+        "first-page": "864",
+        "DOI": "10.1109/LWC.2018.2833471",
+        "article-title": "Imperfect CSI based multi-way satellite relaying",
+        "volume": "7",
+        "author": "arti",
+        "year": "2018",
+        "journal-title": "IEEE Wireless Commun Lett"
+      },
+      {
+        "key": "ref124",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2942167"
+      },
+      {
+        "key": "ref73",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2018.2824623"
+      },
+      {
+        "key": "ref72",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LCOMM.2019.2903054"
+      },
+      {
+        "key": "ref129",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/sat.1312"
+      },
+      {
+        "key": "ref71",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LWC.2017.2755014"
+      },
+      {
+        "key": "ref128",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TWC.2015.2424961"
+      },
+      {
+        "key": "ref70",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2016.2615261"
+      },
+      {
+        "key": "ref76",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2018.2872718"
+      },
+      {
+        "key": "ref130",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ASMS-SPSC.2018.8510728"
+      },
+      {
+        "key": "ref77",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.2018.1800194"
+      },
+      {
+        "key": "ref74",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2893366"
+      },
+      {
+        "key": "ref75",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2944883"
+      },
+      {
+        "key": "ref133",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TBC.2020.2991312"
+      },
+      {
+        "key": "ref134",
+        "year": "2020",
+        "journal-title": "NR Physical channels and modulation"
+      },
+      {
+        "key": "ref131",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/AERO.2019.8742238"
+      },
+      {
+        "key": "ref78",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2920428"
+      },
+      {
+        "key": "ref132",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LWC.2019.2912753"
+      },
+      {
+        "key": "ref79",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TCCN.2017.2763619"
+      },
+      {
+        "key": "ref136",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOMW.2018.8644394"
+      },
+      {
+        "key": "ref135",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2946084"
+      },
+      {
+        "key": "ref138",
+        "year": "2019",
+        "journal-title": "Solutions for NR to support non-terrestrial networks (NTN)"
+      },
+      {
+        "key": "ref137",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2018.2826047"
+      },
+      {
+        "key": "ref60",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/sat.1245"
+      },
+      {
+        "key": "ref139",
+        "year": "2019",
+        "journal-title": "New Study WID on NB-IoT/eMTC Support for NTN"
+      },
+      {
+        "key": "ref62",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2895263"
+      },
+      {
+        "key": "ref61",
+        "year": "2017",
+        "journal-title": "The 5G Infrastructure Public Private Partnership"
+      },
+      {
+        "key": "ref63",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2932446"
+      },
+      {
+        "key": "ref64",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2018.1800365"
+      },
+      {
+        "key": "ref140",
+        "year": "2003",
+        "journal-title": "Network 2030 A Blueprint of Technology Applications and Market Drivers Towards the Year 2030 and Beyond"
+      },
+      {
+        "key": "ref65",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.2018.1800193"
+      },
+      {
+        "key": "ref141",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TWC.2018.2879940"
+      },
+      {
+        "key": "ref66",
+        "year": "2014",
+        "journal-title": "Series Y Global Information Infrastructure Internet Protocol Aspects and Next-Generation Networks Framework of Software Defined Networking"
+      },
+      {
+        "key": "ref142",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2018.2871519"
+      },
+      {
+        "key": "ref67",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.2018.1800037"
+      },
+      {
+        "key": "ref143",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MVT.2019.2921398"
+      },
+      {
+        "key": "ref68",
+        "year": "2018",
+        "journal-title": "Series Y Global Information Infrastructure Internet Protocol Aspects Next-Generation Networks Internet of Things and Smart Cities High-Level Technical Characteristics of Network Softwarization for IMT-2020"
+      },
+      {
+        "key": "ref144",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.001.1900287"
+      },
+      {
+        "key": "ref2",
+        "year": "2018",
+        "journal-title": "Streaming Video&#x2014;From Megabits to Gigabytes"
+      },
+      {
+        "key": "ref69",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2018.2791859"
+      },
+      {
+        "key": "ref1",
+        "year": "2020",
+        "journal-title": "Solutions for NR to support non-terrestrial networks (NTN)"
+      },
+      {
+        "key": "ref109",
+        "year": "2018",
+        "journal-title": "Series Y Global Information Infrastructure Internet Protocol Aspects Next-Generation Networks Internet of Things and Smart Cities Framework of the IMT-2020 Network"
+      },
+      {
+        "key": "ref95",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TAES.2018.2798318"
+      },
+      {
+        "key": "ref108",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/VTCFall.2016.7881129"
+      },
+      {
+        "key": "ref94",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MWC.2019.1800301"
+      },
+      {
+        "key": "ref107",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/NaNA.2016.22"
+      },
+      {
+        "key": "ref93",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2918581"
+      },
+      {
+        "key": "ref106",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MCOM.2015.7060482"
+      },
+      {
+        "key": "ref92",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2925187"
+      },
+      {
+        "key": "ref105",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.adhoc.2018.12.004"
+      },
+      {
+        "key": "ref91",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOM.2018.8647430"
+      },
+      {
+        "key": "ref104",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/AERO.2001.931726"
+      },
+      {
+        "key": "ref90",
+        "year": "2019",
+        "journal-title": "Evolved Universal Terrestrial Radio Access (E-UTRA) and Evolved Universal Terrestrial Radio Access Network (E-UTRAN)"
+      },
+      {
+        "key": "ref103",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.actaastro.2017.05.030"
+      },
+      {
+        "key": "ref102",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.asr.2010.10.009"
+      },
+      {
+        "key": "ref111",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3390/s19040831"
+      },
+      {
+        "key": "ref112",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/IWCMC.2019.8766619"
+      },
+      {
+        "key": "ref110",
+        "author": "hu",
+        "year": "2015",
+        "journal-title": "Mobile edge computing A key technology towards 5G"
+      },
+      {
+        "key": "ref98",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.comnet.2018.12.017"
+      },
+      {
+        "key": "ref99",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2017.2735988"
+      },
+      {
+        "key": "ref96",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/IPDPSW.2018.00132"
+      },
+      {
+        "key": "ref97",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2916920"
+      },
+      {
+        "key": "ref10",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2016.2603518"
+      },
+      {
+        "key": "ref11",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2018.2841996"
+      },
+      {
+        "key": "ref12",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1155/2019/6243505"
+      },
+      {
+        "key": "ref13",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JIOT.2019.2943900"
+      },
+      {
+        "key": "ref14",
+        "year": "2019",
+        "journal-title": "NG-RAN Architecture description"
+      },
+      {
+        "key": "ref15",
+        "year": "2018",
+        "journal-title": "Study on using Satellite Access in 5G"
+      },
+      {
+        "key": "ref118",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOBECOM38437.2019.9014090"
+      },
+      {
+        "key": "ref16",
+        "year": "2017",
+        "journal-title": "Minimum requirements related to technical performance for IMT2020 radio interface(s)"
+      },
+      {
+        "key": "ref82",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1049/iet-com.2016.1425"
+      },
+      {
+        "key": "ref117",
+        "year": "2020",
+        "journal-title": "Study on Narrow-Band Internet of Things (NB-IoT)/Enhanced Machine Type Communication (eMTC) Support for Non-Terrestrial Networks (NTN)"
+      },
+      {
+        "key": "ref17",
+        "year": "2020",
+        "journal-title": "Communicate Anywhere"
+      },
+      {
+        "key": "ref81",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s11277-017-4207-2"
+      },
+      {
+        "key": "ref18",
+        "year": "2019",
+        "journal-title": "Maritime Communication Services Over 3GPP"
+      },
+      {
+        "key": "ref84",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.2018.1800038"
+      },
+      {
+        "key": "ref119",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2941217"
+      },
+      {
+        "key": "ref19",
+        "year": "2018",
+        "journal-title": "Study on Integrated Access and Backhaul for NR"
+      },
+      {
+        "key": "ref83",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2017.2725519"
+      },
+      {
+        "key": "ref114",
+        "year": "2020",
+        "journal-title": "5G Service Requirements"
+      },
+      {
+        "key": "ref113",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOBECOM38437.2019.9013347"
+      },
+      {
+        "key": "ref116",
+        "year": "2020",
+        "journal-title": "Study on Management and Orchestration Aspects With Integrated Satellite Components in a 5G Network"
+      },
+      {
+        "key": "ref80",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2939165"
+      },
+      {
+        "key": "ref115",
+        "year": "2019",
+        "journal-title": "Study on Architecture Aspects for Using Satellite Access in 5G"
+      },
+      {
+        "key": "ref120",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2926432"
+      },
+      {
+        "key": "ref89",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSTSP.2019.2899731"
+      },
+      {
+        "key": "ref121",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/sat.1250"
+      },
+      {
+        "key": "ref122",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2930626"
+      },
+      {
+        "key": "ref123",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2939165"
+      },
+      {
+        "key": "ref85",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSYST.2019.2934358"
+      },
+      {
+        "key": "ref86",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LCOMM.2018.2815610"
+      },
+      {
+        "key": "ref87",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2925314"
+      },
+      {
+        "key": "ref88",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2017.2724478"
+      }
+    ],
+    "container-title": [
+      "IEEE Access"
+    ],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/6287639/8948470/09193893.pdf?arnumber=9193893",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2021,
+          12,
+          17
+        ]
+      ],
+      "date-time": "2021-12-17T14:56:52Z",
+      "timestamp": 1639753012000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/9193893/"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "references-count": 144,
+    "URL": "https://doi.org/10.1109/access.2020.3022981",
+    "relation": {},
+    "ISSN": [
+      "2169-3536"
+    ],
+    "issn-type": [
+      {
+        "value": "2169-3536",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    }
+  }
+}

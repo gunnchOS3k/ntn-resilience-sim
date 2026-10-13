@@ -1,0 +1,323 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          29
+        ]
+      ],
+      "date-time": "2026-09-29T13:55:12Z",
+      "timestamp": 1790690112780,
+      "version": "4.1.0"
+    },
+    "reference-count": 15,
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "issue": "4",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2021,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2021-12-01T00:00:00Z",
+          "timestamp": 1638316800000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2021,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2021-12-01T00:00:00Z",
+          "timestamp": 1638316800000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-029"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2021,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2021-12-01T00:00:00Z",
+          "timestamp": 1638316800000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-037"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "IEEE Comm. Stand. Mag."
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2021,
+          12
+        ]
+      ]
+    },
+    "DOI": "10.1109/mcomstd.011.2100038",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2021,
+          10,
+          19
+        ]
+      ],
+      "date-time": "2021-10-19T07:35:07Z",
+      "timestamp": 1634628907000
+    },
+    "page": "147-153",
+    "source": "Crossref",
+    "is-referenced-by-count": 290,
+    "title": [
+      "5G from Space: An Overview of 3GPP Non-Terrestrial Networks"
+    ],
+    "prefix": "10.1109",
+    "volume": "5",
+    "author": [
+      {
+        "given": "Xingqin",
+        "family": "Lin",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Stefan",
+        "family": "Rommer",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sebastian",
+        "family": "Euler",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Emre A.",
+        "family": "Yavuz",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Robert S.",
+        "family": "Karlsson",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "263",
+    "reference": [
+      {
+        "key": "ref10",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/COMST.2020.3028247"
+      },
+      {
+        "key": "ref11",
+        "article-title": "Study on New Radio (NR) to Support Non-Ter-restrial Networks",
+        "year": "2020",
+        "journal-title": "TR 38 811"
+      },
+      {
+        "key": "ref12",
+        "article-title": "Solutions for NR to Support Non-Terrestrial Networks (NTN)",
+        "year": "2020",
+        "journal-title": "TR 38 821"
+      },
+      {
+        "key": "ref13",
+        "article-title": "Study on Using Satellite Access in 5G",
+        "year": "2018",
+        "journal-title": "TR 22 822"
+      },
+      {
+        "key": "ref14",
+        "article-title": "Study on Management and Orchestration Aspects of Integrated Satellite Components in a 5G Net-work",
+        "year": "2021",
+        "journal-title": "TR 28 808"
+      },
+      {
+        "key": "ref15",
+        "article-title": "Study on PLMN Selection for Satellite Access",
+        "year": "2021",
+        "journal-title": "TR 24 821"
+      },
+      {
+        "key": "ref4",
+        "article-title": "WID on NB-IoT/eMTC support for NTN",
+        "year": "2021",
+        "journal-title": "3GPP TSG RAN Meeting"
+      },
+      {
+        "key": "ref3",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-030-58197-8_18"
+      },
+      {
+        "key": "ref6",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2019.2895263"
+      },
+      {
+        "key": "ref5",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/5GWF.2019.8911669"
+      },
+      {
+        "key": "ref8",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2020.3022981"
+      },
+      {
+        "key": "ref7",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MNET.011.2000493"
+      },
+      {
+        "key": "ref2",
+        "article-title": "ESOA Satellite Action Plan for 5G Standards",
+        "year": "0",
+        "journal-title": "EMEA Satellite Operators Association"
+      },
+      {
+        "key": "ref1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MCOMSTD.001.1800036"
+      },
+      {
+        "key": "ref9",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.comnet.2020.107588"
+      }
+    ],
+    "container-title": [
+      "IEEE Communications Standards Magazine"
+    ],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/7886829/9696260/09579443.pdf?arnumber=9579443",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          4,
+          18
+        ]
+      ],
+      "date-time": "2022-04-18T16:16:52Z",
+      "timestamp": 1650298612000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/9579443/"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          12
+        ]
+      ]
+    },
+    "references-count": 15,
+    "journal-issue": {
+      "issue": "4"
+    },
+    "URL": "https://doi.org/10.1109/mcomstd.011.2100038",
+    "relation": {},
+    "ISSN": [
+      "2471-2825",
+      "2471-2833"
+    ],
+    "issn-type": [
+      {
+        "value": "2471-2825",
+        "type": "print"
+      },
+      {
+        "value": "2471-2833",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          12
+        ]
+      ]
+    }
+  }
+}

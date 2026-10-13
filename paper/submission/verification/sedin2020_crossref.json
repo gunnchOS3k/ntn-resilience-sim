@@ -1,0 +1,297 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          8,
+          26
+        ]
+      ],
+      "date-time": "2026-08-26T15:47:43Z",
+      "timestamp": 1787759263787,
+      "version": "build-2784847793"
+    },
+    "reference-count": 15,
+    "publisher": "IEEE",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2020-12-01T00:00:00Z",
+          "timestamp": 1606780800000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2020-12-01T00:00:00Z",
+          "timestamp": 1606780800000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-029"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2020-12-01T00:00:00Z",
+          "timestamp": 1606780800000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-037"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "published-print": {
+      "date-parts": [
+        [
+          2020,
+          12
+        ]
+      ]
+    },
+    "DOI": "10.1109/globecom42002.2020.9347998",
+    "type": "proceedings-article",
+    "created": {
+      "date-parts": [
+        [
+          2021,
+          2,
+          13
+        ]
+      ],
+      "date-time": "2021-02-13T03:26:39Z",
+      "timestamp": 1613186799000
+    },
+    "page": "1-6",
+    "source": "Crossref",
+    "is-referenced-by-count": 46,
+    "title": [
+      "Throughput and Capacity Evaluation of 5G New Radio Non-Terrestrial Networks with LEO Satellites"
+    ],
+    "prefix": "10.1109",
+    "author": [
+      {
+        "given": "Jonas",
+        "family": "Sedin",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Luca",
+        "family": "Feltrin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xingqin",
+        "family": "Lin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "263",
+    "reference": [
+      {
+        "key": "ref10",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JSAC.2018.2832831"
+      },
+      {
+        "key": "ref11",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.actaastro.2019.03.040"
+      },
+      {
+        "key": "ref12",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3286062.3286075"
+      },
+      {
+        "key": "ref13",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOCOM.2018.8647694"
+      },
+      {
+        "key": "ref14",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ACCESS.2019.2959824"
+      },
+      {
+        "key": "ref15",
+        "article-title": "Application of Kuiper Systems LLC for Authority to Launch and Operate a Non-Geostationary Satellite Orbit System in Ka-band Frequencies",
+        "year": "0",
+        "journal-title": "Technical appendix"
+      },
+      {
+        "key": "ref4",
+        "article-title": "Solutions for NR to Support Non-terrestrial Networks (Release 16)",
+        "year": "2020",
+        "journal-title": "V16 0 0"
+      },
+      {
+        "key": "ref3",
+        "article-title": "Study on New Radio (NR) to Support Non-terrestrial Networks (Release 15)",
+        "year": "2018",
+        "journal-title": "v15 0 0"
+      },
+      {
+        "key": "ref6",
+        "author": "lin",
+        "year": "2019",
+        "journal-title": "5G New Radio Evolution Meets Satellite Communications Opportunities Challenges and Solutions"
+      },
+      {
+        "key": "ref5",
+        "year": "2019",
+        "journal-title": "Solutions for NR to support non-terrestrial networks (NTN)"
+      },
+      {
+        "key": "ref8",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/49.345873"
+      },
+      {
+        "key": "ref7",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/GLOBECOM38437.2019.9014090"
+      },
+      {
+        "key": "ref2",
+        "year": "0",
+        "journal-title": "ESOA Satellite Action Plan for 5G Standards"
+      },
+      {
+        "key": "ref1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MCOMSTD.001.1800036"
+      },
+      {
+        "key": "ref9",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ASMS-SPSC.2016.7601471"
+      }
+    ],
+    "event": {
+      "name": "GLOBECOM 2020 - 2020 IEEE Global Communications Conference",
+      "location": "Taipei, Taiwan",
+      "start": {
+        "date-parts": [
+          [
+            2020,
+            12,
+            7
+          ]
+        ]
+      },
+      "end": {
+        "date-parts": [
+          [
+            2020,
+            12,
+            11
+          ]
+        ]
+      }
+    },
+    "container-title": [
+      "GLOBECOM 2020 - 2020 IEEE Global Communications Conference"
+    ],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/9322055/9321973/09347998.pdf?arnumber=9347998",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          27
+        ]
+      ],
+      "date-time": "2022-06-27T15:55:25Z",
+      "timestamp": 1656345325000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/9347998/"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2020,
+          12
+        ]
+      ]
+    },
+    "references-count": 15,
+    "URL": "https://doi.org/10.1109/globecom42002.2020.9347998",
+    "relation": {},
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2020,
+          12
+        ]
+      ]
+    }
+  }
+}

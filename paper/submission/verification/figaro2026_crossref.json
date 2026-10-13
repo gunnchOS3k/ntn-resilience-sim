@@ -1,0 +1,496 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          11
+        ]
+      ],
+      "date-time": "2026-09-11T16:03:29Z",
+      "timestamp": 1789142609333,
+      "version": "build-2803163510"
+    },
+    "reference-count": 21,
+    "publisher": "Springer Science and Business Media LLC",
+    "issue": "1",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              3
+            ]
+          ],
+          "date-time": "2026-06-03T00:00:00Z",
+          "timestamp": 1780444800000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://creativecommons.org/licenses/by/4.0"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              3
+            ]
+          ],
+          "date-time": "2026-06-03T00:00:00Z",
+          "timestamp": 1780444800000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://creativecommons.org/licenses/by/4.0"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100000780",
+        "name": "European Commission",
+        "doi-asserted-by": "publisher",
+        "id": [
+          {
+            "id": "10.13039/501100000780",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "link.springer.com"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "npj Wirel. Technol."
+    ],
+    "abstract": "<jats:title>Abstract</jats:title>\n                  <jats:p>This paper overviews the 3GPP 5G NR-NTN standard, detailing the evolution from Rel. 18 to 19 and innovations for Rel. 20. Using realistic ns-3 simulations validated against 3GPP calibration data, we evaluate various satellite network configurations. The results highlight the potential of NTNs to extend wireless connectivity to remote areas, serve requests during emergency, and alleviate terrestrial network congestion.</jats:p>",
+    "DOI": "10.1038/s44459-026-00029-y",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          3
+        ]
+      ],
+      "date-time": "2026-06-03T06:33:41Z",
+      "timestamp": 1780468421000
+    },
+    "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 1,
+    "title": [
+      "5G NR non-terrestrial networks: from early results to the road ahead"
+    ],
+    "prefix": "10.1038",
+    "volume": "2",
+    "author": [
+      {
+        "given": "Mattia",
+        "family": "Figaro",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Francesco",
+        "family": "Rossato",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Marco",
+        "family": "Giordani",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alessandro",
+        "family": "Traspadini",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Takayuki",
+        "family": "Shimizu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chinmay",
+        "family": "Mahabal",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sanjeewa",
+        "family": "Herath",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chunghan",
+        "family": "Lee",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dogan Kutay",
+        "family": "Pekcan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michele",
+        "family": "Zorzi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "297",
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          3
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "29_CR1",
+        "doi-asserted-by": "publisher",
+        "first-page": "244",
+        "DOI": "10.1109/MNET.011.2000493",
+        "volume": "35",
+        "author": "M Giordani",
+        "year": "2020",
+        "unstructured": "Giordani, M. & Zorzi, M. Non-terrestrial networks in the 6G era: challenges and opportunities. IEEE Netw. 35, 244\u2013251 (2020).",
+        "journal-title": "IEEE Netw."
+      },
+      {
+        "key": "29_CR2",
+        "doi-asserted-by": "publisher",
+        "first-page": "55",
+        "DOI": "10.1109/MCOM.001.1900411",
+        "volume": "58",
+        "author": "M Giordani",
+        "year": "2020",
+        "unstructured": "Giordani, M., Polese, M., Mezzavilla, M., Rangan, S. & Zorzi, M. Toward 6G networks: use cases and technologies. IEEE Commun. Mag. 58, 55\u201361 (2020).",
+        "journal-title": "IEEE Commun. Mag."
+      },
+      {
+        "key": "29_CR3",
+        "unstructured": "3GPP. New SID: Study on 6G radio. Release Proposal (RP), 3GPP RAN (2025)."
+      },
+      {
+        "key": "29_CR4",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Chaoub, A. et al. 6G for bridging the digital divide: Wireless connectivity to remote areas. IEEE Wirel. Commun. 29, 160\u2013168 (2021).",
+        "DOI": "10.1109/MWC.001.2100137"
+      },
+      {
+        "key": "29_CR5",
+        "unstructured": "3GPP. Solutions for NR to support Non-Terrestrial Networks (NTN). Revised WID, 3GPP RAN (2022)."
+      },
+      {
+        "key": "29_CR6",
+        "doi-asserted-by": "publisher",
+        "first-page": "22",
+        "DOI": "10.1109/MAES.2021.3072690",
+        "volume": "36",
+        "author": "M Hosseinian",
+        "year": "2021",
+        "unstructured": "Hosseinian, M., Choi, J. P., Chang, S.-H. & Lee, J. Review of 5G NTN standards development and technical challenges for satellite integration with the 5G network. IEEE Aerosp. Electron. Syst. Mag. 36, 22\u201331 (2021).",
+        "journal-title": "IEEE Aerosp. Electron. Syst. Mag."
+      },
+      {
+        "key": "29_CR7",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Lin, X. 3GPP evolution from 5G to 6G: a 10-year retrospective. Telecom 6, 32 (2025).",
+        "DOI": "10.3390/telecom6020032"
+      },
+      {
+        "key": "29_CR8",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Tong, X., Xie, Z. & Gu, Y. A review of non-terrestrial network standard development in 3GPP RAN and future directions for 6G. In AIAA SciTech 2025 Forum (AIAA, 2025).",
+        "DOI": "10.2514/6.2025-2717"
+      },
+      {
+        "key": "29_CR9",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Sedin, J., Feltrin, L. & Lin, X. Throughput and capacity evaluation of 5G new radio non-terrestrial networks with LEO satellites. In IEEE Global Communications Conference (Globecom) (IEEE, 2020).",
+        "DOI": "10.1109/GLOBECOM42002.2020.9347998"
+      },
+      {
+        "key": "29_CR10",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Roshdi, M., Roy, S., Raghunandan, S. & Heyn, T. Performance analysis of integrated 5G-NR terrestrial and non-terrestrial networks using system level simulations. In International Conference on 6G Networking (6GNet) (IEEE, 2024).",
+        "DOI": "10.1109/6GNet63182.2024.10765660"
+      },
+      {
+        "key": "29_CR11",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Giordani, M. & Zorzi, M. Satellite communication at millimeter waves: a key enabler of the 6G Era. In IEEE International Conference on Computing, Networking and Communications (ICNC) (IEEE, 2020).",
+        "DOI": "10.1109/ICNC47757.2020.9049651"
+      },
+      {
+        "key": "29_CR12",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Badini, N., Patrone, F., Zanon, A. M. & Marchese, M. Network simulations for non-terrestrial networks: Overcoming deployment challenges and advancing system optimization. In IEEE International Conference on Communications Workshops (ICC Workshops) (IEEE, 2025).",
+        "DOI": "10.1109/ICCWorkshops67674.2025.11162227"
+      },
+      {
+        "key": "29_CR13",
+        "unstructured": "3GPP. Solutions for New Radio (NR) to support Non-Terrestrial Networks (NTN). TR 38.821 (2023)."
+      },
+      {
+        "key": "29_CR14",
+        "unstructured": "3GPP. Study on New Radio (NR) to support Non-Terrestrial Networks (NTN). TR 38.811 (2021)."
+      },
+      {
+        "key": "29_CR15",
+        "unstructured": "3GPP. Study on channel model for frequencies from 0.5 to 100 GHz. TR 38.901 (2020)."
+      },
+      {
+        "key": "29_CR16",
+        "unstructured": "3GPP. NR; User Equipment (UE) radio transmission and reception; Part 5: Satellite access Radio Frequency (RF) and performance requirements. TS 38.101-5 (2025)."
+      },
+      {
+        "key": "29_CR17",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Pagin, M. et al. 5G NR-light at millimeter waves: Design guidelines for mid-market IoT use cases. In International Conference on Computing, Networking and Communications (ICNC) (IEEE, 2023).",
+        "DOI": "10.1109/ICNC57223.2023.10074354"
+      },
+      {
+        "key": "29_CR18",
+        "unstructured": "3GPP. Study on GNSS resilient NR-NTN operation. RP-251863 (2025)."
+      },
+      {
+        "key": "29_CR19",
+        "unstructured": "3GPP. New WI: Non-Terrestrial Networks (NTN) for Internet of Things (IoT) Phase 4. RP-251867 (2025)."
+      },
+      {
+        "key": "29_CR20",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Sandri, M., Pagin, M., Giordani, M. & Zorzi, M. Implementation of a channel model for non-terrestrial networks in ns-3. In ACM Workshop on Ns-3 (ACM, 2023).",
+        "DOI": "10.1145/3592149.3592158"
+      },
+      {
+        "key": "29_CR21",
+        "doi-asserted-by": "publisher",
+        "first-page": "99",
+        "DOI": "10.1109/MVT.2021.3085168",
+        "volume": "16",
+        "author": "D Wang",
+        "year": "2021",
+        "unstructured": "Wang, D., Giordani, M., Alouini, M.-S. & Zorzi, M. The potential of multilayered hierarchical nonterrestrial networks for 6G: a comparative analysis among networking architectures. IEEE Vehicular Technol. Mag. 16, 99\u2013107 (2021).",
+        "journal-title": "IEEE Vehicular Technol. Mag."
+      }
+    ],
+    "container-title": [
+      "npj Wireless Technology"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://www.nature.com/articles/s44459-026-00029-y.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://www.nature.com/articles/s44459-026-00029-y",
+        "content-type": "text/html",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://www.nature.com/articles/s44459-026-00029-y.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          3
+        ]
+      ],
+      "date-time": "2026-06-03T06:34:01Z",
+      "timestamp": 1780468441000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://www.nature.com/articles/s44459-026-00029-y"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          3
+        ]
+      ]
+    },
+    "references-count": 21,
+    "journal-issue": {
+      "issue": "1",
+      "published-online": {
+        "date-parts": [
+          [
+            2026,
+            12
+          ]
+        ]
+      }
+    },
+    "alternative-id": [
+      "29"
+    ],
+    "URL": "https://doi.org/10.1038/s44459-026-00029-y",
+    "relation": {},
+    "ISSN": [
+      "3059-4391"
+    ],
+    "issn-type": [
+      {
+        "value": "3059-4391",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          3
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "23 October 2025",
+        "order": 1,
+        "name": "received",
+        "label": "Received",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "14 January 2026",
+        "order": 2,
+        "name": "accepted",
+        "label": "Accepted",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "3 June 2026",
+        "order": 3,
+        "name": "first_online",
+        "label": "First Online",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "The authors declare no competing interests.",
+        "order": 1,
+        "name": "Ethics",
+        "group": {
+          "name": "EthicsHeading",
+          "label": "Competing interests"
+        }
+      }
+    ],
+    "article-number": "31"
+  }
+}
