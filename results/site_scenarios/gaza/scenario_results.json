@@ -1,0 +1,68 @@
+{
+  "site_id": "gaza",
+  "config": {
+    "site_id": "gaza",
+    "seed": 42,
+    "primary_path": "offline_first_humanitarian",
+    "ntn_role": "conceptual_fallback_only",
+    "units": {
+      "latency": "ms",
+      "margin_db": "dB",
+      "power": "W"
+    },
+    "evidence_status": "synthetic simulation",
+    "disclaimer": "research simulation only \u2014 not operational service"
+  },
+  "metrics": {
+    "site_id": "gaza",
+    "link_availability": 1.0,
+    "average_latency_ms": 130.2,
+    "p95_latency_ms": 550,
+    "packet_delivery_ratio": 0.95,
+    "store_forward_delay_hours": 0.5,
+    "cache_hit_rate": 0.85,
+    "lesson_continuity_score": 0.816,
+    "outage_recovery_time_steps": 2,
+    "energy_aware_uptime": 0.95,
+    "cost_per_learning_hour_conceptual": 1.0,
+    "resilience_score": 0.944,
+    "offline_continuity_score": 0.906,
+    "privacy_risk_score": 0.8,
+    "community_benefit_continuity_score": 0.734,
+    "link_margin_db": -113.01,
+    "units": {
+      "latency": "ms",
+      "link_margin_db": "dB",
+      "scores": "0-1 normalized"
+    },
+    "evidence_status": "synthetic simulation",
+    "disclaimer": "research simulation only \u2014 not operational carrier, emergency, satellite, or safety service"
+  },
+  "gateway": {
+    "site_id": "gaza",
+    "gateway": {
+      "local_ap": true,
+      "edge_cache": true,
+      "ntn_fallback": false
+    },
+    "link_budget": {
+      "site_id": "gaza",
+      "margin_db": -113.01,
+      "units": {
+        "frequency_ghz": "GHz",
+        "distance_km": "km",
+        "margin_db": "dB"
+      },
+      "evidence_status": "synthetic simulation",
+      "disclaimer": "research simulation only \u2014 not operational service"
+    },
+    "cache": {
+      "site_id": "gaza",
+      "cache_hit_rate": 0.85,
+      "offline_continuity_score": 0.906,
+      "lesson_continuity_score": 0.816,
+      "evidence_status": "synthetic simulation"
+    },
+    "disclaimer": "research simulation only \u2014 not operational service"
+  }
+}
