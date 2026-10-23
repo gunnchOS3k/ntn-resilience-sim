@@ -14,6 +14,48 @@ FORBIDDEN_CLAIM_FRAGMENTS = (
     "ntn always improves",
 )
 
+# Local window before a fragment. Negated non-claims must not trip the firewall.
+_NEGATION_MARKERS = ("not ", "no ", "never ", "without ", "non-", "isn't ", "is not ")
+_TOP_LEVEL_CLAIM_KEYS = ("abstract", "claim", "claims", "conclusion", "summary", "narrative")
+
+
+def _string_chunks(value: Any) -> list[str]:
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, dict):
+        chunks: list[str] = []
+        for item in value.values():
+            chunks.extend(_string_chunks(item))
+        return chunks
+    if isinstance(value, (list, tuple)):
+        chunks = []
+        for item in value:
+            chunks.extend(_string_chunks(item))
+        return chunks
+    return []
+
+
+def claim_corpus(result: dict[str, Any]) -> str:
+    """Claim-bearing text only. Non-claims and disclaimers are excluded."""
+    chunks = _string_chunks(result.get("findings"))
+    for key in _TOP_LEVEL_CLAIM_KEYS:
+        chunks.extend(_string_chunks(result.get(key)))
+    return "\n".join(chunks).lower()
+
+
+def affirmative_forbidden_fragment(text: str, fragment: str) -> bool:
+    """True when fragment appears without a nearby negation."""
+    needle = fragment.lower()
+    start = 0
+    while True:
+        index = text.find(needle, start)
+        if index < 0:
+            return False
+        window = text[max(0, index - 32) : index]
+        if not any(marker in window for marker in _NEGATION_MARKERS):
+            return True
+        start = index + len(needle)
+
 
 def validate_claim_firewall(result: dict[str, Any]) -> dict[str, Any]:
     """Return audit record; raise ValueError on hard violations."""
@@ -29,11 +71,10 @@ def validate_claim_firewall(result: dict[str, Any]) -> dict[str, Any]:
     non_claims = " ".join(str(x).lower() for x in (result.get("non_claims") or []))
     if "operator" not in non_claims:
         violations.append("non_claims_must_mention_operator")
-    blob = str(result).lower()
+    corpus = claim_corpus(result)
     for frag in FORBIDDEN_CLAIM_FRAGMENTS:
-        if frag in blob and frag == "ntn always improves":
-            # only flag affirmative claim language in findings text
-            pass
+        if affirmative_forbidden_fragment(corpus, frag):
+            violations.append(f"forbidden_claim:{frag}")
     decision = result.get("when_ntn_helps") or result.get("decision_region_boundaries") or {}
     if violations:
         raise ValueError("claim_firewall_violations: " + "; ".join(violations))
