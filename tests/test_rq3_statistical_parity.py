@@ -102,6 +102,36 @@ def test_claim_firewall_rejects_ntn_always_better():
         validate_claim_firewall(bad)
 
 
+def test_claim_firewall_rejects_affirmative_forbidden_fragment_keeps_negated_nonclaim():
+    """Affirmative forbidden wording in findings must fail.
+
+    The same fragment inside a negated non-claim stays allowed. This path is a
+    synthetic simulation firewall check, not a physical NTN measurement.
+    """
+    base = {
+        "evidence_class": EVIDENCE_CLASS,
+        "findings": {"ntn_always_better": False, "hypothesis_rejected": True},
+        "non_claims": [
+            "Not operator performance",
+            "not carrier-grade deployment",
+            "not a field-validated ntn measurement",
+        ],
+        "when_ntn_helps": {"evidence_class": "SYNTHETIC_SIM"},
+    }
+    audit = validate_claim_firewall(base)
+    assert audit["ok"] is True
+    assert audit["evidence_class"] == "SYNTHETIC_SIM"
+    bad = {
+        **base,
+        "findings": {
+            **base["findings"],
+            "narrative": "Synthetic simulation presented as carrier-grade NTN service.",
+        },
+    }
+    with pytest.raises(ValueError, match="forbidden_claim:carrier-grade"):
+        validate_claim_firewall(bad)
+
+
 def test_paired_diff_ci_uses_dz():
     paired = paired_diff_ci([0.8, 0.9, 0.85, 0.88], [0.7, 0.75, 0.72, 0.74])
     assert paired["mean"] > 0
