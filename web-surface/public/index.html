@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>NTN resilience sim · gunnchOS</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-surfacekit="v2" data-theme="dark">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="top">
+    <p class="mark">gunnchOS</p>
+    <nav class="tools" aria-label="Surface">
+      <button type="button" id="theme-toggle">Light theme</button>
+      <a id="portal-return" href="#return" aria-label="Return to gunnchOS">← gunnchOS</a>
+    </nav>
+  </header>
+  <main id="content">
+    <p class="kicker">7GC · STAGING_WORKER</p>
+    <h1>NTN resilience sim</h1>
+    <p class="lead">Non-terrestrial network resilience scenarios and reports.</p>
+    
+    <p><a class="cta" id="primary-action" href="#explore">Explore evidence</a></p>
+    <section id="explore" aria-labelledby="explore-title">
+      <h2 id="explore-title">Explore evidence</h2>
+      <p id="diagram-note"></p>
+      <div class="layout">
+        <div>
+          <svg id="diagram" role="img" aria-labelledby="diagram-note" viewBox="0 0 640 160"></svg>
+          <label for="row-select">Repository record</label>
+          <select id="row-select"></select>
+          <label for="row-filter">Filter records</label>
+          <input id="row-filter" type="search" placeholder="Filter by text in the repository records">
+        </div>
+        <div id="detail" tabindex="0" aria-live="polite"></div>
+      </div>
+      <div id="directory"></div>
+      <table id="evidence">
+        <caption>Records copied from this repository</caption>
+        <thead><tr id="evidence-head"></tr></thead>
+        <tbody id="evidence-body"></tbody>
+      </table>
+    </section>
+    <section id="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">Overview</h2>
+      <div class="cards"><article><h3>Overview</h3><p># NTN Resilience Simulation</p></article><article><h3>End-to-End Research Artifact</h3><p>Simulates **terrestrial + non-terrestrial network resilience** for under-connected and disrupted communities. &gt; Research simulation — not operational NTN service claims. ---</p></article><article><h3>What is this?</h3><p>**Study service continuity when terrestrial links fail and NTN fallback matters for underserved or disrupted communities.**</p></article></div>
+    </section>
+    <section id="methods" aria-labelledby="methods-title">
+      <h2 id="methods-title">Methods</h2>
+      <p># Reproducibility — NTN Resilience Simulator (RQ3) This repository produces **synthetic disruption/fallback timelines** under documented assumptions (3GPP TR 38.821 ranges plus configured/synthetic entries). It does **not** report operator performance and does **not** claim University of Oulu affiliation. ## Clone / setup / run ```bash git clone https://github.com/gunnchOS3k/ntn-resilience-sim.git cd ntn-resilience-sim python3 -m venv .venv source .venv/bin/activate # Windows: .venv\Scripts\activate pip install -r requirements.txt make test make smoke # long e2e; synthetic only make reproduce ``` Canonical independent digital path: `make reproduce` → `scripts/reproduce.py` → `results/experim</p>
+      <p>Native research runtimes stay on a local checkout. This page shows repository records only.</p>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Artifacts</h2>
+      <ul><li><code>paper/ARTIFACT_EVALUATION.md</code></li><li><code>paper/CITATION_AUDIT.md</code></li><li><code>paper/CLAIMS_TO_EVIDENCE.md</code></li><li><code>paper/CONFERENCE_READINESS_TODOS.md</code></li><li><code>paper/MANUSCRIPT_STATUS.md</code></li><li><code>paper/README.md</code></li><li><code>paper/REPRODUCIBILITY.md</code></li><li><code>paper/abstract.md</code></li><li><code>paper/artifacts/PREREGISTRATION.md</code></li><li><code>paper/artifacts/RESEARCH_ARTIFACT_INDEX_RQ3_STATISTICAL_PARITY.md</code></li><li><code>paper/artifacts/rq3_experiment_summary.json</code></li><li><code>paper/artifacts/rq3_statistical_report.csv</code></li></ul>
+    </section>
+    <section id="source" aria-labelledby="source-title">
+      <h2 id="source-title">Source</h2>
+      <p><a href="https://github.com/gunnchOS3k/ntn-resilience-sim">Source repository</a></p>
+      <p>Pinned source <code>05aaa9aec16882f58bac6ce4ff47618d9812f69f</code></p>
+    </section>
+    <section id="limits" aria-labelledby="limits-title">
+      <h2 id="limits-title">Limitations</h2>
+      <ul><li>Not an operational satellite network</li><li>Results are research artifacts, not field validation</li></ul>
+    </section>
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About / Build status / Evidence</h2>
+      <h2 id="what">What is this?</h2>
+      <p>Non-terrestrial network resilience scenarios and reports.</p>
+      <p>The research code is not executing here. This is a research surface.</p>
+      <h2 id="why">Why does it exist?</h2>
+      <p>It gives this repository a public web surface inside the gunnchOS ecosystem without pretending the original runtime runs on Cloudflare Workers.</p>
+      <h2 id="today">What can I actually do with it today?</h2>
+      <p>Use the primary action to inspect repository records, then open the source for the local toolchain.</p>
+      <h2 id="unfinished">What is not finished?</h2>
+      <ul><li>Not an operational satellite network</li><li>Results are research artifacts, not field validation</li></ul>
+      <p class="badge">STAGING_WORKER</p>
+      <p>Runtime mode on this page: PRECOMPUTED. No remote model call is made.</p>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

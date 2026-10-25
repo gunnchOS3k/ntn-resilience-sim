@@ -1,0 +1,109 @@
+{
+  "schema": "gunnchos.surfacekit.v2",
+  "measured_topology": true,
+  "diagram_note": "Node labels follow fields in the repository scenario files. Values change with the selector. This is not a live network.",
+  "nodes": [
+    {
+      "id": "site",
+      "label": "Community site"
+    },
+    {
+      "id": "terrestrial",
+      "label": "Terrestrial link"
+    },
+    {
+      "id": "ntn",
+      "label": "NTN fallback"
+    }
+  ],
+  "rows": [
+    {
+      "source": "configs/scenarios/gary_emergency.yaml",
+      "scenario_id": "gary_emergency",
+      "site_id": "gary",
+      "location_type": "urban_emergency",
+      "terrestrial_status": "degraded",
+      "ntn_available": "true",
+      "fallback_policy": "ntn_when_terrestrial_down",
+      "ethical_framing": "humanitarian_resilience_simulation_only",
+      "outage_duration_minutes": "45"
+    },
+    {
+      "source": "configs/scenarios/gaza_remote_first.yaml",
+      "scenario_id": "gaza_remote_first",
+      "site_id": "gaza"
+    },
+    {
+      "source": "configs/scenarios/ghana_rural.yaml",
+      "scenario_id": "ghana_rural",
+      "site_id": "ghana"
+    },
+    {
+      "source": "configs/scenarios/graham_land_polar.yaml",
+      "scenario_id": "graham_land_polar",
+      "site_id": "graham_land"
+    },
+    {
+      "source": "configs/scenarios/guyana_flood.yaml",
+      "scenario_id": "guyana_flood",
+      "site_id": "guyana"
+    }
+  ],
+  "sources": [
+    "configs/scenarios/gary_emergency.yaml",
+    "configs/scenarios/gaza_remote_first.yaml",
+    "configs/scenarios/ghana_rural.yaml",
+    "configs/scenarios/graham_land_polar.yaml",
+    "configs/scenarios/guyana_flood.yaml"
+  ],
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "body": "# NTN Resilience Simulation"
+    },
+    {
+      "id": "end-to-end-research-artifact",
+      "title": "End-to-End Research Artifact",
+      "body": "Simulates **terrestrial + non-terrestrial network resilience** for under-connected and disrupted communities. > Research simulation \u2014 not operational NTN service claims. ---"
+    },
+    {
+      "id": "what-is-this",
+      "title": "What is this?",
+      "body": "**Study service continuity when terrestrial links fail and NTN fallback matters for underserved or disrupted communities.**"
+    },
+    {
+      "id": "what-problem-does-this-solve",
+      "title": "What problem does this solve?",
+      "body": "**Human:** Emergencies and rural gaps isolate people when one link fails. **Technical:** Need source-backed link budgets and fallback policies\u2014not toy outage curves alone. **Who is harmed if unsolved:** Gary emergency users, rural Ghana/Guyana scenarios, humanitarian remote-first cases. **Gary / 7GC / digital equality:** This repo supports equitable connectivity research for under-connected communities; Gary is the f"
+    },
+    {
+      "id": "beginner-mental-model",
+      "title": "Beginner mental model",
+      "body": "A **backup generator for internet connectivity** when the main power line drops."
+    },
+    {
+      "id": "how-this-repo-addresses-the-problem",
+      "title": "How this repo addresses the problem",
+      "body": "Scenario YAML, CLI timelines, resilience metrics, Gary emergency config (assumption-based smoke). **Main output:** Outage timelines + resilience bundles in `results/e2e/`. **Output does NOT prove:** Validated NTN operator performance."
+    }
+  ],
+  "artifacts": [
+    "paper/ARTIFACT_EVALUATION.md",
+    "paper/CITATION_AUDIT.md",
+    "paper/CLAIMS_TO_EVIDENCE.md",
+    "paper/CONFERENCE_READINESS_TODOS.md",
+    "paper/MANUSCRIPT_STATUS.md",
+    "paper/README.md",
+    "paper/REPRODUCIBILITY.md",
+    "paper/abstract.md",
+    "paper/artifacts/PREREGISTRATION.md",
+    "paper/artifacts/RESEARCH_ARTIFACT_INDEX_RQ3_STATISTICAL_PARITY.md",
+    "paper/artifacts/rq3_experiment_summary.json",
+    "paper/artifacts/rq3_statistical_report.csv"
+  ],
+  "methods": "# Reproducibility \u2014 NTN Resilience Simulator (RQ3) This repository produces **synthetic disruption/fallback timelines** under documented assumptions (3GPP TR 38.821 ranges plus configured/synthetic entries). It does **not** report operator performance and does **not** claim University of Oulu affiliation. ## Clone / setup / run ```bash git clone https://github.com/gunnchOS3k/ntn-resilience-sim.git cd ntn-resilience-sim python3 -m venv .venv source .venv/bin/activate # Windows: .venv\\Scripts\\activate pip install -r requirements.txt make test make smoke # long e2e; synthetic only make reproduce ``` Canonical independent digital path: `make reproduce` \u2192 `scripts/reproduce.py` \u2192 `results/experim",
+  "cards": [],
+  "runtime_mode": "PRECOMPUTED",
+  "runtime_boot": false
+}
