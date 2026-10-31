@@ -1,0 +1,14 @@
+{
+  "scenario_id": "gary_emergency",
+  "site_id": "gary",
+  "resilience_score": 1.0,
+  "uptime_fraction": 1.0,
+  "paths_sample": [
+    "terrestrial",
+    "ntn",
+    "terrestrial",
+    "terrestrial",
+    "terrestrial"
+  ],
+  "note": "simulation scaffold \u2014 not deployed NTN infrastructure"
+}
