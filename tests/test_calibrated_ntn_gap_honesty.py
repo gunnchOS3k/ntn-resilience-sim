@@ -32,7 +32,12 @@ def test_gap_ledger_keeps_synthetic_and_no_submitted():
     assert gap["floor_tip"].startswith(FLOOR)
     assert gap["engineering_guard"]["floor_preserved"].startswith(FLOOR)
     subprocess.check_call(["git", "merge-base", "--is-ancestor", gap["floor_tip"], "HEAD"], cwd=ROOT)
-    assert gap["source_tip"].startswith(tip[:7])
+    # source_tip is the deepen commit; a following tip-stamp commit may leave it at HEAD~1.
+    src = _git("rev-parse", gap["source_tip"])
+    subprocess.check_call(["git", "merge-base", "--is-ancestor", src, "HEAD"], cwd=ROOT)
+    subprocess.check_call(["git", "merge-base", "--is-ancestor", gap["floor_tip"], src], cwd=ROOT)
+    recent = _git("rev-list", "--max-count=2", "HEAD").splitlines()
+    assert src in recent, f"source_tip {gap['source_tip']} not in recent tips {recent} (HEAD={tip})"
     gap_ids = {row["id"] for row in gap["gaps"]}
     assert {"NTN-GAP-001", "NTN-GAP-002", "NTN-GAP-003", "NTN-GAP-004", "NTN-GAP-005"} <= gap_ids
     assert any("SUBMITTED" in row["need"] for row in gap["gaps"])
