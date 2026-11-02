@@ -29,7 +29,13 @@ def test_gap_ledger_keeps_synthetic_and_no_submitted():
     assert gap["operator_kpi_present"] is False
     assert gap["submitted_claim"] is False
     assert gap["accepted_claim"] is False
+    assert gap["HUMAN"] is False
+    assert gap["RC2"] is False
+    assert gap["V1"] is False
     assert gap["floor_tip"].startswith(FLOOR)
+    assert "prior_engineering_tip advances do not upgrade evidence_class" in " ".join(
+        gap["non_claims"]
+    )
     assert gap["engineering_guard"]["floor_preserved"].startswith(FLOOR)
     subprocess.check_call(["git", "merge-base", "--is-ancestor", gap["floor_tip"], "HEAD"], cwd=ROOT)
     # source_tip is the content deepen commit (≥floor); tip-stamp/test commits may follow.

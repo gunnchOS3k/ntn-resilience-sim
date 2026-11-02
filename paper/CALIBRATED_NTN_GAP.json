@@ -1,8 +1,8 @@
 {
   "schema": "ntn_resilience_sim.calibrated_ntn_gap/v1",
-  "generated_at": "2026-11-02T01:40:00Z",
+  "generated_at": "2026-11-02T18:30:00Z",
   "floor_tip": "4aef716",
-  "prior_engineering_tip": "bd3f599",
+  "prior_engineering_tip": "8b685d9",
   "source_tip": "e037e50",
   "evidence_class_current": "SYNTHETIC_SIM",
   "calibrated_ntn_measurements_present": false,
@@ -12,6 +12,9 @@
   "independent_reproduction_present": false,
   "submitted_claim": false,
   "accepted_claim": false,
+  "HUMAN": false,
+  "RC2": false,
+  "V1": false,
   "synthetic_evidence_bound": {
     "rq3_experiment_summary": "paper/artifacts/rq3_experiment_summary.json",
     "sha256": "1cb73b720ecb8be1b1603e6ae7210a8dbbe65cd3ff8d8143020faa76ff85afda",
@@ -73,13 +76,15 @@
     "MANUSCRIPT_STATUS never SUBMITTED/ACCEPTED",
     "CLAIMS_TO_EVIDENCE rows bound to synthetic tables only",
     "This gap ledger keeps submitted_claim false",
-    "Synthetic RQ3 summary sha256 binding stays honest"
+    "Synthetic RQ3 summary sha256 binding stays honest",
+    "HUMAN/RC2/V1 stay typed false on the gap ledger (no self-HUMAN)"
   ],
   "non_claims": [
     "This ledger is not calibrated NTN evidence",
     "Presence of gap rows does not authorize SUBMITTED/ACCEPTED",
     "HUMAN/RC2/V1 remain false",
     "NTN is not always better \u2014 hypothesis already rejected under SYNTHETIC_SIM",
-    "sha256 binding is not a measurement campaign"
+    "sha256 binding is not a measurement campaign",
+    "prior_engineering_tip advances do not upgrade evidence_class beyond SYNTHETIC_SIM"
   ]
 }
