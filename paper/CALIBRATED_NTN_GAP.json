@@ -3,7 +3,7 @@
   "generated_at": "2026-11-02T01:40:00Z",
   "floor_tip": "4aef716",
   "prior_engineering_tip": "bd3f599",
-  "source_tip": "bd3f599",
+  "source_tip": "e037e50",
   "evidence_class_current": "SYNTHETIC_SIM",
   "calibrated_ntn_measurements_present": false,
   "device_measured_edge_io_present": false,
@@ -18,7 +18,10 @@
     "evidence_status_expected": "synthetic_simulation",
     "ntn_always_better_expected": false,
     "hypothesis_rejected_expected": true,
-    "never_expected": ["SUBMITTED", "ACCEPTED"],
+    "never_expected": [
+      "SUBMITTED",
+      "ACCEPTED"
+    ],
     "note": "Binding proves the gap ledger sits atop the synthetic RQ3 summary; it does not upgrade evidence class"
   },
   "gaps": [
@@ -26,7 +29,7 @@
       "id": "NTN-GAP-001",
       "need": "Calibrated NTN link / outage measurements with provenance (not invented GEO/LEO tables)",
       "why_cursor_cannot_close": "Inventing RF/NTN field numbers would falsify paper evidence; physical capture is owner/external",
-      "unblock_test": "Owner supplies measurement bundle with provenance SHA; reproduce refuses SYNTHETIC_SIM → CALIBRATED without that bundle",
+      "unblock_test": "Owner supplies measurement bundle with provenance SHA; reproduce refuses SYNTHETIC_SIM \u2192 CALIBRATED without that bundle",
       "engineering_may_resume_after": true
     },
     {
@@ -45,7 +48,7 @@
     },
     {
       "id": "NTN-GAP-004",
-      "need": "Sim→measurement transfer study (decision-region agreement under held-out calibrated traces)",
+      "need": "Sim\u2192measurement transfer study (decision-region agreement under held-out calibrated traces)",
       "why_cursor_cannot_close": "No calibrated hold-out traces exist in-repo; fabricating transfer metrics would be dishonest",
       "unblock_test": "Calibrated hold-out bundle + transfer script produces agreement/disagreement tables without inventing RF numbers",
       "engineering_may_resume_after": true
@@ -76,7 +79,7 @@
     "This ledger is not calibrated NTN evidence",
     "Presence of gap rows does not authorize SUBMITTED/ACCEPTED",
     "HUMAN/RC2/V1 remain false",
-    "NTN is not always better — hypothesis already rejected under SYNTHETIC_SIM",
+    "NTN is not always better \u2014 hypothesis already rejected under SYNTHETIC_SIM",
     "sha256 binding is not a measurement campaign"
   ]
 }
