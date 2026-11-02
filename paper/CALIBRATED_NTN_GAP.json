@@ -1,0 +1,52 @@
+{
+  "schema": "ntn_resilience_sim.calibrated_ntn_gap/v1",
+  "generated_at": "2026-11-02T00:55:00Z",
+  "source_tip": "354e04b",
+  "evidence_class_current": "SYNTHETIC_SIM",
+  "calibrated_ntn_measurements_present": false,
+  "device_measured_edge_io_present": false,
+  "operator_kpi_present": false,
+  "submitted_claim": false,
+  "accepted_claim": false,
+  "gaps": [
+    {
+      "id": "NTN-GAP-001",
+      "need": "Calibrated NTN link / outage measurements with provenance (not invented GEO/LEO tables)",
+      "why_cursor_cannot_close": "Inventing RF/NTN field numbers would falsify paper evidence; physical capture is owner/external",
+      "unblock_test": "Owner supplies measurement bundle with provenance SHA; reproduce refuses SYNTHETIC_SIM → CALIBRATED without that bundle",
+      "engineering_may_resume_after": true
+    },
+    {
+      "id": "NTN-GAP-002",
+      "need": "Device-measured Edge I/O pose (not EMULATED / PHYSICAL_PENDING)",
+      "why_cursor_cannot_close": "No authorized Edge I/O measurement campaign in this checkout",
+      "unblock_test": "Authorized Edge I/O capture + license + reproduce path with evidence_class upgrade",
+      "engineering_may_resume_after": true
+    },
+    {
+      "id": "NTN-GAP-003",
+      "need": "Independent scientific review + SUBMITTED authorization",
+      "why_cursor_cannot_close": "Packet forbids self-HUMAN / self-SUBMITTED",
+      "unblock_test": "Owner stamps review + submission authority outside this controller",
+      "engineering_may_resume_after": false
+    }
+  ],
+  "engineering_guard": {
+    "tests": "tests/test_calibrated_ntn_gap_honesty.py",
+    "refuses_self_submitted": true,
+    "manuscript_status": "paper/MANUSCRIPT_STATUS.md",
+    "claims_to_evidence": "paper/CLAIMS_TO_EVIDENCE.md"
+  },
+  "digital_feasibly_complete_without_calibration": [
+    "make paper-reproduce SYNTHETIC_SIM RQ3 path",
+    "MANUSCRIPT_STATUS never SUBMITTED/ACCEPTED",
+    "CLAIMS_TO_EVIDENCE rows bound to synthetic tables only",
+    "This gap ledger keeps submitted_claim false"
+  ],
+  "non_claims": [
+    "This ledger is not calibrated NTN evidence",
+    "Presence of gap rows does not authorize SUBMITTED/ACCEPTED",
+    "HUMAN/RC2/V1 remain false",
+    "NTN is not always better — hypothesis already rejected under SYNTHETIC_SIM"
+  ]
+}
