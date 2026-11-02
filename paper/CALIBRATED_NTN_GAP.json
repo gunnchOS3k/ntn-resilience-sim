@@ -1,7 +1,8 @@
 {
   "schema": "ntn_resilience_sim.calibrated_ntn_gap/v1",
-  "generated_at": "2026-11-02T00:55:00Z",
-  "source_tip": "354e04b",
+  "generated_at": "2026-11-02T01:10:00Z",
+  "source_tip": "4aef716",
+  "prior_engineering_tip": "354e04b",
   "evidence_class_current": "SYNTHETIC_SIM",
   "calibrated_ntn_measurements_present": false,
   "device_measured_edge_io_present": false,
