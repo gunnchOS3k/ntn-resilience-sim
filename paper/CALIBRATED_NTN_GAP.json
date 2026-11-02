@@ -1,14 +1,26 @@
 {
   "schema": "ntn_resilience_sim.calibrated_ntn_gap/v1",
-  "generated_at": "2026-11-02T01:10:00Z",
-  "source_tip": "4aef716",
-  "prior_engineering_tip": "354e04b",
+  "generated_at": "2026-11-02T01:40:00Z",
+  "floor_tip": "4aef716",
+  "prior_engineering_tip": "bd3f599",
+  "source_tip": "bd3f599",
   "evidence_class_current": "SYNTHETIC_SIM",
   "calibrated_ntn_measurements_present": false,
   "device_measured_edge_io_present": false,
   "operator_kpi_present": false,
+  "sim_to_measurement_transfer_present": false,
+  "independent_reproduction_present": false,
   "submitted_claim": false,
   "accepted_claim": false,
+  "synthetic_evidence_bound": {
+    "rq3_experiment_summary": "paper/artifacts/rq3_experiment_summary.json",
+    "sha256": "1cb73b720ecb8be1b1603e6ae7210a8dbbe65cd3ff8d8143020faa76ff85afda",
+    "evidence_status_expected": "synthetic_simulation",
+    "ntn_always_better_expected": false,
+    "hypothesis_rejected_expected": true,
+    "never_expected": ["SUBMITTED", "ACCEPTED"],
+    "note": "Binding proves the gap ledger sits atop the synthetic RQ3 summary; it does not upgrade evidence class"
+  },
   "gaps": [
     {
       "id": "NTN-GAP-001",
@@ -30,24 +42,41 @@
       "why_cursor_cannot_close": "Packet forbids self-HUMAN / self-SUBMITTED",
       "unblock_test": "Owner stamps review + submission authority outside this controller",
       "engineering_may_resume_after": false
+    },
+    {
+      "id": "NTN-GAP-004",
+      "need": "Sim→measurement transfer study (decision-region agreement under held-out calibrated traces)",
+      "why_cursor_cannot_close": "No calibrated hold-out traces exist in-repo; fabricating transfer metrics would be dishonest",
+      "unblock_test": "Calibrated hold-out bundle + transfer script produces agreement/disagreement tables without inventing RF numbers",
+      "engineering_may_resume_after": true
+    },
+    {
+      "id": "NTN-GAP-005",
+      "need": "Independent reproduction packet executed by a non-author reviewer",
+      "why_cursor_cannot_close": "Independent human packet remains PENDING in MANUSCRIPT_STATUS",
+      "unblock_test": "External reviewer runs make paper-reproduce and stamps independent_reproduction PASS",
+      "engineering_may_resume_after": false
     }
   ],
   "engineering_guard": {
     "tests": "tests/test_calibrated_ntn_gap_honesty.py",
     "refuses_self_submitted": true,
     "manuscript_status": "paper/MANUSCRIPT_STATUS.md",
-    "claims_to_evidence": "paper/CLAIMS_TO_EVIDENCE.md"
+    "claims_to_evidence": "paper/CLAIMS_TO_EVIDENCE.md",
+    "floor_preserved": "4aef716"
   },
   "digital_feasibly_complete_without_calibration": [
     "make paper-reproduce SYNTHETIC_SIM RQ3 path",
     "MANUSCRIPT_STATUS never SUBMITTED/ACCEPTED",
     "CLAIMS_TO_EVIDENCE rows bound to synthetic tables only",
-    "This gap ledger keeps submitted_claim false"
+    "This gap ledger keeps submitted_claim false",
+    "Synthetic RQ3 summary sha256 binding stays honest"
   ],
   "non_claims": [
     "This ledger is not calibrated NTN evidence",
     "Presence of gap rows does not authorize SUBMITTED/ACCEPTED",
     "HUMAN/RC2/V1 remain false",
-    "NTN is not always better — hypothesis already rejected under SYNTHETIC_SIM"
+    "NTN is not always better — hypothesis already rejected under SYNTHETIC_SIM",
+    "sha256 binding is not a measurement campaign"
   ]
 }
