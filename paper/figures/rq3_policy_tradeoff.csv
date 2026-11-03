@@ -1,5 +1,5 @@
 policy,mean_uptime,mean_min_service
-terrestrial_baseline,0.7396,0.7396
-static_ntn,0.8281,0.8281
-fallback,0.8281,0.8281
-adaptive,0.8281,0.8281
+terrestrial_baseline,0.7375,0.7375
+static_ntn,0.8292,0.8292
+fallback,0.8292,0.8292
+adaptive,0.8292,0.8292

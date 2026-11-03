@@ -121,23 +121,21 @@ def main() -> int:
     policies = data.get("policies") or []
     rows = []
     for p in policies:
-        rec = p.get("recovery")  # unused; keep table from means
-        recov = []
-        for run in p.get("runs") or []:
-            recov.append(run.get("recovery_steps_to_min_service"))
-        rec_txt = ",".join("NA" if x is None else str(x) for x in recov)
+        recov = [run.get("recovery_steps_to_min_service") for run in p.get("runs") or []]
+        done = [x for x in recov if x is not None]
+        rec_mean = round(sum(done) / len(done), 4) if done else "NA"
         rows.append(
             f"{_tex(p.get('policy'))} & {p.get('mean_uptime')} & {p.get('mean_min_service')} & "
-            f"{rec_txt} \\\\"
+            f"{rec_mean} & {len(done)}/{len(recov)} \\\\"
         )
     _write(
         TABLES / "rq3_policies.tex",
         _table(
             "RQ3 policy means across seeds (SYNTHETIC\\_SIM; not operator KPIs). "
-            "Recovery column is steps-to-min-service per seed (NA = never recovered).",
-            "policy & mean uptime & mean min-service & recovery steps by seed",
-            "\n".join(rows) or "\\multicolumn{4}{c}{RESULT\\_PENDING} \\\\",
-            "lccc",
+            "Recovery is mean steps-to-min-service over seeds that recovered; the last column counts recovered seeds.",
+            "policy & mean uptime & mean min-service & mean recovery steps & recovered seeds",
+            "\n".join(rows) or "\\multicolumn{5}{c}{RESULT\\_PENDING} \\\\",
+            "lcccc",
         ),
     )
 
